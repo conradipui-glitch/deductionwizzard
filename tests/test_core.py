@@ -17,13 +17,15 @@ class CaseTests(unittest.TestCase):
 
     def test_valid_example(self):
         validate_case(self.case)
-        self.assertEqual(len(self.case['events']), 7)
+        self.assertEqual(len(self.case['events']), 23)
+        self.assertGreaterEqual(len(self.case['sources']), 18)
+        self.assertGreaterEqual(len(self.case['claims']), 27)
 
     def test_timeline_is_sorted_by_normalized_dates(self):
         rows = timeline(self.case)
-        self.assertEqual(rows[0]['id'], 'event-pasquille')
-        self.assertEqual(rows[-1]['id'], 'event-death')
-        self.assertEqual(rows[0]['time']['earliest'], {'year':1836,'month':11,'day':16})
+        self.assertEqual(rows[0]['id'], 'event-king-letter')
+        self.assertEqual(rows[-1]['id'], 'event-lermontov-poem')
+        self.assertEqual(rows[0]['time']['earliest'], {'year':1833,'month':10,'day':23})
 
     def test_bce_ordering_and_unknown_end(self):
         case = copy.deepcopy(self.case)
@@ -36,6 +38,31 @@ class CaseTests(unittest.TestCase):
         validate_case(case)
         self.assertEqual(timeline(case)[0]['id'], 'event-pasquille')
         self.assertEqual(timeline(case)[-1]['id'], 'event-challenge1')
+
+    def test_courtship_and_rumor_are_not_asserted_as_proven_intimacy(self):
+        combined = ' '.join(c['text'] for c in self.case['claims'])
+        self.assertIn('слух', combined)
+        sav = next(c for c in self.case['claims'] if c['id'] == 'c-1836-idalia-rumor')
+        self.assertIn('слух', sav['text'])
+        self.assertIn('не установлена', sav['text'])
+        self.assertEqual(sav['evidence'][0]['source_id'], 'src-idalia-may')
+
+    def test_new_entries_have_explicit_dated_primary_sources(self):
+        records = {s['id']: s for s in self.case['sources']}
+        for cid in ('c-1833-king','c-1833-idalia','c-1834-court','c-1836-repnin','c-1837-reply'):
+            claim = next(c for c in self.case['claims'] if c['id'] == cid)
+            self.assertTrue(claim['evidence'])
+            source = records[claim['evidence'][0]['source_id']]
+            self.assertEqual(source['type'], 'primary')
+            self.assertTrue(source['locator'].startswith('https://'))
+
+    def test_hypotheses_have_distinct_provenance_not_probabilities(self):
+        result = compare(self.case)
+        self.assertEqual(len(result), 3)
+        for h in result:
+            self.assertNotIn('probability', h)
+            self.assertNotIn('confidence', h)
+            self.assertIn('distinct_source_roots', h)
 
     def test_unknown_source_is_rejected(self):
         case = copy.deepcopy(self.case)

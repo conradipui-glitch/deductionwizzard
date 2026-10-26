@@ -1,0 +1,41 @@
+name: Decisions pilot (bounded, secret-safe)
+on:
+  push:
+    branches:
+      - research/decision-model-pilot
+    paths:
+      - .github/workflows/decision-smoke.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: decisions-pilot
+  cancel-in-progress: false
+
+jobs:
+  small-benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Offline unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Show sanitized dry run
+        run: python tools/decision_bench.py --dry-run
+      - name: Execute a single bounded pilot using repository secret
+        env:
+          DECIS_API: ${{ secrets.DECIS_API }}
+        run: python tools/decision_bench.py --run --max-calls 12 --out benchmark/results/smoke.json
+      - name: Upload sanitized result (never secrets)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: decisions-smoke
+          path: benchmark/results/smoke.json
+          retention-days: 14
+          if-no-files-found: warn

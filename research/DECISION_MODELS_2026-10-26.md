@@ -44,7 +44,7 @@ Aliases `~typesafe/jev-latest`, `~perplexity/pplx-decider-latest` and `~perplexi
 
 ## Test plan
 
-First *smoke test*: 6 models × 2 manually labeled historical-document examples. It measures API response validity, errors, and whether a model separates the **truth of an accusation** from **proof the accusation was made**. The tiny sample **cannot** measure general performance.
+First *smoke test*: 6 models × 4 manually labeled historical-reasoning examples. It measures API response validity, errors, and whether a model separates the **truth of an accusation** from **proof the accusation was made**. The tiny sample **cannot** measure general performance.
 
 Then create 50–100 labeled examples with hold-out cases, adversarial near-duplicates, independent reviewers and explicit ambiguous labels. Evaluate false-positive rates for `directly_documented`, disagreement rates, stability under paraphrase, latency and $/1000 judgments. Calibrate decision thresholds per model and per language, with **abstain** as a first-class outcome.
 

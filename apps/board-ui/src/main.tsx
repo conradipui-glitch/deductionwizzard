@@ -1,6 +1,6 @@
 import React, {useMemo,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
-import {BookOpen, GitBranch, LampDesk, ChevronDown, ArrowUpRight, Search, Filter, CalendarDays, Focus, Plus, Minus, RotateCcw, X, Layers3, Eye, Pin, FileText, ShieldCheck, HelpCircle, ZoomIn, Network, ScrollText, Clock, Fingerprint, ChevronRight, Sparkles, Archive, ExternalLink, Menu, Map, Grip, ListFilter} from 'lucide-react';
+import {BookOpen, GitBranch, LampDesk, ChevronDown, ArrowUpRight, Search, Filter, CalendarDays, Focus, Plus, Minus, RotateCcw, X, Layers3, Eye, Pin, FileText, ShieldCheck, HelpCircle, ZoomIn, Network, ScrollText, Clock, Fingerprint, ChevronRight, Sparkles, Archive, ExternalLink, Menu, Map as MapIcon, Grip, ListFilter} from 'lucide-react';
 import {casebook,boardNodes,boardEdges,chronological} from './data';
 import type {BoardNode,CaseClaim} from './types';
 import './style.css';
@@ -110,7 +110,7 @@ function App(){
     <div className="inspect-bottom"><div className="inspect-section-title">АКТИВНАЯ ВЕРСИЯ</div><button className="bottom-hyp" onClick={()=>focusNode(currentHyp?.id||'h-heckern')}><GitBranch size={17}/><span>{currentHyp?.statement}</span><ChevronRight size={17}/></button><div className="assessment-line">{activeAssessments.length} связей с утверждениями · вывод не вынесен</div></div>
    </aside>
   </div>
-  <div className="mobile-controls"><button onClick={()=>setAsideOpen(!asideOpen)}><Menu size={18}/> Архив</button><button onClick={()=>setDetailsOpen(!detailsOpen)}><BookOpen size={18}/> Досье</button><button onClick={()=>reset()}><Map size={18}/> Обзор</button></div>
+  <div className="mobile-controls"><button onClick={()=>setAsideOpen(!asideOpen)}><Menu size={18}/> Архив</button><button onClick={()=>setDetailsOpen(!detailsOpen)}><BookOpen size={18}/> Досье</button><button onClick={()=>reset()}><MapIcon size={18}/> Обзор</button></div>
  </div>;
 }
 

@@ -125,25 +125,25 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--run", action="store_true")
-    p.add_argument("--max-calls", type=int, default=12)
+    p.add_argument("--max-calls", type=int, default=24)
     p.add_argument("--out", default="benchmark/results/smoke.json")
     args = p.parse_args()
     cases = json.loads((ROOT / "benchmark/fixtures.json").read_text(encoding="utf-8"))
     if not cases or not all(isinstance(c.get("expected"), str) and c["expected"] in LABELS for c in cases):
         raise SystemExit("invalid benchmark fixtures")
     models = DEFAULT_MODELS
-    if args.max_calls < 1 or args.max_calls > 12:
-        raise SystemExit("max-calls must be between 1 and 12 (budget hard limit)")
+    if args.max_calls < 1 or args.max_calls > 24:
+        raise SystemExit("max-calls must be between 1 and 24 (budget hard limit)")
     if not args.run:
         print(json.dumps({
-            "mode": "dry-run", "models": list(models), "fixtures": [c["id"] for c in cases[:2]],
+            "mode": "dry-run", "models": list(models), "fixtures": [c["id"] for c in cases],
             "maximum_calls": args.max_calls, "api": API, "requires_secret": "DECIS_API"
         }, ensure_ascii=False, indent=2))
         return
     token = os.environ.get("DECIS_API", "").strip()
     if not token:
         raise SystemExit("DECIS_API secret unavailable: no live API calls made")
-    report = run(models, cases[:2], token, args.max_calls)
+    report = run(models, cases, token, args.max_calls)
     path = ROOT / args.out
     if not path.resolve().is_relative_to(ROOT / "benchmark"):
         raise SystemExit("output path must be under benchmark/")

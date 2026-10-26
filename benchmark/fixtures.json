@@ -1,0 +1,44 @@
+[
+  {
+    "id": "accusation_vs_action",
+    "language": "ru",
+    "state": {
+      "date": "1836-11",
+      "source_type": "private_letter",
+      "excerpt": "В письме Пушкин обвиняет Геккерна в организации анонимной рассылки. Само письмо не содержит признания Геккерна, независимого подтверждения авторства или наблюдения за отправкой.",
+      "proposed_claim": "Геккерн лично изготовил и разослал анонимные письма."
+    },
+    "expected": "accusation_only"
+  },
+  {
+    "id": "source_directly_records_speech",
+    "language": "ru",
+    "state": {
+      "date": "1836-11",
+      "source_type": "private_letter",
+      "excerpt": "В сохранившемся письме Пушкин прямо пишет, что обвиняет Геккерна в распространении оскорбительных анонимок.",
+      "proposed_claim": "Пушкин обвинил Геккерна в причастности к анонимкам."
+    },
+    "expected": "directly_documented"
+  },
+  {
+    "id": "modern_theory_not_firsthand",
+    "language": "ru",
+    "state": {
+      "source_type": "scholarly_hypothesis",
+      "excerpt": "Историк XX века предположил, что Идалия могла отправить пасквиль из ревности. Современного событиям документа, подтверждающего её авторство, здесь не приведено.",
+      "proposed_claim": "Идалия организовала рассылку в ноябре 1836 года."
+    },
+    "expected": "interpretation_only"
+  },
+  {
+    "id": "identity_by_motif",
+    "language": "ru",
+    "state": {
+      "source_type": "comparative_mythology",
+      "excerpt": "В двух культурах встречаются божества, связанные с солнцем. В данном фрагменте не приведены контакты культур, свидетельства передачи культа или независимые датировки.",
+      "proposed_claim": "Оба божества были одним и тем же историческим человеком."
+    },
+    "expected": "insufficient_data"
+  }
+]

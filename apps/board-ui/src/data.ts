@@ -17,7 +17,7 @@ const primary=['pushkin','natalia','dantes','ekaterina','heckern','nicholas1','i
 export const boardNodes:BoardNode[]=[
  ...casebook.entities.map((e,i)=>({id:e.id,type:'person' as const,title:e.name,subtitle: primary.includes(e.id)?'Участник дела':'Связанное лицо',x:(pos[e.id]||defaultPosition(i))[0],y:(pos[e.id]||defaultPosition(i))[1],claimIds:casebook.claims.filter(c=>c.about.includes(e.id)).map(c=>c.id)})),
  ...chronological.map((e,i)=>({id:e.id,type:'event' as const,title:e.title,subtitle:e.time?.original||'Дата неизвестна',x:(pos[e.id]||defaultPosition(i+12))[0],y:(pos[e.id]||defaultPosition(i+12))[1],claimIds:e.claim_ids})),
- ...casebook.sources.slice(0,2).map((s,i)=>({id:s.id,type:'source' as const,title:s.title.split(',')[0],subtitle:s.type==='primary'?'Первичный документ':'Исследование',x:(pos[s.id]||defaultPosition(i+19))[0],y:(pos[s.id]||defaultPosition(i+19))[1],claimIds:casebook.claims.filter(c=>c.evidence.some(v=>v.source_id===s.id)).map(c=>c.id)})),
+ ...casebook.sources.slice(0,2).map((s,i)=>({id:s.id,type:'source' as const,title:s.title.split(',')[0] || s.title,subtitle:s.type==='primary'?'Первичный документ':'Исследование',x:(pos[s.id]||defaultPosition(i+19))[0],y:(pos[s.id]||defaultPosition(i+19))[1],claimIds:casebook.claims.filter(c=>c.evidence.some(v=>v.source_id===s.id)).map(c=>c.id)})),
  ...casebook.hypotheses.map((h,i)=>({id:h.id,type:'hypothesis' as const,title:h.statement,subtitle:'Рабочая гипотеза',x:(pos[h.id]||defaultPosition(i+21))[0],y:(pos[h.id]||defaultPosition(i+21))[1],claimIds:casebook.assessments.filter(a=>a.hypothesis_id===h.id).map(a=>a.claim_id)}))
 ];
 export type BoardEdge={id:string;from:string;to:string;type:'event'|'family'|'evidence'|'hypothesis'};

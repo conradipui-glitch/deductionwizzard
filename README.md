@@ -25,10 +25,10 @@ python tools/decision_bench.py --dry-run
 
 ```bash
 export DECIS_API="your key" # NEVER COMMIT IT
-python tools/decision_bench.py --run --max-calls 12
+python tools/decision_bench.py --run --max-calls 24
 ```
 
-Requests use `https://openrouter.ai/api/alpha/decisions`. Default run uses 6 models × 2 fixture states = 12 requests. No uploads of private source material. Calls are sequential, bounded and error-safe. Summaries display no credentials or raw personal data. Each live call can incur small costs; the free variants may have limits.
+Requests use `https://openrouter.ai/api/alpha/decisions`. Default run uses 6 models × 4 fixture states = 24 requests. No uploads of private source material. Calls are sequential, bounded and error-safe. Summaries display no credentials or raw personal data. Each live call can incur small costs; the free variants may have limits.
 
 ### Method
 

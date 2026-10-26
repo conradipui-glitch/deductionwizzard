@@ -7,6 +7,7 @@ A reproducible investigation engine for timelines, sources, actors, conflicting 
 We evaluate OpenRouter **Decisions** models, not chat/completions models. They consume structured `state` + typed `questions` and output probabilities/choices with no narrative reasoning. The authoritative record remains **documents and independently reviewable claims**, never a model probability.
 
 - [Current review / preliminary fit ranking](research/DECISION_MODELS_2026-10-26.md)
+- [Live 24-request evaluation: 23/24 label matches, total $0.000460814](research/SMOKE_RESULTS_2026-10-26.md)
 - [Model roles and safeguards](docs/DECISION_ARCHITECTURE.md)
 - [Reproducible benchmark fixtures](benchmark/fixtures.json)
 - [Python standard-library benchmark](tools/decision_bench.py)
@@ -25,10 +26,10 @@ python tools/decision_bench.py --dry-run
 
 ```bash
 export DECIS_API="your key" # NEVER COMMIT IT
-python tools/decision_bench.py --run --max-calls 12
+python tools/decision_bench.py --run --max-calls 24
 ```
 
-Requests use `https://openrouter.ai/api/alpha/decisions`. Default run uses 6 models × 2 fixture states = 12 requests. No uploads of private source material. Calls are sequential, bounded and error-safe. Summaries display no credentials or raw personal data. Each live call can incur small costs; the free variants may have limits.
+Requests use `https://openrouter.ai/api/alpha/decisions`. Default run uses 6 models × 4 fixture states = 24 requests. No uploads of private source material. Calls are sequential, bounded and error-safe. Summaries display no credentials or raw personal data. Each live call can incur small costs; the free variants may have limits.
 
 ### Method
 

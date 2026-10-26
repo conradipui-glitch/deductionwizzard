@@ -32,11 +32,21 @@ EXTERNAL={
  'met-hatshepsut':{'title':'The Met — The Female Pharaoh Hatshepsut','url':'https://www.metmuseum.org/art/collection/search/544849','type':'museum_catalogue'}
 }
 
+# Freeze original v0.2 pilot benchmark: 10 Pushkin anchors + 12 ancient
+# entries. Expanded casebooks must not silently change regression benchmarks.
+PILOT_CLAIM_IDS={
+ 'claim-received','claim-blames','claim-first-challenge','claim-audience',
+ 'claim-marriage','claim-final-letter','claim-second-challenge',
+ 'claim-duel','claim-death','claim-spouse-pushkin'
+}
+
 def get_anchors():
  out=[]
  # The original casebook is from a prior research prototype and must be reaudited
  # before its source summaries become a scholarly database.
  for claim in CASE['claims']:
+  if claim['id'] not in PILOT_CLAIM_IDS:
+   continue
   if not claim['evidence']:
    continue
   sid=claim['evidence'][0]['source_id']; s=SOURCES[sid]

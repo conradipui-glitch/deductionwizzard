@@ -30,6 +30,12 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Build board
         run: npm run build
+      - name: Save independently built site as a downloadable artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: detective-board-dist
+          path: dist
+          retention-days: 14
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact

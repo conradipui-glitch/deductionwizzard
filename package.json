@@ -1,0 +1,12 @@
+{
+  "name": "deduction-wizard",
+  "private": true,
+  "version": "0.2.0",
+  "workspaces": ["apps/board-ui"],
+  "scripts": {
+    "dev": "npm run dev -w @deduction/board-ui",
+    "build": "npm run build -w @deduction/board-ui",
+    "preview": "npm run preview -w @deduction/board-ui",
+    "check": "npm run check -w @deduction/board-ui"
+  }
+}

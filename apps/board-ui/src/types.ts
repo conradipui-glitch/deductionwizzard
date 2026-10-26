@@ -1,0 +1,10 @@
+export type DatePoint={year:number;month?:number;day?:number};
+export type CaseEntity={id:string;name:string;kind:string;aliases?:string[]};
+export type CaseClaim={id:string;text:string;kind:string;status:'attested'|'contested'|'unverified';about:string[];evidence:{source_id:string;stance:string;locator:string}[]};
+export type CaseSource={id:string;title:string;type:string;locator:string;note?:string;created?:DatePoint|null};
+export type CaseEvent={id:string;title:string;time:{earliest:DatePoint;latest:DatePoint;precision:string;original:string;normalization:string}|null;actors:string[];claim_ids:string[]};
+export type CaseRelation={id:string;from_id:string;to_id:string;type:string;claim_ids:string[]};
+export type Hypothesis={id:string;statement:string;assumptions:string[];discriminating_test:string};
+export type Assessment={id:string;hypothesis_id:string;claim_id:string;stance:'supports'|'contradicts'|'compatible'|'unknown';rationale:string};
+export type Casebook={case_id:string;title:string;scope:string;entities:CaseEntity[];events:CaseEvent[];sources:CaseSource[];claims:CaseClaim[];relations:CaseRelation[];hypotheses:Hypothesis[];assessments:Assessment[]};
+export type BoardNode={id:string;type:'person'|'event'|'source'|'hypothesis';title:string;subtitle:string;x:number;y:number;claimIds:string[]};

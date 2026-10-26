@@ -1,0 +1,36 @@
+name: Core tests and board build
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/**'
+      - 'packages/**'
+      - 'cases/**'
+      - 'tests/**'
+      - 'benchmark/**'
+      - 'tools/**'
+      - 'package.json'
+      - '.github/workflows/ci.yml'
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  core-and-board:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate all casebooks and historical QA
+        run: |
+          python -m unittest discover -s tests -v
+          PYTHONPATH=packages/deduction-core/src python -m historicdeductionsim validate cases/pushkin/casebook.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install web dependencies
+        run: npm install --no-audit --no-fund
+      - name: Typecheck and bundle board
+        run: npm run build

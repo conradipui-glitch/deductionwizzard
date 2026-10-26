@@ -1,44 +1,55 @@
-# Deduction Wizard — evidence-first historical reasoning
+# Deduction Wizard — Historical Investigation Engine
 
-A reproducible investigation engine for timelines, sources, actors, conflicting testimonies and competing historical hypotheses. First case: **Pushkin / Dantes / 1836–1837**. Future cases: comparative histories of myth, deification and religion (without assuming shared identities from motif similarity).
+An open, evidence-first workspace for **building and questioning historical reconstructions**, not announcing that speculative explanations are proven.
 
-## Decision-model pilot (2026-10-26)
+## Live Detective Board
 
-We evaluate OpenRouter **Decisions** models, not chat/completions models. They consume structured `state` + typed `questions` and output probabilities/choices with no narrative reasoning. The authoritative record remains **documents and independently reviewable claims**, never a model probability.
+Expected GitHub Pages URL (when activated and successful): https://conradipui-glitch.github.io/deductionwizzard/
 
-- [Current review / preliminary fit ranking](research/DECISION_MODELS_2026-10-26.md)
-- [Live 24-request evaluation: 23/24 label matches, total $0.000460814](research/SMOKE_RESULTS_2026-10-26.md)
-- [Model roles and safeguards](docs/DECISION_ARCHITECTURE.md)
-- [Reproducible benchmark fixtures](benchmark/fixtures.json)
-- [Python standard-library benchmark](tools/decision_bench.py)
-- [GitHub Action using secret DECIS_API](.github/workflows/decision-smoke.yml)
-- [Public catalog API (filtered to Decisions)](https://openrouter.ai/api/v1/models?output_modalities=decisions)
-- [Official Decisions API docs](https://openrouter.ai/docs/api/api-reference/alphadecisions/submit-a-decisions-request)
+Two clearly separated layers:
 
-### Run offline tests (no credentials)
+- `packages/deduction-core/`: deterministic Python validation, source-lineage tracking, event chronology and transparent claim→hypothesis comparisons; based on the tested Historic Deduction Sim v0.1 foundation.
+- `apps/board-ui/`: React/TypeScript/Vite 2.5D detective board for exploring a versioned casebook; no secret handling or cloud model calls.
+- `cases/pushkin/casebook.json`: first seven-event/12-person Pushkin case (starter, not exhaustive).
+- `benchmark/historical_qa_88.json`: 88 **synthetic classification tasks derived from 22 sourced historical anchors**; not 88 independent source discoveries or manually verified gold labels. See [benchmark methodology](docs/CORPUS_METHOD.md).
+- `tools/build_corpus.py`: deterministic generator and provenance tags.
+- `research/`: separately verified pilot of six OpenRouter Decisions models, including 24 live requests / 23 label agreements. Review its tiny sample limitations.
+
+## Developer commands
+
+Python core (no runtime dependencies):
 
 ```bash
+PYTHONPATH=packages/deduction-core/src python -m historicdeductionsim validate cases/pushkin/casebook.json
 python -m unittest discover -s tests -v
-python tools/decision_bench.py --dry-run
+python tools/build_corpus.py
 ```
 
-### Live small-scale test
+Board UI:
 
 ```bash
-export DECIS_API="your key" # NEVER COMMIT IT
-python tools/decision_bench.py --run --max-calls 24
+npm install
+npm run dev
+npm run build
 ```
 
-Requests use `https://openrouter.ai/api/alpha/decisions`. Default run uses 6 models × 4 fixture states = 24 requests. No uploads of private source material. Calls are sequential, bounded and error-safe. Summaries display no credentials or raw personal data. Each live call can incur small costs; the free variants may have limits.
+## Source discipline
 
-### Method
+1. A statement was made ≠ that statement is true.
+2. Time of the event ≠ time a source was written.
+3. Similarities between myths ≠ proof that deities refer to the same historic individual.
+4. Model outputs label **evidence relationships**, not probabilities of historical truth or guilt.
+5. Dependent reproductions of one document do not count as multiple independent witnesses.
+6. Never silently delete hypotheses or weak evidence; retain status and reasons.
 
-- Separate **event date**, **date of source**, and **date of modern interpretation**.
-- Preserve the original quote and archival reference.
-- A reported allegation proves the allegation existed, not that it is true.
-- Detect derivative testimony, no multiplication of copied witnesses.
-- Keep disconfirmed hypotheses and their contradicting evidence.
-- Store full model ID, model response, rubric version and disagreements for audit.
-- Never interpret output probability as the probability a historical conspiracy really happened.
+## Architecture and roadmap
 
-This repo is initialized with the decision-model pilot. The previous local Historic Deduction Sim foundation is a separate v0.1 artifact and has not yet been imported wholesale.
+- [Original research protocol](docs/RESEARCH_PROTOCOL.md)
+- [Original core architecture](docs/ARCHITECTURE.md)
+- [Interactive board guide](docs/BOARD_UI.md)
+- [Decisions integration](docs/DECISION_ARCHITECTURE.md)
+- [Model comparison](research/DECISION_MODELS_2026-10-26.md)
+
+**Roadmap:** B01 — extend primary-source casebook and provenance audit; B02 — card-level filters, multi-case selector and rich board; B03 — calibrated disagreement analysis; B04 — safe editor and proposals; B05 — historical deification and mythology comparisons. Current state is first runnable display and reproducible test dataset, not a completed historical investigation.
+
+License of migrated Python core: MIT (see `packages/deduction-core/LICENSE`). Front-end created for this repository.

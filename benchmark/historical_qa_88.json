@@ -1,0 +1,2214 @@
+{
+  "schema_version": "0.1",
+  "purpose": "Adversarial model QA only; NOT historical evidence, NOT independently reviewed gold labels",
+  "source_groups": [
+    "Pushkin 1836-1837 casebook — needs independent source audit",
+    "British Museum Rosetta",
+    "Met Akhenaten",
+    "Met Hatshepsut"
+  ],
+  "anchors": [
+    {
+      "id": "claim-received",
+      "topic": "Pushkin",
+      "statement": "Пушкин сообщил, что утром 4 ноября получил три экземпляра оскорбительного анонимного письма.",
+      "source_id": "src-letter-1836",
+      "source": {
+        "title": "Пушкин → Бенкендорфу, 21 ноября 1836",
+        "url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+        "type": "primary"
+      },
+      "date_note": "see original casebook"
+    },
+    {
+      "id": "claim-blames",
+      "topic": "Pushkin",
+      "statement": "Пушкин прямо приписал подготовку анонимных писем Луи Геккерну, но отказался предъявить доказательства.",
+      "source_id": "src-letter-1836",
+      "source": {
+        "title": "Пушкин → Бенкендорфу, 21 ноября 1836",
+        "url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+        "type": "primary"
+      },
+      "date_note": "see original casebook"
+    },
+    {
+      "id": "claim-first-challenge",
+      "topic": "Pushkin",
+      "statement": "5 ноября 1836 года Пушкин послал вызов Дантесу.",
+      "source_id": "src-chronology",
+      "source": {
+        "title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "type": "secondary"
+      },
+      "date_note": "see original casebook"
+    },
+    {
+      "id": "claim-audience",
+      "topic": "Pushkin",
+      "statement": "23 ноября 1836 года состоялась аудиенция Пушкина у Николая I с участием Бенкендорфа.",
+      "source_id": "src-chronology",
+      "source": {
+        "title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "type": "secondary"
+      },
+      "date_note": "see original casebook"
+    },
+    {
+      "id": "claim-marriage",
+      "topic": "Pushkin",
+      "statement": "10 января 1837 года Дантес женился на Екатерине Гончаровой.",
+      "source_id": "src-chronology",
+      "source": {
+        "title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "type": "secondary"
+      },
+      "date_note": "see original casebook"
+    },
+    {
+      "id": "claim-final-letter",
+      "topic": "Pushkin",
+      "statement": "26 января 1837 года Пушкин адресовал Луи Геккерну резко оскорбительное письмо.",
+      "source_id": "src-letter-1837",
+      "source": {
+        "title": "Пушкин → Геккерну, 26 января 1837",
+        "url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1837/1967_779.htm",
+        "type": "primary"
+      },
+      "date_note": "see original casebook"
+    },
+    {
+      "id": "claim-second-challenge",
+      "topic": "Pushkin",
+      "statement": "26 января 1837 года в ответ на письмо последовал вызов на дуэль со стороны Дантеса.",
+      "source_id": "src-chronology",
+      "source": {
+        "title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "type": "secondary"
+      },
+      "date_note": "see original casebook"
+    },
+    {
+      "id": "claim-duel",
+      "topic": "Pushkin",
+      "statement": "27 января 1837 года на Чёрной речке произошла дуэль Пушкина и Дантеса.",
+      "source_id": "src-chronology",
+      "source": {
+        "title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "type": "secondary"
+      },
+      "date_note": "see original casebook"
+    },
+    {
+      "id": "claim-death",
+      "topic": "Pushkin",
+      "statement": "29 января 1837 года Пушкин умер после ранения на дуэли.",
+      "source_id": "src-chronology",
+      "source": {
+        "title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "type": "secondary"
+      },
+      "date_note": "see original casebook"
+    },
+    {
+      "id": "claim-spouse-pushkin",
+      "topic": "Pushkin",
+      "statement": "Пушкин и Наталья Гончарова состояли в браке к 1836 году.",
+      "source_id": "src-letter-1836",
+      "source": {
+        "title": "Пушкин → Бенкендорфу, 21 ноября 1836",
+        "url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+        "type": "primary"
+      },
+      "date_note": "see original casebook"
+    },
+    {
+      "id": "rosetta-decree",
+      "topic": "Egypt",
+      "statement": "Декрет на Розеттском камне датируется 196 годом до н. э.",
+      "source_id": "bm-rosetta",
+      "source": {
+        "title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "type": "museum_guide"
+      },
+      "date_note": "196 BCE"
+    },
+    {
+      "id": "rosetta-scripts",
+      "topic": "Egypt",
+      "statement": "Надпись на Розеттском камне использует иероглифическое, демотическое и греческое письмо.",
+      "source_id": "bm-rosetta",
+      "source": {
+        "title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "type": "museum_guide"
+      },
+      "date_note": "196 BCE"
+    },
+    {
+      "id": "rosetta-priests",
+      "topic": "Egypt",
+      "statement": "Жрецы распространяли царские декреты в нескольких видах письма в период Птолемеев.",
+      "source_id": "bm-rosetta",
+      "source": {
+        "title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "type": "museum_guide"
+      },
+      "date_note": "Ptolemaic period"
+    },
+    {
+      "id": "rosetta-canopus",
+      "topic": "Egypt",
+      "statement": "Канопский декрет был издан в 238 году до н. э.",
+      "source_id": "bm-rosetta",
+      "source": {
+        "title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "type": "museum_guide"
+      },
+      "date_note": "238 BCE"
+    },
+    {
+      "id": "akhenaten-reign",
+      "topic": "Egypt",
+      "statement": "Эхнатон правил примерно в 1353–1336 годах до н. э.",
+      "source_id": "met-akhenaten",
+      "source": {
+        "title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "type": "museum_essay"
+      },
+      "date_note": "ca. 1353–1336 BCE"
+    },
+    {
+      "id": "akhenaten-city",
+      "topic": "Egypt",
+      "statement": "Эхнатон основал новую столицу Ахетатон на месте современной Амарны.",
+      "source_id": "met-akhenaten",
+      "source": {
+        "title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "type": "museum_essay"
+      },
+      "date_note": "14th century BCE"
+    },
+    {
+      "id": "akhenaten-name",
+      "topic": "Egypt",
+      "statement": "Аменхотеп IV изменил царское имя на Эхнатон.",
+      "source_id": "met-akhenaten",
+      "source": {
+        "title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "type": "museum_essay"
+      },
+      "date_note": "14th century BCE"
+    },
+    {
+      "id": "akhenaten-aten",
+      "topic": "Egypt",
+      "statement": "При Эхнатоне официальный культ уделял исключительное внимание солнечному божеству Атону.",
+      "source_id": "met-akhenaten",
+      "source": {
+        "title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "type": "museum_essay"
+      },
+      "date_note": "14th century BCE"
+    },
+    {
+      "id": "akhenaten-intermediary",
+      "topic": "Egypt",
+      "statement": "Царь и его семья занимали особое посредническое положение в культе Атона.",
+      "source_id": "met-akhenaten",
+      "source": {
+        "title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "type": "museum_essay"
+      },
+      "date_note": "14th century BCE"
+    },
+    {
+      "id": "hatshepsut-pharaoh",
+      "topic": "Egypt",
+      "statement": "Хатшепсут была женщиной-фараоном XVIII династии Египта.",
+      "source_id": "met-hatshepsut",
+      "source": {
+        "title": "The Met — The Female Pharaoh Hatshepsut",
+        "url": "https://www.metmuseum.org/art/collection/search/544849",
+        "type": "museum_catalogue"
+      },
+      "date_note": "ca. 1473–1458 BCE"
+    },
+    {
+      "id": "hatshepsut-statues",
+      "topic": "Egypt",
+      "statement": "Некоторые статуи Хатшепсут следуют традиционной мужской иконографии фараона.",
+      "source_id": "met-hatshepsut",
+      "source": {
+        "title": "The Met — The Female Pharaoh Hatshepsut",
+        "url": "https://www.metmuseum.org/art/collection/search/544849",
+        "type": "museum_catalogue"
+      },
+      "date_note": "ca. 1473–1458 BCE"
+    },
+    {
+      "id": "hatshepsut-name",
+      "topic": "Egypt",
+      "statement": "Надписи на статуях сохраняли имя Хатшепсут или женские грамматические формы.",
+      "source_id": "met-hatshepsut",
+      "source": {
+        "title": "The Met — The Female Pharaoh Hatshepsut",
+        "url": "https://www.metmuseum.org/art/collection/search/544849",
+        "type": "museum_catalogue"
+      },
+      "date_note": "ca. 1473–1458 BCE"
+    }
+  ],
+  "examples": [
+    {
+      "anchor_id": "claim-received",
+      "topic": "Pushkin",
+      "source_id": "src-letter-1836",
+      "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+      "source_type": "primary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-received-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "primary",
+        "source_title": "Пушкин → Бенкендорфу, 21 ноября 1836",
+        "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+        "excerpt": "Публикация «Пушкин → Бенкендорфу, 21 ноября 1836» сообщает: Пушкин сообщил, что утром 4 ноября получил три экземпляра оскорбительного анонимного письма.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: Пушкин сообщил, что утром 4 ноября получил три экземпляра оскорбительного анонимного письма."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "claim-received",
+      "topic": "Pushkin",
+      "source_id": "src-letter-1836",
+      "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+      "source_type": "primary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-received-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "primary",
+        "source_title": "Пушкин → Бенкендорфу, 21 ноября 1836",
+        "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+        "excerpt": "Согласно краткому содержанию публикации «Пушкин → Бенкендорфу, 21 ноября 1836»: Пушкин сообщил, что утром 4 ноября получил три экземпляра оскорбительного анонимного письма.",
+        "proposed_claim": "В кратком содержании источника описывается: Пушкин сообщил, что утром 4 ноября получил три экземпляра оскорбительного анонимного письма."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "claim-received",
+      "topic": "Pushkin",
+      "source_id": "src-letter-1836",
+      "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+      "source_type": "primary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-received-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "primary",
+        "source_title": "Пушкин → Бенкендорфу, 21 ноября 1836",
+        "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+        "excerpt": "Сводка источника: Пушкин сообщил, что утром 4 ноября получил три экземпляра оскорбительного анонимного письма. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "claim-received",
+      "topic": "Pushkin",
+      "source_id": "src-letter-1836",
+      "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+      "source_type": "primary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-received-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "primary",
+        "source_title": "Пушкин → Бенкендорфу, 21 ноября 1836",
+        "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+        "excerpt": "Исходное свидетельство сообщает только следующее: Пушкин сообщил, что утром 4 ноября получил три экземпляра оскорбительного анонимного письма. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "claim-blames",
+      "topic": "Pushkin",
+      "source_id": "src-letter-1836",
+      "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+      "source_type": "primary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-blames-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "primary",
+        "source_title": "Пушкин → Бенкендорфу, 21 ноября 1836",
+        "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+        "excerpt": "Публикация «Пушкин → Бенкендорфу, 21 ноября 1836» сообщает: Пушкин прямо приписал подготовку анонимных писем Луи Геккерну, но отказался предъявить доказательства.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: Пушкин прямо приписал подготовку анонимных писем Луи Геккерну, но отказался предъявить доказательства."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "claim-blames",
+      "topic": "Pushkin",
+      "source_id": "src-letter-1836",
+      "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+      "source_type": "primary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-blames-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "primary",
+        "source_title": "Пушкин → Бенкендорфу, 21 ноября 1836",
+        "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+        "excerpt": "Согласно краткому содержанию публикации «Пушкин → Бенкендорфу, 21 ноября 1836»: Пушкин прямо приписал подготовку анонимных писем Луи Геккерну, но отказался предъявить доказательства.",
+        "proposed_claim": "В кратком содержании источника описывается: Пушкин прямо приписал подготовку анонимных писем Луи Геккерну, но отказался предъявить доказательства."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "claim-blames",
+      "topic": "Pushkin",
+      "source_id": "src-letter-1836",
+      "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+      "source_type": "primary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-blames-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "primary",
+        "source_title": "Пушкин → Бенкендорфу, 21 ноября 1836",
+        "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+        "excerpt": "Сводка источника: Пушкин прямо приписал подготовку анонимных писем Луи Геккерну, но отказался предъявить доказательства. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "claim-blames",
+      "topic": "Pushkin",
+      "source_id": "src-letter-1836",
+      "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+      "source_type": "primary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-blames-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "primary",
+        "source_title": "Пушкин → Бенкендорфу, 21 ноября 1836",
+        "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+        "excerpt": "Исходное свидетельство сообщает только следующее: Пушкин прямо приписал подготовку анонимных писем Луи Геккерну, но отказался предъявить доказательства. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "claim-first-challenge",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-first-challenge-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Публикация «М. А. Цявловский: хронологическая канва биографии А. С. Пушкина» сообщает: 5 ноября 1836 года Пушкин послал вызов Дантесу.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: 5 ноября 1836 года Пушкин послал вызов Дантесу."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "claim-first-challenge",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-first-challenge-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Согласно краткому содержанию публикации «М. А. Цявловский: хронологическая канва биографии А. С. Пушкина»: 5 ноября 1836 года Пушкин послал вызов Дантесу.",
+        "proposed_claim": "В кратком содержании источника описывается: 5 ноября 1836 года Пушкин послал вызов Дантесу."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "claim-first-challenge",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-first-challenge-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Сводка источника: 5 ноября 1836 года Пушкин послал вызов Дантесу. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "claim-first-challenge",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-first-challenge-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Исходное свидетельство сообщает только следующее: 5 ноября 1836 года Пушкин послал вызов Дантесу. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "claim-audience",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-audience-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Публикация «М. А. Цявловский: хронологическая канва биографии А. С. Пушкина» сообщает: 23 ноября 1836 года состоялась аудиенция Пушкина у Николая I с участием Бенкендорфа.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: 23 ноября 1836 года состоялась аудиенция Пушкина у Николая I с участием Бенкендорфа."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "claim-audience",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-audience-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Согласно краткому содержанию публикации «М. А. Цявловский: хронологическая канва биографии А. С. Пушкина»: 23 ноября 1836 года состоялась аудиенция Пушкина у Николая I с участием Бенкендорфа.",
+        "proposed_claim": "В кратком содержании источника описывается: 23 ноября 1836 года состоялась аудиенция Пушкина у Николая I с участием Бенкендорфа."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "claim-audience",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-audience-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Сводка источника: 23 ноября 1836 года состоялась аудиенция Пушкина у Николая I с участием Бенкендорфа. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "claim-audience",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-audience-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Исходное свидетельство сообщает только следующее: 23 ноября 1836 года состоялась аудиенция Пушкина у Николая I с участием Бенкендорфа. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "claim-marriage",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-marriage-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Публикация «М. А. Цявловский: хронологическая канва биографии А. С. Пушкина» сообщает: 10 января 1837 года Дантес женился на Екатерине Гончаровой.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: 10 января 1837 года Дантес женился на Екатерине Гончаровой."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "claim-marriage",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-marriage-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Согласно краткому содержанию публикации «М. А. Цявловский: хронологическая канва биографии А. С. Пушкина»: 10 января 1837 года Дантес женился на Екатерине Гончаровой.",
+        "proposed_claim": "В кратком содержании источника описывается: 10 января 1837 года Дантес женился на Екатерине Гончаровой."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "claim-marriage",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-marriage-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Сводка источника: 10 января 1837 года Дантес женился на Екатерине Гончаровой. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "claim-marriage",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-marriage-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Исходное свидетельство сообщает только следующее: 10 января 1837 года Дантес женился на Екатерине Гончаровой. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "claim-final-letter",
+      "topic": "Pushkin",
+      "source_id": "src-letter-1837",
+      "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1837/1967_779.htm",
+      "source_type": "primary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-final-letter-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "primary",
+        "source_title": "Пушкин → Геккерну, 26 января 1837",
+        "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1837/1967_779.htm",
+        "excerpt": "Публикация «Пушкин → Геккерну, 26 января 1837» сообщает: 26 января 1837 года Пушкин адресовал Луи Геккерну резко оскорбительное письмо.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: 26 января 1837 года Пушкин адресовал Луи Геккерну резко оскорбительное письмо."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "claim-final-letter",
+      "topic": "Pushkin",
+      "source_id": "src-letter-1837",
+      "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1837/1967_779.htm",
+      "source_type": "primary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-final-letter-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "primary",
+        "source_title": "Пушкин → Геккерну, 26 января 1837",
+        "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1837/1967_779.htm",
+        "excerpt": "Согласно краткому содержанию публикации «Пушкин → Геккерну, 26 января 1837»: 26 января 1837 года Пушкин адресовал Луи Геккерну резко оскорбительное письмо.",
+        "proposed_claim": "В кратком содержании источника описывается: 26 января 1837 года Пушкин адресовал Луи Геккерну резко оскорбительное письмо."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "claim-final-letter",
+      "topic": "Pushkin",
+      "source_id": "src-letter-1837",
+      "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1837/1967_779.htm",
+      "source_type": "primary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-final-letter-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "primary",
+        "source_title": "Пушкин → Геккерну, 26 января 1837",
+        "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1837/1967_779.htm",
+        "excerpt": "Сводка источника: 26 января 1837 года Пушкин адресовал Луи Геккерну резко оскорбительное письмо. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "claim-final-letter",
+      "topic": "Pushkin",
+      "source_id": "src-letter-1837",
+      "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1837/1967_779.htm",
+      "source_type": "primary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-final-letter-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "primary",
+        "source_title": "Пушкин → Геккерну, 26 января 1837",
+        "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1837/1967_779.htm",
+        "excerpt": "Исходное свидетельство сообщает только следующее: 26 января 1837 года Пушкин адресовал Луи Геккерну резко оскорбительное письмо. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "claim-second-challenge",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-second-challenge-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Публикация «М. А. Цявловский: хронологическая канва биографии А. С. Пушкина» сообщает: 26 января 1837 года в ответ на письмо последовал вызов на дуэль со стороны Дантеса.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: 26 января 1837 года в ответ на письмо последовал вызов на дуэль со стороны Дантеса."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "claim-second-challenge",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-second-challenge-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Согласно краткому содержанию публикации «М. А. Цявловский: хронологическая канва биографии А. С. Пушкина»: 26 января 1837 года в ответ на письмо последовал вызов на дуэль со стороны Дантеса.",
+        "proposed_claim": "В кратком содержании источника описывается: 26 января 1837 года в ответ на письмо последовал вызов на дуэль со стороны Дантеса."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "claim-second-challenge",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-second-challenge-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Сводка источника: 26 января 1837 года в ответ на письмо последовал вызов на дуэль со стороны Дантеса. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "claim-second-challenge",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-second-challenge-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Исходное свидетельство сообщает только следующее: 26 января 1837 года в ответ на письмо последовал вызов на дуэль со стороны Дантеса. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "claim-duel",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-duel-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Публикация «М. А. Цявловский: хронологическая канва биографии А. С. Пушкина» сообщает: 27 января 1837 года на Чёрной речке произошла дуэль Пушкина и Дантеса.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: 27 января 1837 года на Чёрной речке произошла дуэль Пушкина и Дантеса."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "claim-duel",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-duel-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Согласно краткому содержанию публикации «М. А. Цявловский: хронологическая канва биографии А. С. Пушкина»: 27 января 1837 года на Чёрной речке произошла дуэль Пушкина и Дантеса.",
+        "proposed_claim": "В кратком содержании источника описывается: 27 января 1837 года на Чёрной речке произошла дуэль Пушкина и Дантеса."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "claim-duel",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-duel-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Сводка источника: 27 января 1837 года на Чёрной речке произошла дуэль Пушкина и Дантеса. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "claim-duel",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-duel-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Исходное свидетельство сообщает только следующее: 27 января 1837 года на Чёрной речке произошла дуэль Пушкина и Дантеса. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "claim-death",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-death-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Публикация «М. А. Цявловский: хронологическая канва биографии А. С. Пушкина» сообщает: 29 января 1837 года Пушкин умер после ранения на дуэли.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: 29 января 1837 года Пушкин умер после ранения на дуэли."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "claim-death",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-death-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Согласно краткому содержанию публикации «М. А. Цявловский: хронологическая канва биографии А. С. Пушкина»: 29 января 1837 года Пушкин умер после ранения на дуэли.",
+        "proposed_claim": "В кратком содержании источника описывается: 29 января 1837 года Пушкин умер после ранения на дуэли."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "claim-death",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-death-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Сводка источника: 29 января 1837 года Пушкин умер после ранения на дуэли. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "claim-death",
+      "topic": "Pushkin",
+      "source_id": "src-chronology",
+      "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "source_type": "secondary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-death-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "secondary",
+        "source_title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+        "source_url": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+        "excerpt": "Исходное свидетельство сообщает только следующее: 29 января 1837 года Пушкин умер после ранения на дуэли. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "claim-spouse-pushkin",
+      "topic": "Pushkin",
+      "source_id": "src-letter-1836",
+      "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+      "source_type": "primary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-spouse-pushkin-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "primary",
+        "source_title": "Пушкин → Бенкендорфу, 21 ноября 1836",
+        "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+        "excerpt": "Публикация «Пушкин → Бенкендорфу, 21 ноября 1836» сообщает: Пушкин и Наталья Гончарова состояли в браке к 1836 году.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: Пушкин и Наталья Гончарова состояли в браке к 1836 году."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "claim-spouse-pushkin",
+      "topic": "Pushkin",
+      "source_id": "src-letter-1836",
+      "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+      "source_type": "primary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-spouse-pushkin-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "primary",
+        "source_title": "Пушкин → Бенкендорфу, 21 ноября 1836",
+        "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+        "excerpt": "Согласно краткому содержанию публикации «Пушкин → Бенкендорфу, 21 ноября 1836»: Пушкин и Наталья Гончарова состояли в браке к 1836 году.",
+        "proposed_claim": "В кратком содержании источника описывается: Пушкин и Наталья Гончарова состояли в браке к 1836 году."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "claim-spouse-pushkin",
+      "topic": "Pushkin",
+      "source_id": "src-letter-1836",
+      "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+      "source_type": "primary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-spouse-pushkin-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "primary",
+        "source_title": "Пушкин → Бенкендорфу, 21 ноября 1836",
+        "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+        "excerpt": "Сводка источника: Пушкин и Наталья Гончарова состояли в браке к 1836 году. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "claim-spouse-pushkin",
+      "topic": "Pushkin",
+      "source_id": "src-letter-1836",
+      "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+      "source_type": "primary",
+      "date_note": "see original casebook",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "claim-spouse-pushkin-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "primary",
+        "source_title": "Пушкин → Бенкендорфу, 21 ноября 1836",
+        "source_url": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+        "excerpt": "Исходное свидетельство сообщает только следующее: Пушкин и Наталья Гончарова состояли в браке к 1836 году. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "rosetta-decree",
+      "topic": "Egypt",
+      "source_id": "bm-rosetta",
+      "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+      "source_type": "museum_guide",
+      "date_note": "196 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "rosetta-decree-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "museum_guide",
+        "source_title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "excerpt": "Публикация «British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)» сообщает: Декрет на Розеттском камне датируется 196 годом до н. э.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: Декрет на Розеттском камне датируется 196 годом до н. э."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "rosetta-decree",
+      "topic": "Egypt",
+      "source_id": "bm-rosetta",
+      "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+      "source_type": "museum_guide",
+      "date_note": "196 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "rosetta-decree-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "museum_guide",
+        "source_title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "excerpt": "Согласно краткому содержанию публикации «British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)»: Декрет на Розеттском камне датируется 196 годом до н. э.",
+        "proposed_claim": "В кратком содержании источника описывается: Декрет на Розеттском камне датируется 196 годом до н. э."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "rosetta-decree",
+      "topic": "Egypt",
+      "source_id": "bm-rosetta",
+      "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+      "source_type": "museum_guide",
+      "date_note": "196 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "rosetta-decree-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "museum_guide",
+        "source_title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "excerpt": "Сводка источника: Декрет на Розеттском камне датируется 196 годом до н. э. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "rosetta-decree",
+      "topic": "Egypt",
+      "source_id": "bm-rosetta",
+      "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+      "source_type": "museum_guide",
+      "date_note": "196 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "rosetta-decree-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "museum_guide",
+        "source_title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "excerpt": "Исходное свидетельство сообщает только следующее: Декрет на Розеттском камне датируется 196 годом до н. э. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "rosetta-scripts",
+      "topic": "Egypt",
+      "source_id": "bm-rosetta",
+      "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+      "source_type": "museum_guide",
+      "date_note": "196 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "rosetta-scripts-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "museum_guide",
+        "source_title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "excerpt": "Публикация «British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)» сообщает: Надпись на Розеттском камне использует иероглифическое, демотическое и греческое письмо.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: Надпись на Розеттском камне использует иероглифическое, демотическое и греческое письмо."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "rosetta-scripts",
+      "topic": "Egypt",
+      "source_id": "bm-rosetta",
+      "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+      "source_type": "museum_guide",
+      "date_note": "196 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "rosetta-scripts-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "museum_guide",
+        "source_title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "excerpt": "Согласно краткому содержанию публикации «British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)»: Надпись на Розеттском камне использует иероглифическое, демотическое и греческое письмо.",
+        "proposed_claim": "В кратком содержании источника описывается: Надпись на Розеттском камне использует иероглифическое, демотическое и греческое письмо."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "rosetta-scripts",
+      "topic": "Egypt",
+      "source_id": "bm-rosetta",
+      "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+      "source_type": "museum_guide",
+      "date_note": "196 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "rosetta-scripts-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "museum_guide",
+        "source_title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "excerpt": "Сводка источника: Надпись на Розеттском камне использует иероглифическое, демотическое и греческое письмо. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "rosetta-scripts",
+      "topic": "Egypt",
+      "source_id": "bm-rosetta",
+      "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+      "source_type": "museum_guide",
+      "date_note": "196 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "rosetta-scripts-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "museum_guide",
+        "source_title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "excerpt": "Исходное свидетельство сообщает только следующее: Надпись на Розеттском камне использует иероглифическое, демотическое и греческое письмо. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "rosetta-priests",
+      "topic": "Egypt",
+      "source_id": "bm-rosetta",
+      "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+      "source_type": "museum_guide",
+      "date_note": "Ptolemaic period",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "rosetta-priests-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "museum_guide",
+        "source_title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "excerpt": "Публикация «British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)» сообщает: Жрецы распространяли царские декреты в нескольких видах письма в период Птолемеев.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: Жрецы распространяли царские декреты в нескольких видах письма в период Птолемеев."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "rosetta-priests",
+      "topic": "Egypt",
+      "source_id": "bm-rosetta",
+      "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+      "source_type": "museum_guide",
+      "date_note": "Ptolemaic period",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "rosetta-priests-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "museum_guide",
+        "source_title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "excerpt": "Согласно краткому содержанию публикации «British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)»: Жрецы распространяли царские декреты в нескольких видах письма в период Птолемеев.",
+        "proposed_claim": "В кратком содержании источника описывается: Жрецы распространяли царские декреты в нескольких видах письма в период Птолемеев."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "rosetta-priests",
+      "topic": "Egypt",
+      "source_id": "bm-rosetta",
+      "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+      "source_type": "museum_guide",
+      "date_note": "Ptolemaic period",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "rosetta-priests-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "museum_guide",
+        "source_title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "excerpt": "Сводка источника: Жрецы распространяли царские декреты в нескольких видах письма в период Птолемеев. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "rosetta-priests",
+      "topic": "Egypt",
+      "source_id": "bm-rosetta",
+      "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+      "source_type": "museum_guide",
+      "date_note": "Ptolemaic period",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "rosetta-priests-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "museum_guide",
+        "source_title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "excerpt": "Исходное свидетельство сообщает только следующее: Жрецы распространяли царские декреты в нескольких видах письма в период Птолемеев. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "rosetta-canopus",
+      "topic": "Egypt",
+      "source_id": "bm-rosetta",
+      "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+      "source_type": "museum_guide",
+      "date_note": "238 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "rosetta-canopus-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "museum_guide",
+        "source_title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "excerpt": "Публикация «British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)» сообщает: Канопский декрет был издан в 238 году до н. э.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: Канопский декрет был издан в 238 году до н. э."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "rosetta-canopus",
+      "topic": "Egypt",
+      "source_id": "bm-rosetta",
+      "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+      "source_type": "museum_guide",
+      "date_note": "238 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "rosetta-canopus-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "museum_guide",
+        "source_title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "excerpt": "Согласно краткому содержанию публикации «British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)»: Канопский декрет был издан в 238 году до н. э.",
+        "proposed_claim": "В кратком содержании источника описывается: Канопский декрет был издан в 238 году до н. э."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "rosetta-canopus",
+      "topic": "Egypt",
+      "source_id": "bm-rosetta",
+      "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+      "source_type": "museum_guide",
+      "date_note": "238 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "rosetta-canopus-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "museum_guide",
+        "source_title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "excerpt": "Сводка источника: Канопский декрет был издан в 238 году до н. э. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "rosetta-canopus",
+      "topic": "Egypt",
+      "source_id": "bm-rosetta",
+      "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+      "source_type": "museum_guide",
+      "date_note": "238 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "rosetta-canopus-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "museum_guide",
+        "source_title": "British Museum — Hieroglyphs: unlocking ancient Egypt (gallery guide)",
+        "source_url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+        "excerpt": "Исходное свидетельство сообщает только следующее: Канопский декрет был издан в 238 году до н. э. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "akhenaten-reign",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "ca. 1353–1336 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-reign-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Публикация «The Met — Art, Architecture, and the City in the Reign of Akhenaten» сообщает: Эхнатон правил примерно в 1353–1336 годах до н. э.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: Эхнатон правил примерно в 1353–1336 годах до н. э."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "akhenaten-reign",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "ca. 1353–1336 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-reign-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Согласно краткому содержанию публикации «The Met — Art, Architecture, and the City in the Reign of Akhenaten»: Эхнатон правил примерно в 1353–1336 годах до н. э.",
+        "proposed_claim": "В кратком содержании источника описывается: Эхнатон правил примерно в 1353–1336 годах до н. э."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "akhenaten-reign",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "ca. 1353–1336 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-reign-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Сводка источника: Эхнатон правил примерно в 1353–1336 годах до н. э. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "akhenaten-reign",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "ca. 1353–1336 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-reign-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Исходное свидетельство сообщает только следующее: Эхнатон правил примерно в 1353–1336 годах до н. э. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "akhenaten-city",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "14th century BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-city-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Публикация «The Met — Art, Architecture, and the City in the Reign of Akhenaten» сообщает: Эхнатон основал новую столицу Ахетатон на месте современной Амарны.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: Эхнатон основал новую столицу Ахетатон на месте современной Амарны."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "akhenaten-city",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "14th century BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-city-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Согласно краткому содержанию публикации «The Met — Art, Architecture, and the City in the Reign of Akhenaten»: Эхнатон основал новую столицу Ахетатон на месте современной Амарны.",
+        "proposed_claim": "В кратком содержании источника описывается: Эхнатон основал новую столицу Ахетатон на месте современной Амарны."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "akhenaten-city",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "14th century BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-city-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Сводка источника: Эхнатон основал новую столицу Ахетатон на месте современной Амарны. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "akhenaten-city",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "14th century BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-city-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Исходное свидетельство сообщает только следующее: Эхнатон основал новую столицу Ахетатон на месте современной Амарны. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "akhenaten-name",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "14th century BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-name-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Публикация «The Met — Art, Architecture, and the City in the Reign of Akhenaten» сообщает: Аменхотеп IV изменил царское имя на Эхнатон.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: Аменхотеп IV изменил царское имя на Эхнатон."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "akhenaten-name",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "14th century BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-name-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Согласно краткому содержанию публикации «The Met — Art, Architecture, and the City in the Reign of Akhenaten»: Аменхотеп IV изменил царское имя на Эхнатон.",
+        "proposed_claim": "В кратком содержании источника описывается: Аменхотеп IV изменил царское имя на Эхнатон."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "akhenaten-name",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "14th century BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-name-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Сводка источника: Аменхотеп IV изменил царское имя на Эхнатон. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "akhenaten-name",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "14th century BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-name-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Исходное свидетельство сообщает только следующее: Аменхотеп IV изменил царское имя на Эхнатон. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "akhenaten-aten",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "14th century BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-aten-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Публикация «The Met — Art, Architecture, and the City in the Reign of Akhenaten» сообщает: При Эхнатоне официальный культ уделял исключительное внимание солнечному божеству Атону.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: При Эхнатоне официальный культ уделял исключительное внимание солнечному божеству Атону."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "akhenaten-aten",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "14th century BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-aten-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Согласно краткому содержанию публикации «The Met — Art, Architecture, and the City in the Reign of Akhenaten»: При Эхнатоне официальный культ уделял исключительное внимание солнечному божеству Атону.",
+        "proposed_claim": "В кратком содержании источника описывается: При Эхнатоне официальный культ уделял исключительное внимание солнечному божеству Атону."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "akhenaten-aten",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "14th century BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-aten-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Сводка источника: При Эхнатоне официальный культ уделял исключительное внимание солнечному божеству Атону. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "akhenaten-aten",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "14th century BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-aten-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Исходное свидетельство сообщает только следующее: При Эхнатоне официальный культ уделял исключительное внимание солнечному божеству Атону. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "akhenaten-intermediary",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "14th century BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-intermediary-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Публикация «The Met — Art, Architecture, and the City in the Reign of Akhenaten» сообщает: Царь и его семья занимали особое посредническое положение в культе Атона.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: Царь и его семья занимали особое посредническое положение в культе Атона."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "akhenaten-intermediary",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "14th century BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-intermediary-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Согласно краткому содержанию публикации «The Met — Art, Architecture, and the City in the Reign of Akhenaten»: Царь и его семья занимали особое посредническое положение в культе Атона.",
+        "proposed_claim": "В кратком содержании источника описывается: Царь и его семья занимали особое посредническое положение в культе Атона."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "akhenaten-intermediary",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "14th century BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-intermediary-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Сводка источника: Царь и его семья занимали особое посредническое положение в культе Атона. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "akhenaten-intermediary",
+      "topic": "Egypt",
+      "source_id": "met-akhenaten",
+      "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+      "source_type": "museum_essay",
+      "date_note": "14th century BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "akhenaten-intermediary-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "museum_essay",
+        "source_title": "The Met — Art, Architecture, and the City in the Reign of Akhenaten",
+        "source_url": "https://www.metmuseum.org/essays/art-architecture-and-the-city-in-the-reign-of-amenhotep-iv-akhenaten-ca-1353-1336-b-c",
+        "excerpt": "Исходное свидетельство сообщает только следующее: Царь и его семья занимали особое посредническое положение в культе Атона. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "hatshepsut-pharaoh",
+      "topic": "Egypt",
+      "source_id": "met-hatshepsut",
+      "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+      "source_type": "museum_catalogue",
+      "date_note": "ca. 1473–1458 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "hatshepsut-pharaoh-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "museum_catalogue",
+        "source_title": "The Met — The Female Pharaoh Hatshepsut",
+        "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+        "excerpt": "Публикация «The Met — The Female Pharaoh Hatshepsut» сообщает: Хатшепсут была женщиной-фараоном XVIII династии Египта.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: Хатшепсут была женщиной-фараоном XVIII династии Египта."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "hatshepsut-pharaoh",
+      "topic": "Egypt",
+      "source_id": "met-hatshepsut",
+      "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+      "source_type": "museum_catalogue",
+      "date_note": "ca. 1473–1458 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "hatshepsut-pharaoh-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "museum_catalogue",
+        "source_title": "The Met — The Female Pharaoh Hatshepsut",
+        "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+        "excerpt": "Согласно краткому содержанию публикации «The Met — The Female Pharaoh Hatshepsut»: Хатшепсут была женщиной-фараоном XVIII династии Египта.",
+        "proposed_claim": "В кратком содержании источника описывается: Хатшепсут была женщиной-фараоном XVIII династии Египта."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "hatshepsut-pharaoh",
+      "topic": "Egypt",
+      "source_id": "met-hatshepsut",
+      "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+      "source_type": "museum_catalogue",
+      "date_note": "ca. 1473–1458 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "hatshepsut-pharaoh-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "museum_catalogue",
+        "source_title": "The Met — The Female Pharaoh Hatshepsut",
+        "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+        "excerpt": "Сводка источника: Хатшепсут была женщиной-фараоном XVIII династии Египта. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "hatshepsut-pharaoh",
+      "topic": "Egypt",
+      "source_id": "met-hatshepsut",
+      "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+      "source_type": "museum_catalogue",
+      "date_note": "ca. 1473–1458 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "hatshepsut-pharaoh-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "museum_catalogue",
+        "source_title": "The Met — The Female Pharaoh Hatshepsut",
+        "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+        "excerpt": "Исходное свидетельство сообщает только следующее: Хатшепсут была женщиной-фараоном XVIII династии Египта. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "hatshepsut-statues",
+      "topic": "Egypt",
+      "source_id": "met-hatshepsut",
+      "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+      "source_type": "museum_catalogue",
+      "date_note": "ca. 1473–1458 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "hatshepsut-statues-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "museum_catalogue",
+        "source_title": "The Met — The Female Pharaoh Hatshepsut",
+        "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+        "excerpt": "Публикация «The Met — The Female Pharaoh Hatshepsut» сообщает: Некоторые статуи Хатшепсут следуют традиционной мужской иконографии фараона.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: Некоторые статуи Хатшепсут следуют традиционной мужской иконографии фараона."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "hatshepsut-statues",
+      "topic": "Egypt",
+      "source_id": "met-hatshepsut",
+      "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+      "source_type": "museum_catalogue",
+      "date_note": "ca. 1473–1458 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "hatshepsut-statues-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "museum_catalogue",
+        "source_title": "The Met — The Female Pharaoh Hatshepsut",
+        "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+        "excerpt": "Согласно краткому содержанию публикации «The Met — The Female Pharaoh Hatshepsut»: Некоторые статуи Хатшепсут следуют традиционной мужской иконографии фараона.",
+        "proposed_claim": "В кратком содержании источника описывается: Некоторые статуи Хатшепсут следуют традиционной мужской иконографии фараона."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "hatshepsut-statues",
+      "topic": "Egypt",
+      "source_id": "met-hatshepsut",
+      "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+      "source_type": "museum_catalogue",
+      "date_note": "ca. 1473–1458 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "hatshepsut-statues-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "museum_catalogue",
+        "source_title": "The Met — The Female Pharaoh Hatshepsut",
+        "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+        "excerpt": "Сводка источника: Некоторые статуи Хатшепсут следуют традиционной мужской иконографии фараона. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "hatshepsut-statues",
+      "topic": "Egypt",
+      "source_id": "met-hatshepsut",
+      "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+      "source_type": "museum_catalogue",
+      "date_note": "ca. 1473–1458 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "hatshepsut-statues-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "museum_catalogue",
+        "source_title": "The Met — The Female Pharaoh Hatshepsut",
+        "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+        "excerpt": "Исходное свидетельство сообщает только следующее: Некоторые статуи Хатшепсут следуют традиционной мужской иконографии фараона. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    },
+    {
+      "anchor_id": "hatshepsut-name",
+      "topic": "Egypt",
+      "source_id": "met-hatshepsut",
+      "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+      "source_type": "museum_catalogue",
+      "date_note": "ca. 1473–1458 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "hatshepsut-name-attestation",
+      "variant": "attestation",
+      "state": {
+        "source_type": "museum_catalogue",
+        "source_title": "The Met — The Female Pharaoh Hatshepsut",
+        "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+        "excerpt": "Публикация «The Met — The Female Pharaoh Hatshepsut» сообщает: Надписи на статуях сохраняли имя Хатшепсут или женские грамматические формы.",
+        "proposed_claim": "Указанный источник содержит следующее сообщение: Надписи на статуях сохраняли имя Хатшепсут или женские грамматические формы."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверяет, отличает ли модель факт высказывания источника от объективной достоверности высказывания."
+    },
+    {
+      "anchor_id": "hatshepsut-name",
+      "topic": "Egypt",
+      "source_id": "met-hatshepsut",
+      "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+      "source_type": "museum_catalogue",
+      "date_note": "ca. 1473–1458 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "hatshepsut-name-exact_subject",
+      "variant": "exact_subject",
+      "state": {
+        "source_type": "museum_catalogue",
+        "source_title": "The Met — The Female Pharaoh Hatshepsut",
+        "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+        "excerpt": "Согласно краткому содержанию публикации «The Met — The Female Pharaoh Hatshepsut»: Надписи на статуях сохраняли имя Хатшепсут или женские грамматические формы.",
+        "proposed_claim": "В кратком содержании источника описывается: Надписи на статуях сохраняли имя Хатшепсут или женские грамматические формы."
+      },
+      "expected": "directly_documented",
+      "annotation_note": "Проверка прямого смыслового соответствия перефразировок."
+    },
+    {
+      "anchor_id": "hatshepsut-name",
+      "topic": "Egypt",
+      "source_id": "met-hatshepsut",
+      "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+      "source_type": "museum_catalogue",
+      "date_note": "ca. 1473–1458 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "hatshepsut-name-hypothesis",
+      "variant": "hypothesis",
+      "state": {
+        "source_type": "museum_catalogue",
+        "source_title": "The Met — The Female Pharaoh Hatshepsut",
+        "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+        "excerpt": "Сводка источника: Надписи на статуях сохраняли имя Хатшепсут или женские грамматические формы. Возможная дополнительная интерпретация исследователя: это часть единой скрытой программы влияния. Прямого свидетельства координации в приведённой сводке нет.",
+        "proposed_claim": "Упомянутая единая скрытая программа влияния существовала."
+      },
+      "expected": "interpretation_only",
+      "annotation_note": "Это специально сконструированная модель интерпретации, а не утверждение реального историка."
+    },
+    {
+      "anchor_id": "hatshepsut-name",
+      "topic": "Egypt",
+      "source_id": "met-hatshepsut",
+      "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+      "source_type": "museum_catalogue",
+      "date_note": "ca. 1473–1458 BCE",
+      "generation_method": "source_anchored_test_transformation",
+      "human_gold_reviewed": false,
+      "source_summary_is_paraphrase": true,
+      "id": "hatshepsut-name-unsupported",
+      "variant": "unsupported",
+      "state": {
+        "source_type": "museum_catalogue",
+        "source_title": "The Met — The Female Pharaoh Hatshepsut",
+        "source_url": "https://www.metmuseum.org/art/collection/search/544849",
+        "excerpt": "Исходное свидетельство сообщает только следующее: Надписи на статуях сохраняли имя Хатшепсут или женские грамматические формы. Сведений об авторстве неизвестных посланий, тайных мотивах и договорных действиях третьих лиц здесь нет.",
+        "proposed_claim": "Этот источник доказывает, что неизвестные участники координировали тайный заговор."
+      },
+      "expected": "insufficient_data",
+      "annotation_note": "Нельзя выводить тайный сговор только из соседства фактов или предполагаемого мотива."
+    }
+  ]
+}

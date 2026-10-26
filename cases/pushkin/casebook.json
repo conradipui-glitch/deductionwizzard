@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "case_id": "pushkin-last-duel",
-  "title": "Пушкин: ноябрь 1836 — январь 1837",
-  "scope": "Контрольный корпус для проверки ядра; не полное историческое расследование",
+  "title": "Пушкин: придворные интриги и последняя дуэль, 1833–1837",
+  "scope": "Расширенный документальный корпус: тексты писем, дневника, научные комментарии и хронологический справочник. Описание чужого обвинения НЕ означает доказательство обвиняемого действия.",
   "entities": [
     {
       "id": "pushkin",
@@ -75,6 +75,54 @@
       "name": "Владимир Соллогуб",
       "kind": "person",
       "aliases": []
+    },
+    {
+      "id": "repnin",
+      "name": "Николай Репнин-Волконский",
+      "kind": "person",
+      "aliases": []
+    },
+    {
+      "id": "bogolubov",
+      "name": "Варфоломей Боголюбов",
+      "kind": "person",
+      "aliases": []
+    },
+    {
+      "id": "saveliev",
+      "name": "Пётр Савельев",
+      "kind": "person",
+      "aliases": []
+    },
+    {
+      "id": "grinvald",
+      "name": "Гринвальд (командир кавалергардов)",
+      "kind": "person",
+      "aliases": []
+    },
+    {
+      "id": "archiac",
+      "name": "Оливье д’Аршиак",
+      "kind": "person",
+      "aliases": []
+    },
+    {
+      "id": "zhukovsky",
+      "name": "Василий Жуковский",
+      "kind": "person",
+      "aliases": []
+    },
+    {
+      "id": "sheremetev",
+      "name": "Дмитрий Шереметев",
+      "kind": "person",
+      "aliases": []
+    },
+    {
+      "id": "danzas",
+      "name": "Константин Данзас",
+      "kind": "person",
+      "aliases": []
     }
   ],
   "sources": [
@@ -123,6 +171,168 @@
         "src-letter-1836"
       ],
       "note": "Прямо опирается на письмо; не является независимым свидетелем содержания письма"
+    },
+    {
+      "id": "src-wife-oct11",
+      "title": "Пушкин → Н. Н. Пушкиной, 11 октября 1833",
+      "type": "primary",
+      "locator": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1833/1724_536.htm",
+      "created": {
+        "year": 1833,
+        "month": 10,
+        "day": 23
+      },
+      "derived_from": [],
+      "note": "Упоминание царя отражает выражение Пушкина, а не доказанный роман."
+    },
+    {
+      "id": "src-wife-oct30",
+      "title": "Пушкин → Н. Н. Пушкиной, 30 октября 1833",
+      "type": "primary",
+      "locator": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1833/1726_538.htm",
+      "created": {
+        "year": 1833,
+        "month": 11,
+        "day": 11
+      },
+      "derived_from": [],
+      "note": "Открытое приветствие Полетике, переданное через жену."
+    },
+    {
+      "id": "src-diary-1834",
+      "title": "Пушкин: дневниковая запись, 1 января 1834",
+      "type": "primary",
+      "locator": "https://rvb.ru/pushkin/01text/08history/03memoires/1160.htm",
+      "created": {
+        "year": 1834,
+        "month": 1,
+        "day": 13
+      },
+      "derived_from": [],
+      "note": "Личная оценка причины назначения камер-юнкером."
+    },
+    {
+      "id": "src-lucullus-poem",
+      "title": "Пушкин: «На выздоровление Лукулла», 1835",
+      "type": "primary",
+      "locator": "https://rvb.ru/pushkin/01text/01versus/0423_36/1835/0607.htm",
+      "created": null,
+      "derived_from": [],
+      "note": "Стихотворение не именует Уварова непосредственно."
+    },
+    {
+      "id": "src-lucullus-annotation",
+      "title": "Т. Г. Цявловская: комментарий к «Лукуллу»",
+      "type": "secondary",
+      "locator": "https://rvb.ru/pushkin/02comm/0607.htm",
+      "created": null,
+      "derived_from": [
+        "src-lucullus-poem"
+      ],
+      "note": "Идентификация Уварова — интерпретация современников, описанная в комментарии."
+    },
+    {
+      "id": "src-repnin-letter",
+      "title": "Пушкин → Н. Г. Репнину, 5 февраля 1836",
+      "type": "primary",
+      "locator": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1872_684.htm",
+      "created": {
+        "year": 1836,
+        "month": 2,
+        "day": 17
+      },
+      "derived_from": [],
+      "note": "Подтверждает сообщение Пушкина о слухе, не подтверждает слова Репнина."
+    },
+    {
+      "id": "src-repnin-reply",
+      "title": "Пушкин → Н. Г. Репнину, 11 февраля 1836",
+      "type": "primary",
+      "locator": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1874_686.htm",
+      "created": {
+        "year": 1836,
+        "month": 2,
+        "day": 23
+      },
+      "derived_from": [],
+      "note": "Свидетельство о состоявшемся ответе Репнина и примирительном тоне Пушкина."
+    },
+    {
+      "id": "src-repnin-annotation",
+      "title": "И. М. Семенко: комментарий к переписке с Репниным",
+      "type": "secondary",
+      "locator": "https://rvb.ru/pushkin/02comm/1872_684.htm",
+      "created": null,
+      "derived_from": [
+        "src-repnin-letter"
+      ],
+      "note": "Боголюбов связывается с Уваровым; не независимое свидетельство самой речи Репнина."
+    },
+    {
+      "id": "src-idalia-may",
+      "title": "Пушкин → Н. Н. Пушкиной, 6 мая 1836",
+      "type": "primary",
+      "locator": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1897_709.htm",
+      "created": {
+        "year": 1836,
+        "month": 5,
+        "day": 18
+      },
+      "derived_from": [],
+      "note": "Сообщает о московских слухах про Идалию и Савельева; не свидетельство о реальной пощёчине."
+    },
+    {
+      "id": "src-heckern-draft",
+      "title": "Пушкин → Л. Геккерну, проект письма 17–21 ноября 1836",
+      "type": "primary",
+      "locator": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1936_748.htm",
+      "created": null,
+      "derived_from": [],
+      "note": "Черновой/неотправленный текст с диапазоном дат; нельзя трактовать как вручённое письмо."
+    },
+    {
+      "id": "src-heckern-reply",
+      "title": "Геккерн → Пушкину, с пометой Дантеса, 26 января 1837",
+      "type": "primary",
+      "locator": "https://as-pushkin.net/pushkin/pisma/pushkinu-1363.php",
+      "created": {
+        "year": 1837,
+        "month": 2,
+        "day": 7
+      },
+      "derived_from": [],
+      "note": "По опубликованному подлиннику военно-судного дела; ответный вызов и одобрение Дантеса."
+    },
+    {
+      "id": "src-archiac-jan27",
+      "title": "Пушкин → д’Аршиаку, 27 января 1837",
+      "type": "primary",
+      "locator": "https://www.as-pushkin.net/pushkin/pisma/785.htm",
+      "created": {
+        "year": 1837,
+        "month": 2,
+        "day": 8
+      },
+      "derived_from": [],
+      "note": "Отказ от дальнейших переговоров; подтверждает позицию поэта, а не организованный заговор."
+    },
+    {
+      "id": "src-lermontov-comment",
+      "title": "Научный комментарий к «Смерти поэта» Лермонтова",
+      "type": "secondary",
+      "locator": "https://rvb.ru/19vek/lermontov/ss4/vol1/notes/334.html",
+      "created": null,
+      "derived_from": [],
+      "note": "Издания, списки текста, варианты датировок и судьба обвинительных строк."
+    },
+    {
+      "id": "src-prlib-duel",
+      "title": "Президентская библиотека: «Нет, весь я не умру...»",
+      "type": "secondary",
+      "locator": "https://www.prlib.ru/news/1330708",
+      "created": null,
+      "derived_from": [],
+      "note": "Обзор архивных документов и хронологии последних дней; вторичный источник."
     }
   ],
   "claims": [
@@ -293,6 +503,309 @@
           "source_id": "src-letter-1836",
           "stance": "supports",
           "locator": "Письмо именует Наталью супругой Пушкина"
+        }
+      ]
+    },
+    {
+      "id": "c-1833-king",
+      "text": "В письме 11 октября 1833 года Пушкин просил Наталью не кокетничать с царём.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "natalia",
+        "nicholas1"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-wife-oct11",
+          "stance": "supports",
+          "locator": "Текст письма от 11 октября 1833"
+        }
+      ]
+    },
+    {
+      "id": "c-1833-idalia",
+      "text": "Пушкин 30 октября 1833 года просил жену передать Идалии игривое обещание явиться лично за поцелуем.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "natalia",
+        "idalia"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-wife-oct30",
+          "stance": "supports",
+          "locator": "Заключительные строки письма"
+        }
+      ]
+    },
+    {
+      "id": "c-1834-court",
+      "text": "В дневнике Пушкин связывает своё камер-юнкерство с желанием двора видеть Наталью на балах.",
+      "kind": "attribution",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "natalia",
+        "nicholas1"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-diary-1834",
+          "stance": "supports",
+          "locator": "Запись 1 января 1834"
+        }
+      ]
+    },
+    {
+      "id": "c-1835-lucullus",
+      "text": "В 1835 году Пушкин написал сатиру «На выздоровление Лукулла» о жадном наследнике.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-lucullus-poem",
+          "stance": "supports",
+          "locator": "Текст сатиры, датировка по собранию"
+        }
+      ]
+    },
+    {
+      "id": "c-lucullus-uvarov",
+      "text": "Литературоведческий комментарий связывает сатиру с министром Сергеем Уваровым; сам текст не называет министра.",
+      "kind": "attribution",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "uvarov",
+        "sheremetev"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-lucullus-annotation",
+          "stance": "supports",
+          "locator": "Комментарий к стихотворению"
+        }
+      ]
+    },
+    {
+      "id": "c-1836-journal",
+      "text": "В январе 1836 года Николай I разрешил Пушкину издавать журнал с предварительной цензурой.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "nicholas1",
+        "benckendorff",
+        "uvarov"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-chronology",
+          "stance": "supports",
+          "locator": "1836, 14 января"
+        }
+      ]
+    },
+    {
+      "id": "c-1836-sollogub",
+      "text": "В начале 1836 года обсуждался вызов на дуэль Соллогуба после светского разговора с Натальей; состоялось примирение.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "sollogub",
+        "natalia"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-chronology",
+          "stance": "supports",
+          "locator": "1836, январь–май, записи о вызове и примирении"
+        }
+      ]
+    },
+    {
+      "id": "c-1836-repnin",
+      "text": "5 февраля 1836 Пушкин письменно спросил Репнина о якобы оскорбительных высказываниях, пересказанных Боголюбовым.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "repnin",
+        "bogolubov"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-repnin-letter",
+          "stance": "supports",
+          "locator": "Письмо 5 февраля, упоминание Bogolubof"
+        }
+      ]
+    },
+    {
+      "id": "c-1836-repnin-reconcile",
+      "text": "11 февраля 1836 года Пушкин благодарил Репнина за ответ и признавал недопустимость личных оскорблений.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "repnin"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-repnin-reply",
+          "stance": "supports",
+          "locator": "Письмо 11 февраля 1836"
+        }
+      ]
+    },
+    {
+      "id": "c-bogolubov-uvarov",
+      "text": "Научный комментарий относит Боголюбова к окружению Уварова.",
+      "kind": "attribution",
+      "status": "attested",
+      "about": [
+        "bogolubov",
+        "uvarov"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-repnin-annotation",
+          "stance": "supports",
+          "locator": "Примечание Семенко"
+        }
+      ]
+    },
+    {
+      "id": "c-1836-idalia-rumor",
+      "text": "Пушкин пересказал жене московский слух о Савельеве, Гринвальде и Идалии; достоверность самой пощёчины этим письмом не установлена.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "natalia",
+        "idalia",
+        "saveliev",
+        "grinvald"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-idalia-may",
+          "stance": "supports",
+          "locator": "Письмо 6 мая 1836; описание московских разговоров"
+        }
+      ]
+    },
+    {
+      "id": "c-1836-heckern-draft",
+      "text": "Сохранился проект оскорбительного письма Пушкина Геккерну, датируемый 17–21 ноября 1836 года.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "heckern"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-heckern-draft",
+          "stance": "supports",
+          "locator": "Опубликованный неотправленный текст"
+        }
+      ]
+    },
+    {
+      "id": "c-1837-ball",
+      "text": "22 января 1837 года Наталья на балу танцевала с Дантесом; событие приводится в хронологическом справочнике.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "natalia",
+        "dantes",
+        "pushkin"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-chronology",
+          "stance": "supports",
+          "locator": "1837, запись 22 января"
+        }
+      ]
+    },
+    {
+      "id": "c-1837-reply",
+      "text": "26 января 1837 года Геккерн письменно сообщил о предстоящей дуэли, Дантес одобрил содержание подписью.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "heckern",
+        "dantes",
+        "pushkin"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-heckern-reply",
+          "stance": "supports",
+          "locator": "Судебный документ, помета «Lu et approuvé»"
+        }
+      ]
+    },
+    {
+      "id": "c-1837-archiac",
+      "text": "27 января Пушкин отказался от дальнейших переговоров с секундантом Дантеса д’Аршиаком.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "archiac"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-archiac-jan27",
+          "stance": "supports",
+          "locator": "Письмо Пушкина 27 января"
+        }
+      ]
+    },
+    {
+      "id": "c-1837-danzas",
+      "text": "Данзас выступал секундантом Пушкина, д’Аршиак — Дантеса.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "dantes",
+        "danzas",
+        "archiac"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-prlib-duel",
+          "stance": "supports",
+          "locator": "Публикация Президентской библиотеки, описание переговоров секундантов"
+        }
+      ]
+    },
+    {
+      "id": "c-1837-lermontov",
+      "text": "Вскоре после гибели Пушкина Лермонтов написал «Смерть поэта», обвинявшее также общество вокруг власти.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "lermontov",
+        "pushkin"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-lermontov-comment",
+          "stance": "supports",
+          "locator": "Научный комментарий; датировка версий стихотворения"
         }
       ]
     }
@@ -481,6 +994,440 @@
       "claim_ids": [
         "claim-death"
       ]
+    },
+    {
+      "id": "event-king-letter",
+      "title": "Письмо о кокетстве с царём",
+      "time": {
+        "earliest": {
+          "year": 1833,
+          "month": 10,
+          "day": 23
+        },
+        "latest": {
+          "year": 1833,
+          "month": 10,
+          "day": 23
+        },
+        "precision": "day",
+        "original": "11 октября 1833 (старый стиль)",
+        "normalization": "Даты в письмах: юлианский старый стиль; +12 дней при переводе к григорианскому календарю. Диапазоны сохранены."
+      },
+      "actors": [
+        "pushkin",
+        "natalia",
+        "nicholas1"
+      ],
+      "claim_ids": [
+        "c-1833-king"
+      ]
+    },
+    {
+      "id": "event-idalia-greeting",
+      "title": "Привет Идалии через Наталью",
+      "time": {
+        "earliest": {
+          "year": 1833,
+          "month": 11,
+          "day": 11
+        },
+        "latest": {
+          "year": 1833,
+          "month": 11,
+          "day": 11
+        },
+        "precision": "day",
+        "original": "30 октября 1833 (старый стиль)",
+        "normalization": "Даты в письмах: юлианский старый стиль; +12 дней при переводе к григорианскому календарю. Диапазоны сохранены."
+      },
+      "actors": [
+        "pushkin",
+        "natalia",
+        "idalia"
+      ],
+      "claim_ids": [
+        "c-1833-idalia"
+      ]
+    },
+    {
+      "id": "event-diary-court",
+      "title": "Дневник о камер-юнкерстве",
+      "time": {
+        "earliest": {
+          "year": 1834,
+          "month": 1,
+          "day": 13
+        },
+        "latest": {
+          "year": 1834,
+          "month": 1,
+          "day": 13
+        },
+        "precision": "day",
+        "original": "1 января 1834 (старый стиль)",
+        "normalization": "Даты в письмах: юлианский старый стиль; +12 дней при переводе к григорианскому календарю. Диапазоны сохранены."
+      },
+      "actors": [
+        "pushkin",
+        "natalia",
+        "nicholas1"
+      ],
+      "claim_ids": [
+        "c-1834-court"
+      ]
+    },
+    {
+      "id": "event-lucullus",
+      "title": "Сатира «На выздоровление Лукулла»",
+      "time": {
+        "earliest": {
+          "year": 1835,
+          "month": 1,
+          "day": 13
+        },
+        "latest": {
+          "year": 1836,
+          "month": 1,
+          "day": 12
+        },
+        "precision": "year",
+        "original": "1835 год (точный день не указан; связь с Уваровым — поздний комментарий)",
+        "normalization": "Даты в письмах: юлианский старый стиль; +12 дней при переводе к григорианскому календарю. Диапазоны сохранены."
+      },
+      "actors": [
+        "pushkin",
+        "uvarov",
+        "sheremetev"
+      ],
+      "claim_ids": [
+        "c-1835-lucullus",
+        "c-lucullus-uvarov"
+      ]
+    },
+    {
+      "id": "event-journal-permission",
+      "title": "Разрешение издавать журнал",
+      "time": {
+        "earliest": {
+          "year": 1836,
+          "month": 1,
+          "day": 26
+        },
+        "latest": {
+          "year": 1836,
+          "month": 1,
+          "day": 26
+        },
+        "precision": "day",
+        "original": "14 января 1836 (старый стиль)",
+        "normalization": "Даты в письмах: юлианский старый стиль; +12 дней при переводе к григорианскому календарю. Диапазоны сохранены."
+      },
+      "actors": [
+        "pushkin",
+        "nicholas1",
+        "benckendorff",
+        "uvarov"
+      ],
+      "claim_ids": [
+        "c-1836-journal"
+      ]
+    },
+    {
+      "id": "event-sollogub-attempt",
+      "title": "Разговоры о вызове Соллогуба",
+      "time": {
+        "earliest": {
+          "year": 1836,
+          "month": 1,
+          "day": 13
+        },
+        "latest": {
+          "year": 1836,
+          "month": 2,
+          "day": 26
+        },
+        "precision": "range",
+        "original": "Январь — начало февраля 1836; точная последовательность в хронологии",
+        "normalization": "Даты в письмах: юлианский старый стиль; +12 дней при переводе к григорианскому календарю. Диапазоны сохранены."
+      },
+      "actors": [
+        "pushkin",
+        "sollogub",
+        "natalia"
+      ],
+      "claim_ids": [
+        "c-1836-sollogub"
+      ]
+    },
+    {
+      "id": "event-repnin-letter",
+      "title": "Письмо Репнину о словах Боголюбова",
+      "time": {
+        "earliest": {
+          "year": 1836,
+          "month": 2,
+          "day": 17
+        },
+        "latest": {
+          "year": 1836,
+          "month": 2,
+          "day": 17
+        },
+        "precision": "day",
+        "original": "5 февраля 1836 (старый стиль)",
+        "normalization": "Даты в письмах: юлианский старый стиль; +12 дней при переводе к григорианскому календарю. Диапазоны сохранены."
+      },
+      "actors": [
+        "pushkin",
+        "repnin",
+        "bogolubov"
+      ],
+      "claim_ids": [
+        "c-1836-repnin",
+        "c-bogolubov-uvarov"
+      ]
+    },
+    {
+      "id": "event-repnin-reply",
+      "title": "Примирительный ответ Репнину",
+      "time": {
+        "earliest": {
+          "year": 1836,
+          "month": 2,
+          "day": 23
+        },
+        "latest": {
+          "year": 1836,
+          "month": 2,
+          "day": 23
+        },
+        "precision": "day",
+        "original": "11 февраля 1836 (старый стиль)",
+        "normalization": "Даты в письмах: юлианский старый стиль; +12 дней при переводе к григорианскому календарю. Диапазоны сохранены."
+      },
+      "actors": [
+        "pushkin",
+        "repnin"
+      ],
+      "claim_ids": [
+        "c-1836-repnin-reconcile"
+      ]
+    },
+    {
+      "id": "event-idalia-rumor",
+      "title": "Пушкин пересказывает слух об Идалии",
+      "time": {
+        "earliest": {
+          "year": 1836,
+          "month": 5,
+          "day": 18
+        },
+        "latest": {
+          "year": 1836,
+          "month": 5,
+          "day": 18
+        },
+        "precision": "day",
+        "original": "6 мая 1836 (старый стиль; содержание рассказа — слух)",
+        "normalization": "Даты в письмах: юлианский старый стиль; +12 дней при переводе к григорианскому календарю. Диапазоны сохранены."
+      },
+      "actors": [
+        "pushkin",
+        "idalia",
+        "saveliev",
+        "grinvald",
+        "natalia"
+      ],
+      "claim_ids": [
+        "c-1836-idalia-rumor"
+      ]
+    },
+    {
+      "id": "event-heckern-draft",
+      "title": "Неотправленный проект письма Геккерну",
+      "time": {
+        "earliest": {
+          "year": 1836,
+          "month": 11,
+          "day": 29
+        },
+        "latest": {
+          "year": 1836,
+          "month": 12,
+          "day": 3
+        },
+        "precision": "range",
+        "original": "17–21 ноября 1836 (старый стиль, диапазон датировки)",
+        "normalization": "Даты в письмах: юлианский старый стиль; +12 дней при переводе к григорианскому календарю. Диапазоны сохранены."
+      },
+      "actors": [
+        "pushkin",
+        "heckern"
+      ],
+      "claim_ids": [
+        "c-1836-heckern-draft"
+      ]
+    },
+    {
+      "id": "event-benckendorff-letter",
+      "title": "Обвинение Геккерна в письме Бенкендорфу",
+      "time": {
+        "earliest": {
+          "year": 1836,
+          "month": 12,
+          "day": 3
+        },
+        "latest": {
+          "year": 1836,
+          "month": 12,
+          "day": 3
+        },
+        "precision": "day",
+        "original": "21 ноября 1836 (старый стиль)",
+        "normalization": "Даты в письмах: юлианский старый стиль; +12 дней при переводе к григорианскому календарю. Диапазоны сохранены."
+      },
+      "actors": [
+        "pushkin",
+        "heckern",
+        "benckendorff"
+      ],
+      "claim_ids": [
+        "claim-blames"
+      ]
+    },
+    {
+      "id": "event-ball-jan22",
+      "title": "Бал: Наталья танцует с Дантесом",
+      "time": {
+        "earliest": {
+          "year": 1837,
+          "month": 2,
+          "day": 3
+        },
+        "latest": {
+          "year": 1837,
+          "month": 2,
+          "day": 3
+        },
+        "precision": "day",
+        "original": "22 января 1837 (старый стиль)",
+        "normalization": "Даты в письмах: юлианский старый стиль; +12 дней при переводе к григорианскому календарю. Диапазоны сохранены."
+      },
+      "actors": [
+        "pushkin",
+        "natalia",
+        "dantes"
+      ],
+      "claim_ids": [
+        "c-1837-ball"
+      ]
+    },
+    {
+      "id": "event-heckern-reply",
+      "title": "Письменный ответ Геккерна и Дантеса",
+      "time": {
+        "earliest": {
+          "year": 1837,
+          "month": 2,
+          "day": 7
+        },
+        "latest": {
+          "year": 1837,
+          "month": 2,
+          "day": 7
+        },
+        "precision": "day",
+        "original": "26 января 1837 (старый стиль)",
+        "normalization": "Даты в письмах: юлианский старый стиль; +12 дней при переводе к григорианскому календарю. Диапазоны сохранены."
+      },
+      "actors": [
+        "pushkin",
+        "heckern",
+        "dantes"
+      ],
+      "claim_ids": [
+        "c-1837-reply"
+      ]
+    },
+    {
+      "id": "event-archiac-correspondence",
+      "title": "Пушкин отвергает переговоры",
+      "time": {
+        "earliest": {
+          "year": 1837,
+          "month": 2,
+          "day": 8
+        },
+        "latest": {
+          "year": 1837,
+          "month": 2,
+          "day": 8
+        },
+        "precision": "day",
+        "original": "27 января 1837 (старый стиль)",
+        "normalization": "Даты в письмах: юлианский старый стиль; +12 дней при переводе к григорианскому календарю. Диапазоны сохранены."
+      },
+      "actors": [
+        "pushkin",
+        "archiac"
+      ],
+      "claim_ids": [
+        "c-1837-archiac"
+      ]
+    },
+    {
+      "id": "event-second-men",
+      "title": "Секунданты готовят условия дуэли",
+      "time": {
+        "earliest": {
+          "year": 1837,
+          "month": 2,
+          "day": 8
+        },
+        "latest": {
+          "year": 1837,
+          "month": 2,
+          "day": 8
+        },
+        "precision": "day",
+        "original": "27 января 1837 (старый стиль)",
+        "normalization": "Даты в письмах: юлианский старый стиль; +12 дней при переводе к григорианскому календарю. Диапазоны сохранены."
+      },
+      "actors": [
+        "danzas",
+        "archiac",
+        "pushkin",
+        "dantes"
+      ],
+      "claim_ids": [
+        "c-1837-danzas"
+      ]
+    },
+    {
+      "id": "event-lermontov-poem",
+      "title": "Лермонтов: «Смерть поэта»",
+      "time": {
+        "earliest": {
+          "year": 1837,
+          "month": 2,
+          "day": 10
+        },
+        "latest": {
+          "year": 1837,
+          "month": 2,
+          "day": 24
+        },
+        "precision": "range",
+        "original": "После гибели Пушкина, конец января — начало февраля 1837 (диапазон)",
+        "normalization": "Даты в письмах: юлианский старый стиль; +12 дней при переводе к григорианскому календарю. Диапазоны сохранены."
+      },
+      "actors": [
+        "lermontov",
+        "pushkin"
+      ],
+      "claim_ids": [
+        "c-1837-lermontov"
+      ]
     }
   ],
   "relations": [
@@ -552,6 +1499,69 @@
       "claim_id": "claim-audience",
       "stance": "compatible",
       "rationale": "Приём Пушкина у Николая I не устанавливает политического организатора пасквиля."
+    },
+    {
+      "id": "as-idalia-greeting",
+      "hypothesis_id": "h-idalia",
+      "claim_id": "c-1833-idalia",
+      "stance": "compatible",
+      "rationale": "Игривое обращение подтверждает знакомство, но не чувства или авторство анонимки."
+    },
+    {
+      "id": "as-idalia-may",
+      "hypothesis_id": "h-idalia",
+      "claim_id": "c-1836-idalia-rumor",
+      "stance": "unknown",
+      "rationale": "Пересказ слуха не сообщает об авторстве пасквиля и не устанавливает личную месть."
+    },
+    {
+      "id": "as-heckern-project",
+      "hypothesis_id": "h-heckern",
+      "claim_id": "c-1836-heckern-draft",
+      "stance": "compatible",
+      "rationale": "Черновик подтверждает конфликт между Пушкиным и Геккерном, но не организацию пасквиля."
+    },
+    {
+      "id": "as-heckern-answer",
+      "hypothesis_id": "h-heckern",
+      "claim_id": "c-1837-reply",
+      "stance": "compatible",
+      "rationale": "Ответ показывает участие семьи Геккернов в дуэльном конфликте; не подтверждает рассылку анонимок."
+    },
+    {
+      "id": "as-court-1833",
+      "hypothesis_id": "h-court",
+      "claim_id": "c-1833-king",
+      "stance": "compatible",
+      "rationale": "Шутливо-ревнивое письмо указывает на тему двора, а не на организованную операцию."
+    },
+    {
+      "id": "as-court-1834",
+      "hypothesis_id": "h-court",
+      "claim_id": "c-1834-court",
+      "stance": "compatible",
+      "rationale": "Дневник свидетельствует об отношении Пушкина к двору, не о политической кампании против него."
+    },
+    {
+      "id": "as-court-lucullus",
+      "hypothesis_id": "h-court",
+      "claim_id": "c-lucullus-uvarov",
+      "stance": "compatible",
+      "rationale": "Конфликт вокруг сатиры имеет публичный контекст, но не документирует участие Уварова в анонимной рассылке."
+    },
+    {
+      "id": "as-court-repnin",
+      "hypothesis_id": "h-court",
+      "claim_id": "c-1836-repnin",
+      "stance": "unknown",
+      "rationale": "Боголюбов фигурирует в ином конфликте; не показано участие в ноябрьской анонимке."
+    },
+    {
+      "id": "as-court-lermontov",
+      "hypothesis_id": "h-court",
+      "claim_id": "c-1837-lermontov",
+      "stance": "compatible",
+      "rationale": "Поэтическое обвинение придворной среды не является прямым свидетельством тайной координации."
     }
   ]
 }

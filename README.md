@@ -7,6 +7,7 @@ A reproducible investigation engine for timelines, sources, actors, conflicting 
 We evaluate OpenRouter **Decisions** models, not chat/completions models. They consume structured `state` + typed `questions` and output probabilities/choices with no narrative reasoning. The authoritative record remains **documents and independently reviewable claims**, never a model probability.
 
 - [Current review / preliminary fit ranking](research/DECISION_MODELS_2026-10-26.md)
+- [Live 24-request evaluation: 23/24 label matches, total $0.000460814](research/SMOKE_RESULTS_2026-10-26.md)
 - [Model roles and safeguards](docs/DECISION_ARCHITECTURE.md)
 - [Reproducible benchmark fixtures](benchmark/fixtures.json)
 - [Python standard-library benchmark](tools/decision_bench.py)

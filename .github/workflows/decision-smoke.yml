@@ -30,7 +30,7 @@ jobs:
       - name: Execute a single bounded pilot using repository secret
         env:
           DECIS_API: ${{ secrets.DECIS_API }}
-        run: python tools/decision_bench.py --run --max-calls 12 --out benchmark/results/smoke.json
+        run: python tools/decision_bench.py --run --max-calls 24 --out benchmark/results/smoke.json
       - name: Upload sanitized result (never secrets)
         if: always()
         uses: actions/upload-artifact@v4

@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "case_id": "replace-me",
+  "title": "New investigation",
+  "scope": "Describe a bounded research question and the corpus to inspect",
+  "entities": [],
+  "sources": [],
+  "claims": [],
+  "events": [],
+  "relations": [],
+  "hypotheses": [],
+  "assessments": []
+}

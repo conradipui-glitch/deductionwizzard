@@ -1,0 +1,557 @@
+{
+  "schema_version": "1.0",
+  "case_id": "pushkin-last-duel",
+  "title": "Пушкин: ноябрь 1836 — январь 1837",
+  "scope": "Контрольный корпус для проверки ядра; не полное историческое расследование",
+  "entities": [
+    {
+      "id": "pushkin",
+      "name": "Александр Пушкин",
+      "kind": "person",
+      "aliases": []
+    },
+    {
+      "id": "natalia",
+      "name": "Наталья Гончарова-Пушкина",
+      "kind": "person",
+      "aliases": []
+    },
+    {
+      "id": "dantes",
+      "name": "Жорж Дантес",
+      "kind": "person",
+      "aliases": []
+    },
+    {
+      "id": "ekaterina",
+      "name": "Екатерина Гончарова",
+      "kind": "person",
+      "aliases": []
+    },
+    {
+      "id": "heckern",
+      "name": "Луи Геккерн",
+      "kind": "person",
+      "aliases": []
+    },
+    {
+      "id": "nicholas1",
+      "name": "Николай I",
+      "kind": "person",
+      "aliases": []
+    },
+    {
+      "id": "idalia",
+      "name": "Идалия Полетика",
+      "kind": "person",
+      "aliases": []
+    },
+    {
+      "id": "lermontov",
+      "name": "Михаил Лермонтов",
+      "kind": "person",
+      "aliases": []
+    },
+    {
+      "id": "dolgorukov",
+      "name": "Пётр Долгоруков",
+      "kind": "person",
+      "aliases": []
+    },
+    {
+      "id": "uvarov",
+      "name": "Сергей Уваров",
+      "kind": "person",
+      "aliases": []
+    },
+    {
+      "id": "benckendorff",
+      "name": "Александр Бенкендорф",
+      "kind": "person",
+      "aliases": []
+    },
+    {
+      "id": "sollogub",
+      "name": "Владимир Соллогуб",
+      "kind": "person",
+      "aliases": []
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-letter-1836",
+      "title": "Пушкин → Бенкендорфу, 21 ноября 1836",
+      "type": "primary",
+      "locator": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1836/1937_749.htm",
+      "created": {
+        "year": 1836,
+        "month": 12,
+        "day": 3
+      },
+      "derived_from": [],
+      "note": "Критически опубликованное письмо: свидетельствует о заявлении Пушкина, а не об истинности каждого обвинения"
+    },
+    {
+      "id": "src-letter-1837",
+      "title": "Пушкин → Геккерну, 26 января 1837",
+      "type": "primary",
+      "locator": "https://rvb.ru/pushkin/01text/10letters/1831_37/01text/1837/1967_779.htm",
+      "created": {
+        "year": 1837,
+        "month": 2,
+        "day": 7
+      },
+      "derived_from": [],
+      "note": "Современная электронная публикация первичного письма"
+    },
+    {
+      "id": "src-chronology",
+      "title": "М. А. Цявловский: хронологическая канва биографии А. С. Пушкина",
+      "type": "secondary",
+      "locator": "https://rvb.ru/pushkin/bio/pushkin-hronology.htm",
+      "created": null,
+      "derived_from": [],
+      "note": "Вторичный хронологический справочник; не считать независимым подтверждением включённых в него первичных источников"
+    },
+    {
+      "id": "src-comment",
+      "title": "И. М. Семенко: комментарий к письму Бенкендорфу",
+      "type": "secondary",
+      "locator": "https://rvb.ru/pushkin/02comm/1937_749.htm",
+      "created": null,
+      "derived_from": [
+        "src-letter-1836"
+      ],
+      "note": "Прямо опирается на письмо; не является независимым свидетелем содержания письма"
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim-received",
+      "text": "Пушкин сообщил, что утром 4 ноября получил три экземпляра оскорбительного анонимного письма.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-letter-1836",
+          "stance": "supports",
+          "locator": "Первые два абзаца письма; 4 ноября по старому стилю"
+        }
+      ]
+    },
+    {
+      "id": "claim-blames",
+      "text": "Пушкин прямо приписал подготовку анонимных писем Луи Геккерну, но отказался предъявить доказательства.",
+      "kind": "attribution",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "heckern"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-letter-1836",
+          "stance": "supports",
+          "locator": "Конец письма: «я убедился...» и отказ представить доказательства"
+        }
+      ]
+    },
+    {
+      "id": "claim-first-challenge",
+      "text": "5 ноября 1836 года Пушкин послал вызов Дантесу.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "dantes"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-chronology",
+          "stance": "supports",
+          "locator": "Ноябрь 1836, запись 5 ноября"
+        }
+      ]
+    },
+    {
+      "id": "claim-audience",
+      "text": "23 ноября 1836 года состоялась аудиенция Пушкина у Николая I с участием Бенкендорфа.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "nicholas1",
+        "benckendorff"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-chronology",
+          "stance": "supports",
+          "locator": "Ноябрь 1836, запись 23 ноября"
+        }
+      ]
+    },
+    {
+      "id": "claim-marriage",
+      "text": "10 января 1837 года Дантес женился на Екатерине Гончаровой.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "dantes",
+        "ekaterina"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-chronology",
+          "stance": "supports",
+          "locator": "Январь 1837, запись 10 января"
+        }
+      ]
+    },
+    {
+      "id": "claim-final-letter",
+      "text": "26 января 1837 года Пушкин адресовал Луи Геккерну резко оскорбительное письмо.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "heckern"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-letter-1837",
+          "stance": "supports",
+          "locator": "Подпись, дата и содержание письма"
+        }
+      ]
+    },
+    {
+      "id": "claim-second-challenge",
+      "text": "26 января 1837 года в ответ на письмо последовал вызов на дуэль со стороны Дантеса.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "dantes",
+        "heckern"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-chronology",
+          "stance": "supports",
+          "locator": "Январь 1837, запись 26 января"
+        }
+      ]
+    },
+    {
+      "id": "claim-duel",
+      "text": "27 января 1837 года на Чёрной речке произошла дуэль Пушкина и Дантеса.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "dantes"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-chronology",
+          "stance": "supports",
+          "locator": "Январь 1837, запись 27 января"
+        }
+      ]
+    },
+    {
+      "id": "claim-death",
+      "text": "29 января 1837 года Пушкин умер после ранения на дуэли.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-chronology",
+          "stance": "supports",
+          "locator": "Январь 1837, запись 29 января"
+        }
+      ]
+    },
+    {
+      "id": "claim-spouse-pushkin",
+      "text": "Пушкин и Наталья Гончарова состояли в браке к 1836 году.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "pushkin",
+        "natalia"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-letter-1836",
+          "stance": "supports",
+          "locator": "Письмо именует Наталью супругой Пушкина"
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "event-pasquille",
+      "title": "Получение анонимного пасквиля",
+      "time": {
+        "earliest": {
+          "year": 1836,
+          "month": 11,
+          "day": 16
+        },
+        "latest": {
+          "year": 1836,
+          "month": 11,
+          "day": 16
+        },
+        "precision": "day",
+        "original": "4 ноября 1836 (старый стиль)",
+        "normalization": "12-day Julian→Gregorian offset for 19th-century dates; source calendar retained"
+      },
+      "actors": [
+        "pushkin"
+      ],
+      "claim_ids": [
+        "claim-received",
+        "claim-blames"
+      ]
+    },
+    {
+      "id": "event-challenge1",
+      "title": "Первый вызов Дантесу",
+      "time": {
+        "earliest": {
+          "year": 1836,
+          "month": 11,
+          "day": 17
+        },
+        "latest": {
+          "year": 1836,
+          "month": 11,
+          "day": 17
+        },
+        "precision": "day",
+        "original": "5 ноября 1836 (старый стиль)",
+        "normalization": "12-day Julian→Gregorian offset for 19th-century dates; source calendar retained"
+      },
+      "actors": [
+        "pushkin",
+        "dantes"
+      ],
+      "claim_ids": [
+        "claim-first-challenge"
+      ]
+    },
+    {
+      "id": "event-audience",
+      "title": "Приём у Николая I",
+      "time": {
+        "earliest": {
+          "year": 1836,
+          "month": 12,
+          "day": 5
+        },
+        "latest": {
+          "year": 1836,
+          "month": 12,
+          "day": 5
+        },
+        "precision": "day",
+        "original": "23 ноября 1836 (старый стиль)",
+        "normalization": "12-day Julian→Gregorian offset for 19th-century dates; source calendar retained"
+      },
+      "actors": [
+        "pushkin",
+        "nicholas1",
+        "benckendorff"
+      ],
+      "claim_ids": [
+        "claim-audience"
+      ]
+    },
+    {
+      "id": "event-marriage",
+      "title": "Свадьба Дантеса и Екатерины",
+      "time": {
+        "earliest": {
+          "year": 1837,
+          "month": 1,
+          "day": 22
+        },
+        "latest": {
+          "year": 1837,
+          "month": 1,
+          "day": 22
+        },
+        "precision": "day",
+        "original": "10 января 1837 (старый стиль)",
+        "normalization": "12-day Julian→Gregorian offset for 19th-century dates; source calendar retained"
+      },
+      "actors": [
+        "dantes",
+        "ekaterina"
+      ],
+      "claim_ids": [
+        "claim-marriage"
+      ]
+    },
+    {
+      "id": "event-ultimatum",
+      "title": "Последнее письмо Пушкина и ответный вызов",
+      "time": {
+        "earliest": {
+          "year": 1837,
+          "month": 2,
+          "day": 7
+        },
+        "latest": {
+          "year": 1837,
+          "month": 2,
+          "day": 7
+        },
+        "precision": "day",
+        "original": "26 января 1837 (старый стиль)",
+        "normalization": "12-day Julian→Gregorian offset for 19th-century dates; source calendar retained"
+      },
+      "actors": [
+        "pushkin",
+        "dantes",
+        "heckern"
+      ],
+      "claim_ids": [
+        "claim-final-letter",
+        "claim-second-challenge"
+      ]
+    },
+    {
+      "id": "event-duel",
+      "title": "Дуэль на Чёрной речке",
+      "time": {
+        "earliest": {
+          "year": 1837,
+          "month": 2,
+          "day": 8
+        },
+        "latest": {
+          "year": 1837,
+          "month": 2,
+          "day": 8
+        },
+        "precision": "day",
+        "original": "27 января 1837 (старый стиль)",
+        "normalization": "12-day Julian→Gregorian offset for 19th-century dates; source calendar retained"
+      },
+      "actors": [
+        "pushkin",
+        "dantes"
+      ],
+      "claim_ids": [
+        "claim-duel"
+      ]
+    },
+    {
+      "id": "event-death",
+      "title": "Смерть Пушкина",
+      "time": {
+        "earliest": {
+          "year": 1837,
+          "month": 2,
+          "day": 10
+        },
+        "latest": {
+          "year": 1837,
+          "month": 2,
+          "day": 10
+        },
+        "precision": "day",
+        "original": "29 января 1837 (старый стиль)",
+        "normalization": "12-day Julian→Gregorian offset for 19th-century dates; source calendar retained"
+      },
+      "actors": [
+        "pushkin"
+      ],
+      "claim_ids": [
+        "claim-death"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "relation-pushkin-marriage",
+      "from_id": "pushkin",
+      "to_id": "natalia",
+      "type": "married_to",
+      "claim_ids": [
+        "claim-spouse-pushkin"
+      ]
+    },
+    {
+      "id": "relation-dantes-marriage",
+      "from_id": "dantes",
+      "to_id": "ekaterina",
+      "type": "married_to",
+      "claim_ids": [
+        "claim-marriage"
+      ]
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "h-idalia",
+      "statement": "Идалия организовала пасквиль из ревности к Наталье.",
+      "assumptions": [
+        "До рассылки у Идалии был соответствующий мотив",
+        "Идалия имела доступ к необходимым сведениям и адресатам"
+      ],
+      "discriminating_test": "Найти до ноября 1836 года независимое свидетельство об участии Идалии в составлении или рассылке; сравнить с адресной сетью."
+    },
+    {
+      "id": "h-heckern",
+      "statement": "Луи Геккерн участвовал в подготовке или распространении анонимного письма.",
+      "assumptions": [
+        "Личные обвинения Пушкина могут быть ошибочными"
+      ],
+      "discriminating_test": "Установить независимое от обвинения Пушкина свидетельство подготовки, передачи или рассылки письма Геккерном."
+    },
+    {
+      "id": "h-court",
+      "statement": "Пасквиль был частью согласованной политической операции против Пушкина или Николая I.",
+      "assumptions": [
+        "У предполагаемых участников была общая политическая цель",
+        "Имелась координация до ноября 1836 года"
+      ],
+      "discriminating_test": "Найти современный событиям документ, связывающий отправителей и согласованную политическую цель; отличить от салонных слухов."
+    }
+  ],
+  "assessments": [
+    {
+      "id": "assessment-heckern-letter",
+      "hypothesis_id": "h-heckern",
+      "claim_id": "claim-blames",
+      "stance": "supports",
+      "rationale": "Сам Пушкин обвинял Геккерна; это поддерживает наличие подозрения, но не доказывает авторство."
+    },
+    {
+      "id": "assessment-idalia-pasquille",
+      "hypothesis_id": "h-idalia",
+      "claim_id": "claim-received",
+      "stance": "compatible",
+      "rationale": "Факт рассылки совместим с гипотезой об Идалии, но не говорит о её участии."
+    },
+    {
+      "id": "assessment-court-audience",
+      "hypothesis_id": "h-court",
+      "claim_id": "claim-audience",
+      "stance": "compatible",
+      "rationale": "Приём Пушкина у Николая I не устанавливает политического организатора пасквиля."
+    }
+  ]
+}

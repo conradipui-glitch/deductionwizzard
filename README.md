@@ -15,6 +15,16 @@ Two clearly separated layers:
 - `tools/build_corpus.py`: deterministic generator and provenance tags.
 - `research/`: separately verified pilot of six OpenRouter Decisions models, including 24 live requests / 23 label agreements. Review its tiny sample limitations.
 
+## v0.4.2 — UX stage A: compact investigation workspace
+
+- **Independent panel toggles:** archive (left) and selected-source dossier (right) can each be collapsed/restored. On 14-inch laptops the archive starts collapsed, leaving space for the board; the dossier can be restored from the header.
+- **Compact controls:** the heading keeps only onboarding, story and evidence matrix actions visible; theme, camera, Safe and links are grouped in «Настройки».
+- **Consistent scrolling:** themed thin scrollbars in Chrome/Firefox for document lists, inspector, hypothesis matrix and story. Slide view scrolls only its textual panel; book view scrolls the whole reader, not both.
+- **Small-screen guards:** responsive height, backdrops and Escape for tablet panels; existing mobile footer controls are preserved.
+- **Scope:** no new research logic, no paid API calls and no new narrative generation.
+
+QA checklist: try 1366×768 (left archive initially hidden), 1440×900 (independent toggles), ≤1080px (drawer + backdrop/Escape) and phone width (mobile footer). Verify scroll, tutorial highlighting and Story Mode. Automated TypeScript and evidence core checks cover compilation, not every GPU/browser combination.
+
 ## v0.4.1 — guided evidence-first investigations
 
 - **v0.3.1 Render hotfix:** default Safe mode reduces expensive GPU blending, filters and shadows; interruptible 1350ms camera crane flights with gentle rise/landing have on/off control and subtle paper motion. React error boundary prevents silent blank screens. GPU-specific rendering still needs browser testing across devices.

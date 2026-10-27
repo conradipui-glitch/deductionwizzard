@@ -1,0 +1,41 @@
+name: Decisions hypothesis suggestions (unreviewed pilot)
+on:
+  push:
+    branches:
+      - feat/model-proposals-v04
+    paths:
+      - .github/workflows/model-proposals.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dw-model-proposals
+  cancel-in-progress: false
+
+jobs:
+  propose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate evidence core and story
+        run: |
+          PYTHONPATH=packages/deduction-core/src python -m unittest discover -s tests -v
+          python tools/propose_hypotheses.py
+      - name: Query three Decisions models on six claim–hypothesis pairs
+        env:
+          DECIS_API: \${{ secrets.DECIS_API }}
+        run: python tools/propose_hypotheses.py --run --max-calls 18
+      - name: Store suggestions for human review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unreviewed-hypothesis-suggestions
+          path: benchmark/results/proposed.json
+          retention-days: 14
+          if-no-files-found: warn

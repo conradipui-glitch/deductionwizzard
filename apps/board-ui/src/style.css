@@ -55,7 +55,7 @@
 .lamp-pool{mix-blend-mode:normal;opacity:0;transition:opacity .35s ease}
 .lamp-on .lamp-pool{opacity:.35}
 .connection path{filter:none}
-.board-world.camera-flight{transition:transform .8s cubic-bezier(.22,.8,.24,1)}
+.board-world.camera-flight{transition:none}
 .board-world.camera-flight .pin-card{animation:paper-rustle .8s cubic-bezier(.2,.7,.3,1) both}
 @keyframes paper-rustle{
   0%{transform:rotate(var(--turn)) translateY(0)}
@@ -98,3 +98,6 @@
 .model-vote{padding:5px 7px;border-radius:3px;font-size:10px;border:1px solid #ccc0a5;background:#e5e0d5;color:#665f50}
 .model-vote.compatible{background:#f4d69a;color:#664622;border-color:#ba9560}
 @media(max-width:650px){.model-suggestion-row{padding:7px;font-size:9px}.model-suggestion-row button{font-size:9px}}
+
+/* Crane flight uses requestAnimationFrame to animate pan + zoom. A CSS transition here would lag each rAF frame. */
+.board-world.camera-flight{transition:none!important}

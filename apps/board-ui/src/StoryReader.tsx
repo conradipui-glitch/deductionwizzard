@@ -65,13 +65,13 @@ export default function StoryReader({onClose,onFocus,initialHyp}:Props){
    setCustomHypotheses(next);localStorage.setItem('dw-custom-hypotheses',JSON.stringify(next));
  };
  const loadGenerated=()=>{
-   fetch(import.meta.env.BASE_URL+'generated/index.json',{cache:'no-store'})
+   fetch(new URL('generated/index.json',window.location.href).toString(),{cache:'no-store'})
     .then(res=>res.ok?res.json():[]).then(json=>setGeneratedList(Array.isArray(json)?json:[]))
     .catch(()=>setGeneratedList([]));
  };
  useEffect(loadGenerated,[]);
  const pickGenerated=(item:PublishedStory)=>{
-   fetch(import.meta.env.BASE_URL+'generated/'+encodeURIComponent(item.filename),{cache:'no-store'})
+   fetch(new URL('generated/'+encodeURIComponent(item.filename),window.location.href).toString(),{cache:'no-store'})
     .then(res=>{if(!res.ok)throw new Error('No published story');return res.json();})
     .then(doc=>{setGeneratedDoc(doc as GeneratedDoc);setSceneIds(item.scenes);setStage('read');setIndex(0);})
     .catch(()=>setGeneratedDoc(null));

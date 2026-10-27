@@ -1,0 +1,58 @@
+/* Deduction Wizard v0.4 — screenplay reader, kept independent from evidence core. */
+.story-overlay{position:absolute;inset:0;z-index:45;display:flex;flex-direction:column;overflow:hidden;color:#e8d9bd;background:linear-gradient(135deg,#231f1b,#131514 70%);box-shadow:0 20px 75px #000c}
+.story-bar{min-height:74px;display:flex;align-items:center;gap:16px;padding:12px 21px;background:#171815;border-bottom:1px solid #5b4933}
+.story-brand{display:flex;align-items:center;gap:12px;flex:1;min-width:0;color:#d3aa71}
+.story-brand small{display:block;font-size:9px;letter-spacing:1.7px;color:#968369;margin-bottom:5px}
+.story-brand b{font:normal 24px/1.1 Georgia,serif;color:#e8d5ad}
+.story-switch{display:flex;border:1px solid #67553f;overflow:hidden;border-radius:5px}
+.story-switch button,.story-config,.story-close{color:#d5b992;background:#312920;border:0;min-height:38px;padding:0 14px;font-size:11px}
+.story-switch button.active,.story-config.active{color:#2d2418;background:#d5b483}
+.story-config{display:flex;align-items:center;gap:8px;border:1px solid #665139;border-radius:5px}
+.story-close{width:39px;display:grid;place-items:center;border:1px solid #62503d;border-radius:5px}
+.story-disclaimer{background:#353024;color:#d7be90;padding:9px 23px;font-size:11px;display:flex;gap:9px;align-items:center;line-height:1.4}
+.story-content{flex:1;min-height:0;overflow-y:auto}
+.story-slides .story-one{height:100%;animation:story-arrive .37s ease-out both}
+.story-chapter{display:grid;grid-template-columns:minmax(0,1fr) minmax(290px,.86fr);gap:0;min-height:100%;background:linear-gradient(100deg,#2f2821 0%,#171713 52%,#191918 100%);border-bottom:1px solid #77614a66}
+.story-illustration{position:relative;display:grid;place-items:center;min-height:350px;overflow:hidden;background:#2b2521}
+.story-illustration:after{content:'';position:absolute;pointer-events:none;inset:0;box-shadow:inset 0 0 80px #0006}
+.story-art-svg{width:100%;height:100%;max-height:700px;object-fit:cover;display:block}
+.story-copy{padding:clamp(22px,3vw,48px);overflow:auto;max-height:calc(100dvh - 205px)}
+.story-eyebrow{font-size:10px;letter-spacing:1.5px;color:#bb996e;font-weight:700;text-transform:uppercase}
+.story-copy h2{font:normal clamp(26px,2.5vw,41px)/1.16 Georgia,serif;margin:15px 0 35px;color:#f1dfbb}
+.story-copy p{font:16px/1.85 Georgia,serif;color:#dcd2be;margin:13px 0 20px;max-width:700px}
+.story-fact-head{display:flex;align-items:center;gap:8px;color:#c6b38f;font:700 10px Arial,sans-serif;letter-spacing:1.3px;text-transform:uppercase}
+.story-branch{padding:17px 18px;background:#342a22;border-left:3px solid #cba267;margin:20px 0;border-radius:0 5px 5px 0}
+.story-branch p{font:14px/1.75 Georgia,serif;color:#e5ca9f;margin:10px 0 2px}
+.story-branch-name{display:flex;gap:8px;color:#efc58c;font-size:11px;line-height:1.5;font-weight:700}
+.story-sources{border-top:1px solid #6f5c437c;margin-top:29px;padding-top:20px;display:flex;flex-direction:column;gap:12px}
+.story-sources>div{display:flex;gap:8px;align-items:center;color:#a89171;font-size:9px;letter-spacing:1.2px}
+.story-sources a{display:flex;align-items:center;gap:8px;color:#dbb780;font-size:11px;line-height:1.5;text-decoration:none}
+.story-sources a:hover{text-decoration:underline}
+.story-sources button{display:flex;align-items:center;gap:7px;background:none;color:#d2ba91;border:1px solid #725e43;padding:9px 12px;width:max-content;margin-top:4px;font-size:11px}
+.story-bottom{min-height:64px;display:flex;justify-content:space-between;align-items:center;padding:10px 25px;gap:20px;background:#161716;border-top:1px solid #56442f}
+.story-bottom button{display:flex;align-items:center;gap:8px;background:#332b22;border:1px solid #6a5437;color:#e5d1ad;border-radius:4px;padding:10px 15px;font-size:11px}
+.story-bottom button:disabled{opacity:.35;cursor:not-allowed}
+.story-progress{flex:1;max-width:380px;display:flex;align-items:center;gap:10px;font-size:11px;color:#c2ae8d}
+.story-progress span{white-space:nowrap}
+.story-track{background:#544637;height:4px;flex:1;border-radius:4px;overflow:hidden}
+.story-track>div{height:100%;background:#d2a873;transition:width .24s}
+.story-full{max-width:1240px;margin:auto}
+.story-full .story-chapter{min-height:510px}
+.story-full .story-copy{max-height:initial}
+.story-composer{position:absolute;inset:112px 17px 75px;z-index:12;background:#eee0c1;color:#40352a;overflow-y:auto;border:2px solid #9d7e51;box-shadow:0 20px 70px #000b;padding:28px;border-radius:8px}
+.story-composer h3{font:normal 28px Georgia,serif;margin:0 0 6px}
+.story-composer p{font-size:12px;line-height:1.55;max-width:850px;color:#74634d}
+.story-composer-columns{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:23px 0}
+.story-composer-columns section{border:1px solid #c5af89;background:#f8edd6;padding:17px;border-radius:5px}
+.story-composer-columns h4{font-size:12px;letter-spacing:1px;margin:0 0 13px;text-transform:uppercase}
+.story-composer-columns label{display:flex;align-items:flex-start;gap:10px;font-size:12px;line-height:1.5;padding:9px 0;cursor:pointer;border-bottom:1px solid #e2d4bd}
+.story-composer-columns input{accent-color:#8b6238}
+.story-composer-columns section button{border:0;background:none;color:#8b5d34;font-size:11px;text-decoration:underline;margin-top:15px}
+.story-event-picks{max-height:290px;overflow-y:auto}
+.story-apply{background:#59432d;border:0;border-radius:4px;color:#f1dcbd;padding:12px 22px;display:flex;gap:9px;align-items:center;font-size:12px}
+.story-empty{padding:40px;color:#ddc6a1;text-align:center}
+.dw-mini-portrait{width:100%;height:100%;display:block}
+@keyframes story-arrive{from{opacity:.45;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1100px){.story-chapter{grid-template-columns:1fr}.story-illustration{height:275px;min-height:275px}.story-art-svg{max-height:275px}.story-copy{max-height:none;overflow:visible}.story-bar{flex-wrap:wrap;min-height:68px;padding:10px}.story-brand b{font-size:18px}.story-branch p{font-size:13px}}
+@media(max-width:600px){.story-bar{gap:8px}.story-brand{flex-basis:100%}.story-switch button{padding:7px 9px}.story-disclaimer{font-size:10px;padding:7px}.story-composer{inset:115px 6px 60px;padding:16px}.story-composer-columns{grid-template-columns:1fr}.story-bottom{padding:7px;gap:5px}.story-bottom button{font-size:10px;padding:9px}.story-progress{max-width:180px}.story-copy{padding:19px}.story-copy h2{margin:10px 0 20px}.story-copy p{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.story-slides .story-one{animation:none!important}.story-track>div{transition:none}}

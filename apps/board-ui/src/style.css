@@ -84,3 +84,17 @@
 .big-profile .dw-mini-portrait{width:100%;height:100%}
 @media(max-width:1040px){.stage-actions{gap:4px;flex-wrap:wrap;justify-content:flex-end}.stage-actions .utility{padding:8px;font-size:9px}}
 @media(max-width:660px){.stage-actions{max-width:175px;flex-direction:row}.stage-actions .utility{max-width:100%;font-size:9px;white-space:nowrap}.stage-actions .story-open-button{display:flex;width:100%}}
+
+/* Non-authoritative, unreviewed Decisions outputs — visually separate from evidence. */
+.model-suggestion-row{display:flex;gap:15px;justify-content:space-between;align-items:center;padding:8px 20px;background:#e4d5b5;border-top:1px solid #bca885;color:#57412a}
+.model-suggestion-row button{display:flex;align-items:center;gap:8px;border:1px solid #967d58;border-radius:4px;padding:8px 13px;color:#6e4925;background:#f2e4ca;font-size:11px}
+.model-suggestion-row a{display:flex;align-items:center;gap:4px;color:#856744;font-size:10px}
+.model-votes{min-height:130px;max-height:190px;overflow:auto;background:#efe4cf;border:1px solid #cbb58e;padding:12px 18px;color:#51412d}
+.model-votes p{font-size:11px;line-height:1.55;margin:0 0 9px}
+.model-vote-item{border-top:1px solid #cbb994;padding:8px 0;display:grid;gap:4px}
+.model-vote-item b{font-size:10px;color:#75502f}
+.model-vote-item>span{font-size:11px}
+.model-vote-item>div{display:flex;gap:5px;flex-wrap:wrap}
+.model-vote{padding:5px 7px;border-radius:3px;font-size:10px;border:1px solid #ccc0a5;background:#e5e0d5;color:#665f50}
+.model-vote.compatible{background:#f4d69a;color:#664622;border-color:#ba9560}
+@media(max-width:650px){.model-suggestion-row{padding:7px;font-size:9px}.model-suggestion-row button{font-size:9px}}

@@ -16,10 +16,12 @@ def config_from_issue(body):
     hs=raw.get("hypotheses",[])
     ss=raw.get("scenes",[])
     note=raw.get("note","")
+    own=raw.get("custom_hypotheses",[])
     if not isinstance(hs,list) or len(hs)>3 or any(x not in hyps for x in hs):raise ValueError("Invalid hypotheses")
     if not isinstance(ss,list) or not 2<=len(ss)<=14 or len(set(ss))!=len(ss) or any(x not in scenes for x in ss):raise ValueError("Invalid scenes")
     if not isinstance(note,str) or len(note)>350:raise ValueError("Invalid note")
-    return {"hypotheses":sorted(set(hs)),"scenes":[s["id"] for s in story["scenes"] if s["id"] in ss],"note":note.strip()}
+    if not isinstance(own,list) or len(own)>2 or any(not isinstance(x,str) or not 10<=len(x.strip())<=180 for x in own):raise ValueError("Invalid custom hypotheses")
+    return {"hypotheses":sorted(set(hs)),"custom_hypotheses":list(dict.fromkeys(x.strip() for x in own)),"scenes":[s["id"] for s in story["scenes"] if s["id"] in ss],"note":note.strip()}
 def evidence_for(cfg):
     evidence=[]
     for sid in cfg["scenes"]:
@@ -31,7 +33,7 @@ def evidence_for(cfg):
                 if source["id"] not in [x["id"] for x in refs]:
                     refs.append({"id":source["id"],"title":source["title"],"kind":source["type"]})
         evidence.append({"scene_id":sid,"title":s["title"],"date":s["eyebrow"],"documented_outline":s["body"],"sources":refs,"hypothetical_branches":{k:v for k,v in s["branches"].items() if k in cfg["hypotheses"]}})
-    return {"hypotheses":[{"id":k,"title":hyps[k]["statement"]} for k in cfg["hypotheses"]],"scenes":evidence,"investigator_note":cfg["note"]}
+    return {"hypotheses":[{"id":k,"title":hyps[k]["statement"]} for k in cfg["hypotheses"]],"new_unreviewed_hypotheses":cfg["custom_hypotheses"],"scenes":evidence,"investigator_note":cfg["note"]}
 def generate(cfg,key):
     instruction=("Ты исторический редактор. Напиши НОВУЮ связную, выразительную версию истории на русском, "
       "используя только предоставленные выдержки. Не склеивай дословно готовые эпизоды. "
@@ -41,7 +43,7 @@ def generate(cfg,key):
       "Если гипотезы противоречат друг другу, укажи это. Заметка пользователя не исторический источник. "
       "Верни ТОЛЬКО JSON с title, intro, chapters, conclusion. "
       "Каждая глава имеет scene_id, documented, reconstruction. Порядок глав совпадает со сценами.")
-    payload={"model":MODEL,"messages":[{"role":"system","content":instruction},{"role":"user","content":json.dumps(evidence_for(cfg),ensure_ascii=False)}],"temperature":0.55,"max_tokens":2800,"response_format":{"type":"json_object"}}
+    payload={"model":MODEL,"messages":[{"role":"system","content":instruction},{"role":"user","content":json.dumps(evidence_for(cfg),ensure_ascii=False)}],"temperature":0.55,"max_tokens":6500,"response_format":{"type":"json_object"}}
     req=urllib.request.Request("https://openrouter.ai/api/v1/chat/completions",data=json.dumps(payload,ensure_ascii=False).encode(),headers={"Authorization":"Bearer "+key,"Content-Type":"application/json","HTTP-Referer":"https://github.com/conradipui-glitch/deductionwizzard"},method="POST")
     try:
         with urllib.request.urlopen(req,timeout=110) as response:result=json.loads(response.read(180000))

@@ -15,10 +15,13 @@ Two clearly separated layers:
 - `tools/build_corpus.py`: deterministic generator and provenance tags.
 - `research/`: separately verified pilot of six OpenRouter Decisions models, including 24 live requests / 23 label agreements. Review its tiny sample limitations.
 
-## v0.4 — interactive historical reconstruction
+## v0.4.1 — guided evidence-first investigations
 
-- **v0.3.1 Render hotfix:** default Safe mode reduces expensive GPU blending, filters and shadows; cinematic 800ms camera flights have on/off control and subtle paper motion. React error boundary prevents silent blank screens. GPU-specific rendering still needs browser testing across devices.
+- **v0.3.1 Render hotfix:** default Safe mode reduces expensive GPU blending, filters and shadows; interruptible 1350ms camera crane flights with gentle rise/landing have on/off control and subtle paper motion. React error boundary prevents silent blank screens. GPU-specific rendering still needs browser testing across devices.
 - **v0.4 Story Mode:** open **«Читать историю»**. 14 editorial scenes, slides or full-length reading; combine one, multiple or no rival hypotheses; include/exclude individual episodes; see source references and jump back to the relevant board event.
+- **Guided investigation:** three steps: choose one of four curated perspectives (or compare them), review evidence/conflicts/missing checks, then read. A 5-step board tour explains real controls, and personal hypotheses remain **unreviewed local drafts**.
+- **No on-demand story API:** per-request DeepSeek narrative generation was deliberately removed: the reader only displays curated editorial texts; the Decisions API remains in a separate review-only analytical lane.
+- **Product scope:** read [Product Compass](docs/PRODUCT_COMPASS.md) before adding features. Every new idea needs a WHY / WHAT / COST / TEST / SCOPE decision.
 - **Illustrations and characters:** internally rendered, intentionally schematic historical silhouettes and scene illustrations, **not archival portraits or documented views**.
 - **Independent AI suggestion layer:** the existing evidence heatmap now optionally shows **18 unreviewed model votes** from Perplexity Decider V1.2, Mammoth 1 Free and Elephant 1 Free. These suggestions came from a bounded GitHub Actions run using `DECIS_API`, not from the user's browser. They never silently change human-created assessments.
 - **Case updates:** `cases/pushkin/stories.json` contains story episodes linked to casebook event/claim IDs, while `cases/pushkin/model_proposals.preview.json` stores live but **not peer-reviewed** model votes separately.

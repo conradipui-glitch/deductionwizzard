@@ -73,7 +73,7 @@ export default function StoryReader({onClose,onFocus,initialHyp}:Props){
  const pickGenerated=(item:PublishedStory)=>{
    fetch(import.meta.env.BASE_URL+'generated/'+encodeURIComponent(item.filename),{cache:'no-store'})
     .then(res=>{if(!res.ok)throw new Error('No published story');return res.json();})
-    .then(doc=>{setGeneratedDoc(doc as GeneratedDoc);setStage('read');setIndex(0);})
+    .then(doc=>{setGeneratedDoc(doc as GeneratedDoc);setSceneIds(item.scenes);setStage('read');setIndex(0);})
     .catch(()=>setGeneratedDoc(null));
  };
  const startReading=()=>{setGeneratedDoc(null);setStage('read');setIndex(0)};

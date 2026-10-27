@@ -1,4 +1,4 @@
-import React, {useMemo,useRef,useState} from 'react';
+import React, {useEffect,useMemo,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import {BookOpen, GitBranch, LampDesk, ChevronDown, ArrowUpRight, Search, Filter, CalendarDays, Focus, Plus, Minus, RotateCcw, X, Layers3, Eye, Pin, FileText, ShieldCheck, HelpCircle, ZoomIn, Network, ScrollText, Clock, Fingerprint, ChevronRight, Sparkles, Archive, ExternalLink, Menu, Map as MapIcon, Grip, ListFilter} from 'lucide-react';
 import {casebook,boardNodes,boardEdges,chronological} from './data';
@@ -27,6 +27,12 @@ function App(){
  const [showLinks,setShowLinks]=useState(true);
  const [heatOpen,setHeatOpen]=useState(false);
  const [showAllClaims,setShowAllClaims]=useState(false);
+ const [safeRender,setSafeRender]=useState(true);
+ const [cinematic,setCinematic]=useState(true);
+ const [cameraActive,setCameraActive]=useState(false);
+ const cameraTimeout=useRef<ReturnType<typeof setTimeout>|null>(null);
+ useEffect(()=>()=>{if(cameraTimeout.current)clearTimeout(cameraTimeout.current)},[]);
+
  const drag=useRef<{kind:'pan'|'card';id?:string;px:number;py:number;ox:number;oy:number}|null>(null);
  const viewport=useRef<HTMLDivElement>(null);
  const nodeById=useMemo(()=>new Map(boardNodes.map(n=>[n.id,n])),[]);
@@ -56,17 +62,25 @@ function App(){
    setHeatOpen(false);
  };
  const pos=(id:string)=>{const n=nodeById.get(id);return positions[id]||{x:n?.x||0,y:n?.y||0};};
- const panStart=(e:React.PointerEvent<HTMLDivElement>)=>{if(e.button!==0)return;drag.current={kind:'pan',px:e.clientX,py:e.clientY,ox:view.x,oy:view.y};e.currentTarget.setPointerCapture(e.pointerId);};
+ const panStart=(e:React.PointerEvent<HTMLDivElement>)=>{if(e.button!==0)return;setCameraActive(false);drag.current={kind:'pan',px:e.clientX,py:e.clientY,ox:view.x,oy:view.y};e.currentTarget.setPointerCapture(e.pointerId);};
  const panMove=(e:React.PointerEvent<HTMLDivElement>)=>{if(drag.current?.kind!=='pan')return;setView(v=>({...v,x:drag.current!.ox+e.clientX-drag.current!.px,y:drag.current!.oy+e.clientY-drag.current!.py}));};
  const endDrag=()=>{drag.current=null;};
- const startCard=(e:React.PointerEvent<HTMLButtonElement>,n:BoardNode)=>{if(e.button!==0)return;e.stopPropagation();const p=pos(n.id);drag.current={kind:'card',id:n.id,px:e.clientX,py:e.clientY,ox:p.x,oy:p.y};e.currentTarget.setPointerCapture(e.pointerId);setSelected(n.id);setDetailsOpen(true);};
+ const startCard=(e:React.PointerEvent<HTMLButtonElement>,n:BoardNode)=>{if(e.button!==0)return;e.stopPropagation();setCameraActive(false);const p=pos(n.id);drag.current={kind:'card',id:n.id,px:e.clientX,py:e.clientY,ox:p.x,oy:p.y};e.currentTarget.setPointerCapture(e.pointerId);setSelected(n.id);setDetailsOpen(true);};
  const moveCard=(e:React.PointerEvent<HTMLButtonElement>)=>{if(drag.current?.kind!=='card')return;const d=drag.current;setPositions(p=>({...p,[d.id!]:{x:d.ox+(e.clientX-d.px)/view.s,y:d.oy+(e.clientY-d.py)/view.s}}));};
- const zoom=(next:number)=>setView(v=>{const s=Math.min(1.48,Math.max(.35,next));const el=viewport.current;const w=el?.clientWidth||1050,h=el?.clientHeight||720;return {x:w/2-(w/2-v.x)*s/v.s,y:h/2-(h/2-v.y)*s/v.s,s};});
- const reset=()=>{setView({x:-120,y:-180,s:.74});setPositions({});};
- const onWheel=(e:React.WheelEvent<HTMLDivElement>)=>{if(e.ctrlKey||e.metaKey){zoom(view.s*(e.deltaY>0?.9:1.1));}else{setView(v=>({...v,x:v.x-e.deltaX,y:v.y-e.deltaY}));}};
- const focusNode=(id:string)=>{const p=pos(id),w=viewport.current?.clientWidth||900,h=viewport.current?.clientHeight||650;setView(v=>({...v,x:w/2-(p.x+116)*v.s,y:h/2-(p.y+60)*v.s}));setSelected(id);setDetailsOpen(true);};
+ const zoom=(next:number)=>{setCameraActive(false);setView(v=>{const s=Math.min(1.48,Math.max(.35,next));const el=viewport.current;const w=el?.clientWidth||1050,h=el?.clientHeight||720;return {x:w/2-(w/2-v.x)*s/v.s,y:h/2-(h/2-v.y)*s/v.s,s};});};
+ const reset=()=>{setCameraActive(false);setView({x:-120,y:-180,s:.74});setPositions({});};
+ const onWheel=(e:React.WheelEvent<HTMLDivElement>)=>{setCameraActive(false);if(e.ctrlKey||e.metaKey){zoom(view.s*(e.deltaY>0?.9:1.1));}else{setView(v=>({...v,x:v.x-e.deltaX,y:v.y-e.deltaY}));}};
+ const focusNode=(id:string)=>{
+   const p=pos(id),w=viewport.current?.clientWidth||900,h=viewport.current?.clientHeight||650;
+   const reduceMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false;
+   if(cameraTimeout.current)clearTimeout(cameraTimeout.current);
+   setCameraActive(cinematic&&!reduceMotion);
+   if(cinematic&&!reduceMotion)cameraTimeout.current=setTimeout(()=>setCameraActive(false),860);
+   setView(v=>({...v,x:w/2-(p.x+116)*v.s,y:h/2-(p.y+60)*v.s}));
+   setSelected(id);setDetailsOpen(true);
+ };
  const evidenceFor=(c:CaseClaim)=>c.evidence.map(e=>casebook.sources.find(s=>s.id===e.source_id)).filter(x=>x!==undefined);
- return <div className={`app theme-${theme} ${light?'lamp-on':''}`}>
+ return <div className={`app theme-${theme} ${light?'lamp-on':''} ${safeRender?'render-safe':''}`}>
   <header className="app-header">
    <div className="brand-mark"><Fingerprint size={22} strokeWidth={1.3}/></div>
    <div className="brand-copy"><div className="brand-title">DEDUCTION <span>WIZARD</span></div><div className="brand-kicker">ИСТОРИЯ НЕ ТЕРПИТ ДОГАДОК БЕЗ УЛИК</div></div>
@@ -91,10 +105,10 @@ function App(){
     <div className="sidebar-bottom"><div className="protocol-note"><ShieldCheck size={16}/><div><b>Протокол источников активен</b><p>Гипотеза не равна факту. Каждое утверждение должно иметь след.</p></div></div><a href="https://github.com/conradipui-glitch/deductionwizzard" rel="noreferrer" target="_blank" className="repository-link">ИССЛЕДОВАТЕЛЬСКИЙ РЕПОЗИТОРИЙ <ArrowUpRight size={14}/></a></div>
    </aside>
    <main className="stage">
-    <div className="stage-heading"><div><div className="eyebrow"><span className="small-line"/> КАРТА РАССЛЕДОВАНИЯ / ЧАСТЬ I</div><h1>Тени на Чёрной речке</h1><p>Петербург, 1833–1837. Документы, люди, события и конкурирующие объяснения.</p></div><div className="stage-actions"><button className="utility" onClick={()=>setTheme(theme==='cork'?'chalk':'cork')}><span className="small-circle"/>{theme==='cork'?'Меловая доска':'Пробковая доска'}</button><button className={`utility ${heatOpen?'toggled':''}`} onClick={()=>setHeatOpen(!heatOpen)} aria-pressed={heatOpen}><ListFilter size={15}/> Матрица гипотез</button><button className={`utility ${showLinks?'toggled':''}`} onClick={()=>setShowLinks(!showLinks)}><Network size={15}/> Связи</button></div></div>
+    <div className="stage-heading"><div><div className="eyebrow"><span className="small-line"/> КАРТА РАССЛЕДОВАНИЯ / ЧАСТЬ I</div><h1>Тени на Чёрной речке</h1><p>Петербург, 1833–1837. Документы, люди, события и конкурирующие объяснения.</p></div><div className="stage-actions"><button className="utility" onClick={()=>setTheme(theme==='cork'?'chalk':'cork')}><span className="small-circle"/>{theme==='cork'?'Меловая доска':'Пробковая доска'}</button><button className={`utility ${heatOpen?'toggled':''}`} onClick={()=>setHeatOpen(!heatOpen)} aria-pressed={heatOpen}><ListFilter size={15}/> Матрица гипотез</button><button className={`utility ${cinematic?'toggled':''}`} onClick={()=>{setCinematic(!cinematic);setCameraActive(false)}} aria-pressed={cinematic} title="Плавный перелёт к карточкам и колыхание бумаги"><Focus size={15}/> Кинокамера {cinematic?'ON':'OFF'}</button><button className={`utility ${safeRender?'toggled':''}`} onClick={()=>setSafeRender(!safeRender)} aria-pressed={safeRender} title="Уменьшить GPU-эффекты, предотвращая чёрный экран"><ShieldCheck size={15}/> Safe</button><button className={`utility ${showLinks?'toggled':''}`} onClick={()=>setShowLinks(!showLinks)}><Network size={15}/> Связи</button></div></div>
     <div className="board-window" ref={viewport} onWheel={onWheel} onPointerDown={panStart} onPointerMove={panMove} onPointerUp={endDrag} onPointerCancel={endDrag}>
      <div className="lamp-pool"/>
-     <div className="board-world" style={{transform:`translate(${view.x}px, ${view.y}px) scale(${view.s})`}}>
+     <div className={`board-world ${cameraActive?'camera-flight':''}`} style={{transform:`translate(${view.x}px, ${view.y}px) scale(${view.s})`}}>
       <div className="world-caption cap-one">АРХИВ / 1836</div><div className="world-caption cap-two">НЕОКОНЧЕННОЕ ДЕЛО</div><div className="world-caption cap-three">АРХИВ / 1833—1837 · НОВЫЕ СВИДЕТЕЛЬСТВА</div>
       <svg className="strings" width="3050" height="2180" viewBox="0 0 3050 2180" aria-hidden="true">
        <defs><filter id="cord-shadow"><feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#000" floodOpacity=".5"/></filter></defs>
@@ -134,4 +148,11 @@ function App(){
  </div>;
 }
 
-createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>);
+// React failures should never render as an unexplained black screen.
+class BoardErrorBoundary extends React.Component<{children:React.ReactNode},{error:string|null}>{
+ state:{error:string|null}={error:null};
+ static getDerivedStateFromError(e:Error){return {error:e.message||'Неизвестная ошибка'};}
+ componentDidCatch(e:Error,info:React.ErrorInfo){console.error('Deduction Wizard UI error',e,info);}
+ render(){if(this.state.error)return <main role="alert" style={{minHeight:'100vh',padding:48,background:'#181710',color:'#f0dfba',fontFamily:'Georgia,serif'}}><h1>Дело временно закрыто</h1><p>Интерфейс столкнулся с ошибкой, но архив и источники сохранены.</p><code style={{display:'block',margin:'20px 0',overflowWrap:'anywhere'}}>{this.state.error}</code><button style={{padding:'12px 20px',background:'#cfb381',color:'#20180e',border:0}} onClick={()=>window.location.reload()}>Перезагрузить доску</button></main>;return this.props.children;}
+}
+createRoot(document.getElementById('root')!).render(<BoardErrorBoundary><React.StrictMode><App/></React.StrictMode></BoardErrorBoundary>);

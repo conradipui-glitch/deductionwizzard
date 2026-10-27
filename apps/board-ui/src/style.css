@@ -46,3 +46,32 @@
 .heat-summary small{display:block;font-size:9px;margin-top:6px;color:#c6a87b}
 @media(max-width:1050px){.heat-panel{inset:15px 12px 15px}.heat-top{padding:16px}.heat-top h2{font-size:21px}.heat-legend{gap:9px;padding:10px}.heat-bottom{display:block}.heat-summary{flex-direction:column;max-height:135px}.heat-summary button{min-width:0}}
 @media(max-width:660px){.heat-panel{inset:10px 5px 10px}.heat-top p{font-size:10px}.heat-legend span{font-size:9px}.heat-table{min-width:760px}}
+
+
+/* v0.3.1 Rendering hotfix: safe compositing avoids costly giant texture layers. */
+.board-window{isolation:isolate}
+.board-world{will-change:auto}
+.board-window:before{mix-blend-mode:normal;opacity:.25}
+.lamp-pool{mix-blend-mode:normal;opacity:0;transition:opacity .35s ease}
+.lamp-on .lamp-pool{opacity:.35}
+.connection path{filter:none}
+.board-world.camera-flight{transition:transform .8s cubic-bezier(.22,.8,.24,1)}
+.board-world.camera-flight .pin-card{animation:paper-rustle .8s cubic-bezier(.2,.7,.3,1) both}
+@keyframes paper-rustle{
+  0%{transform:rotate(var(--turn)) translateY(0)}
+  24%{transform:rotate(calc(var(--turn) + 1deg)) translateY(-1.8px)}
+  53%{transform:rotate(calc(var(--turn) - .55deg)) translateY(.8px)}
+  80%{transform:rotate(calc(var(--turn) + .2deg)) translateY(-.2px)}
+  100%{transform:rotate(var(--turn)) translateY(0)}
+}
+.render-safe .board-window{box-shadow:inset 0 0 0 2px #725439,inset 0 0 35px 7px #1d1512,0 4px 20px #0006}
+.render-safe .board-window:after{box-shadow:inset 0 0 66px #09070666}
+.render-safe .board-window:before{opacity:.12;mix-blend-mode:normal}
+.render-safe .lamp-pool{mix-blend-mode:normal;background:radial-gradient(ellipse at 46% 15%,#f6c98620,transparent 64%)}
+.render-safe .pin-card{box-shadow:1px 3px 1px #0003,2px 6px 9px #100b0d55,0 0 0 1px #e7d2a9 inset}
+.render-safe .connection path{filter:none}
+.utility[aria-pressed="true"]{border-color:#c3a06e;background:#393127}
+@media (prefers-reduced-motion:reduce){
+  .board-world.camera-flight{transition:none!important}
+  .board-world.camera-flight .pin-card{animation:none!important}
+}

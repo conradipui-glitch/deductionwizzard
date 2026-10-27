@@ -1,0 +1,135 @@
+{
+  "schema_version": "0.4.0",
+  "status": "UNREVIEWED_MODEL_SUGGESTIONS",
+  "run_url": "https://github.com/conradipui-glitch/deductionwizzard/actions/runs/40452886249",
+  "data_used": "curated claim summaries, not original documents",
+  "review_status": "not_reviewed",
+  "evaluations": [
+    {
+      "hypothesis_id": "h-idalia",
+      "claim_id": "c-1833-idalia",
+      "model": "perplexity/pplx-decider-v1.2",
+      "suggested_label": "insufficient_data",
+      "review_status": "not_reviewed"
+    },
+    {
+      "hypothesis_id": "h-idalia",
+      "claim_id": "c-1833-idalia",
+      "model": "baseten/mammoth-1:free",
+      "suggested_label": "insufficient_data",
+      "review_status": "not_reviewed"
+    },
+    {
+      "hypothesis_id": "h-idalia",
+      "claim_id": "c-1833-idalia",
+      "model": "baseten/elephant-1:free",
+      "suggested_label": "compatible",
+      "review_status": "not_reviewed"
+    },
+    {
+      "hypothesis_id": "h-idalia",
+      "claim_id": "c-1836-idalia-rumor",
+      "model": "perplexity/pplx-decider-v1.2",
+      "suggested_label": "insufficient_data",
+      "review_status": "not_reviewed"
+    },
+    {
+      "hypothesis_id": "h-idalia",
+      "claim_id": "c-1836-idalia-rumor",
+      "model": "baseten/mammoth-1:free",
+      "suggested_label": "insufficient_data",
+      "review_status": "not_reviewed"
+    },
+    {
+      "hypothesis_id": "h-idalia",
+      "claim_id": "c-1836-idalia-rumor",
+      "model": "baseten/elephant-1:free",
+      "suggested_label": "compatible",
+      "review_status": "not_reviewed"
+    },
+    {
+      "hypothesis_id": "h-heckern",
+      "claim_id": "claim-blames",
+      "model": "perplexity/pplx-decider-v1.2",
+      "suggested_label": "compatible",
+      "review_status": "not_reviewed"
+    },
+    {
+      "hypothesis_id": "h-heckern",
+      "claim_id": "claim-blames",
+      "model": "baseten/mammoth-1:free",
+      "suggested_label": "compatible",
+      "review_status": "not_reviewed"
+    },
+    {
+      "hypothesis_id": "h-heckern",
+      "claim_id": "claim-blames",
+      "model": "baseten/elephant-1:free",
+      "suggested_label": "compatible",
+      "review_status": "not_reviewed"
+    },
+    {
+      "hypothesis_id": "h-heckern",
+      "claim_id": "c-1837-reply",
+      "model": "perplexity/pplx-decider-v1.2",
+      "suggested_label": "insufficient_data",
+      "review_status": "not_reviewed"
+    },
+    {
+      "hypothesis_id": "h-heckern",
+      "claim_id": "c-1837-reply",
+      "model": "baseten/mammoth-1:free",
+      "suggested_label": "insufficient_data",
+      "review_status": "not_reviewed"
+    },
+    {
+      "hypothesis_id": "h-heckern",
+      "claim_id": "c-1837-reply",
+      "model": "baseten/elephant-1:free",
+      "suggested_label": "compatible",
+      "review_status": "not_reviewed"
+    },
+    {
+      "hypothesis_id": "h-court",
+      "claim_id": "c-1834-court",
+      "model": "perplexity/pplx-decider-v1.2",
+      "suggested_label": "insufficient_data",
+      "review_status": "not_reviewed"
+    },
+    {
+      "hypothesis_id": "h-court",
+      "claim_id": "c-1834-court",
+      "model": "baseten/mammoth-1:free",
+      "suggested_label": "insufficient_data",
+      "review_status": "not_reviewed"
+    },
+    {
+      "hypothesis_id": "h-court",
+      "claim_id": "c-1834-court",
+      "model": "baseten/elephant-1:free",
+      "suggested_label": "insufficient_data",
+      "review_status": "not_reviewed"
+    },
+    {
+      "hypothesis_id": "h-court",
+      "claim_id": "c-1837-lermontov",
+      "model": "perplexity/pplx-decider-v1.2",
+      "suggested_label": "insufficient_data",
+      "review_status": "not_reviewed"
+    },
+    {
+      "hypothesis_id": "h-court",
+      "claim_id": "c-1837-lermontov",
+      "model": "baseten/mammoth-1:free",
+      "suggested_label": "insufficient_data",
+      "review_status": "not_reviewed"
+    },
+    {
+      "hypothesis_id": "h-court",
+      "claim_id": "c-1837-lermontov",
+      "model": "baseten/elephant-1:free",
+      "suggested_label": "insufficient_data",
+      "review_status": "not_reviewed"
+    }
+  ]
+}

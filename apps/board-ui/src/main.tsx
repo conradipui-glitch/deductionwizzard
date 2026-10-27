@@ -34,8 +34,12 @@ function App(){
  const [safeRender,setSafeRender]=useState(true);
  const [cinematic,setCinematic]=useState(true);
  const [cameraActive,setCameraActive]=useState(false);
- const cameraTimeout=useRef<ReturnType<typeof setTimeout>|null>(null);
- useEffect(()=>()=>{if(cameraTimeout.current)clearTimeout(cameraTimeout.current)},[]);
+ const cameraFrame=useRef<number|null>(null);
+ const cancelFlight=()=>{
+   if(cameraFrame.current!==null){cancelAnimationFrame(cameraFrame.current);cameraFrame.current=null;}
+   setCameraActive(false);
+ };
+ useEffect(()=>()=>{if(cameraFrame.current!==null)cancelAnimationFrame(cameraFrame.current)},[]);
 
  const drag=useRef<{kind:'pan'|'card';id?:string;px:number;py:number;ox:number;oy:number}|null>(null);
  const viewport=useRef<HTMLDivElement>(null);
@@ -67,22 +71,43 @@ function App(){
    setHeatOpen(false);
  };
  const pos=(id:string)=>{const n=nodeById.get(id);return positions[id]||{x:n?.x||0,y:n?.y||0};};
- const panStart=(e:React.PointerEvent<HTMLDivElement>)=>{if(e.button!==0)return;setCameraActive(false);drag.current={kind:'pan',px:e.clientX,py:e.clientY,ox:view.x,oy:view.y};e.currentTarget.setPointerCapture(e.pointerId);};
+ const panStart=(e:React.PointerEvent<HTMLDivElement>)=>{if(e.button!==0)return;cancelFlight();drag.current={kind:'pan',px:e.clientX,py:e.clientY,ox:view.x,oy:view.y};e.currentTarget.setPointerCapture(e.pointerId);};
  const panMove=(e:React.PointerEvent<HTMLDivElement>)=>{if(drag.current?.kind!=='pan')return;setView(v=>({...v,x:drag.current!.ox+e.clientX-drag.current!.px,y:drag.current!.oy+e.clientY-drag.current!.py}));};
  const endDrag=()=>{drag.current=null;};
- const startCard=(e:React.PointerEvent<HTMLButtonElement>,n:BoardNode)=>{if(e.button!==0)return;e.stopPropagation();setCameraActive(false);const p=pos(n.id);drag.current={kind:'card',id:n.id,px:e.clientX,py:e.clientY,ox:p.x,oy:p.y};e.currentTarget.setPointerCapture(e.pointerId);setSelected(n.id);setDetailsOpen(true);};
+ const startCard=(e:React.PointerEvent<HTMLButtonElement>,n:BoardNode)=>{if(e.button!==0)return;e.stopPropagation();cancelFlight();const p=pos(n.id);drag.current={kind:'card',id:n.id,px:e.clientX,py:e.clientY,ox:p.x,oy:p.y};e.currentTarget.setPointerCapture(e.pointerId);setSelected(n.id);setDetailsOpen(true);};
  const moveCard=(e:React.PointerEvent<HTMLButtonElement>)=>{if(drag.current?.kind!=='card')return;const d=drag.current;setPositions(p=>({...p,[d.id!]:{x:d.ox+(e.clientX-d.px)/view.s,y:d.oy+(e.clientY-d.py)/view.s}}));};
- const zoom=(next:number)=>{setCameraActive(false);setView(v=>{const s=Math.min(1.48,Math.max(.35,next));const el=viewport.current;const w=el?.clientWidth||1050,h=el?.clientHeight||720;return {x:w/2-(w/2-v.x)*s/v.s,y:h/2-(h/2-v.y)*s/v.s,s};});};
- const reset=()=>{setCameraActive(false);setView({x:-120,y:-180,s:.74});setPositions({});};
- const onWheel=(e:React.WheelEvent<HTMLDivElement>)=>{setCameraActive(false);if(e.ctrlKey||e.metaKey){zoom(view.s*(e.deltaY>0?.9:1.1));}else{setView(v=>({...v,x:v.x-e.deltaX,y:v.y-e.deltaY}));}};
+ const zoom=(next:number)=>{cancelFlight();setView(v=>{const s=Math.min(1.48,Math.max(.35,next));const el=viewport.current;const w=el?.clientWidth||1050,h=el?.clientHeight||720;return {x:w/2-(w/2-v.x)*s/v.s,y:h/2-(h/2-v.y)*s/v.s,s};});};
+ const reset=()=>{cancelFlight();setView({x:-120,y:-180,s:.74});setPositions({});};
+ const onWheel=(e:React.WheelEvent<HTMLDivElement>)=>{cancelFlight();if(e.ctrlKey||e.metaKey){zoom(view.s*(e.deltaY>0?.9:1.1));}else{setView(v=>({...v,x:v.x-e.deltaX,y:v.y-e.deltaY}));}};
  const focusNode=(id:string)=>{
    const p=pos(id),w=viewport.current?.clientWidth||900,h=viewport.current?.clientHeight||650;
+   const target={x:p.x+116,y:p.y+60};
    const reduceMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false;
-   if(cameraTimeout.current)clearTimeout(cameraTimeout.current);
-   setCameraActive(cinematic&&!reduceMotion);
-   if(cinematic&&!reduceMotion)cameraTimeout.current=setTimeout(()=>setCameraActive(false),860);
-   setView(v=>({...v,x:w/2-(p.x+116)*v.s,y:h/2-(p.y+60)*v.s}));
+   cancelFlight();
    setSelected(id);setDetailsOpen(true);
+   if(!cinematic||reduceMotion){
+     setView(v=>({...v,x:w/2-target.x*v.s,y:h/2-target.y*v.s}));
+     return;
+   }
+   // A 1.35s camera crane: zoom out, travel above the evidence, gently settle.
+   // Center follows world-space coordinates so the movement is stable at all zoom levels.
+   const from={...view},destScale=from.s;
+   const beginCenter={x:(w/2-from.x)/from.s,y:(h/2-from.y)/from.s};
+   const elapsedAt=performance.now();
+   const duration=1350;
+   setCameraActive(true);
+   const tick=(now:number)=>{
+     const t=Math.min(1,(now-elapsedAt)/duration);
+     const ease=t*t*(3-2*t);
+     const lift=Math.sin(Math.PI*ease)*0.19;
+     const s=destScale*(1-lift);
+     const cx=beginCenter.x+(target.x-beginCenter.x)*ease;
+     const cy=beginCenter.y+(target.y-beginCenter.y)*ease;
+     setView({x:w/2-cx*s,y:h/2-cy*s,s});
+     if(t<1) cameraFrame.current=requestAnimationFrame(tick);
+     else {cameraFrame.current=null;setCameraActive(false);}
+   };
+   cameraFrame.current=requestAnimationFrame(tick);
  };
  const evidenceFor=(c:CaseClaim)=>c.evidence.map(e=>casebook.sources.find(s=>s.id===e.source_id)).filter(x=>x!==undefined);
  return <div className={`app theme-${theme} ${light?'lamp-on':''} ${safeRender?'render-safe':''}`}>
@@ -111,7 +136,7 @@ function App(){
    </aside>
    <main className="stage">
     {storyOpen&&<StoryReader onClose={()=>setStoryOpen(false)} onFocus={focusNode} initialHyp={activeHyp}/>}
-    <div className="stage-heading"><div><div className="eyebrow"><span className="small-line"/> КАРТА РАССЛЕДОВАНИЯ / ЧАСТЬ I</div><h1>Тени на Чёрной речке</h1><p>Петербург, 1833–1837. Документы, люди, события и конкурирующие объяснения.</p></div><div className="stage-actions"><button className="utility story-open-button" onClick={()=>{setStoryOpen(true);setHeatOpen(false)}}><BookOpen size={15}/> Читать историю</button><button className="utility" onClick={()=>setTheme(theme==='cork'?'chalk':'cork')}><span className="small-circle"/>{theme==='cork'?'Меловая доска':'Пробковая доска'}</button><button className={`utility ${heatOpen?'toggled':''}`} onClick={()=>setHeatOpen(!heatOpen)} aria-pressed={heatOpen}><ListFilter size={15}/> Матрица гипотез</button><button className={`utility ${cinematic?'toggled':''}`} onClick={()=>{setCinematic(!cinematic);setCameraActive(false)}} aria-pressed={cinematic} title="Плавный перелёт к карточкам и колыхание бумаги"><Focus size={15}/> Кинокамера {cinematic?'ON':'OFF'}</button><button className={`utility ${safeRender?'toggled':''}`} onClick={()=>setSafeRender(!safeRender)} aria-pressed={safeRender} title="Уменьшить GPU-эффекты, предотвращая чёрный экран"><ShieldCheck size={15}/> Safe</button><button className={`utility ${showLinks?'toggled':''}`} onClick={()=>setShowLinks(!showLinks)}><Network size={15}/> Связи</button></div></div>
+    <div className="stage-heading"><div><div className="eyebrow"><span className="small-line"/> КАРТА РАССЛЕДОВАНИЯ / ЧАСТЬ I</div><h1>Тени на Чёрной речке</h1><p>Петербург, 1833–1837. Документы, люди, события и конкурирующие объяснения.</p></div><div className="stage-actions"><button className="utility story-open-button" onClick={()=>{setStoryOpen(true);setHeatOpen(false)}}><BookOpen size={15}/> Читать историю</button><button className="utility" onClick={()=>setTheme(theme==='cork'?'chalk':'cork')}><span className="small-circle"/>{theme==='cork'?'Меловая доска':'Пробковая доска'}</button><button className={`utility ${heatOpen?'toggled':''}`} onClick={()=>setHeatOpen(!heatOpen)} aria-pressed={heatOpen}><ListFilter size={15}/> Матрица гипотез</button><button className={`utility ${cinematic?'toggled':''}`} onClick={()=>{setCinematic(!cinematic);cancelFlight()}} aria-pressed={cinematic} title="Плавный подъём камеры, пролёт и мягкое приземление (можно выключить)"><Focus size={15}/> Кинокамера {cinematic?'ON':'OFF'}</button><button className={`utility ${safeRender?'toggled':''}`} onClick={()=>setSafeRender(!safeRender)} aria-pressed={safeRender} title="Уменьшить GPU-эффекты, предотвращая чёрный экран"><ShieldCheck size={15}/> Safe</button><button className={`utility ${showLinks?'toggled':''}`} onClick={()=>setShowLinks(!showLinks)}><Network size={15}/> Связи</button></div></div>
     <div className="board-window" ref={viewport} onWheel={onWheel} onPointerDown={panStart} onPointerMove={panMove} onPointerUp={endDrag} onPointerCancel={endDrag}>
      <div className="lamp-pool"/>
      <div className={`board-world ${cameraActive?'camera-flight':''}`} style={{transform:`translate(${view.x}px, ${view.y}px) scale(${view.s})`}}>

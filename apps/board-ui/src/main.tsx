@@ -29,13 +29,18 @@ function App(){
  const [showLinks,setShowLinks]=useState(true);
  const [heatOpen,setHeatOpen]=useState(false);
  const [storyOpen,setStoryOpen]=useState(false);
+ const [guideStep,setGuideStep]=useState(-1);
  const [showAllClaims,setShowAllClaims]=useState(false);
  const [showModelVotes,setShowModelVotes]=useState(false);
  const [safeRender,setSafeRender]=useState(true);
  const [cinematic,setCinematic]=useState(true);
  const [cameraActive,setCameraActive]=useState(false);
- const cameraTimeout=useRef<ReturnType<typeof setTimeout>|null>(null);
- useEffect(()=>()=>{if(cameraTimeout.current)clearTimeout(cameraTimeout.current)},[]);
+ const cameraFrame=useRef<number|null>(null);
+ const cancelFlight=()=>{
+   if(cameraFrame.current!==null){cancelAnimationFrame(cameraFrame.current);cameraFrame.current=null;}
+   setCameraActive(false);
+ };
+ useEffect(()=>()=>{if(cameraFrame.current!==null)cancelAnimationFrame(cameraFrame.current)},[]);
 
  const drag=useRef<{kind:'pan'|'card';id?:string;px:number;py:number;ox:number;oy:number}|null>(null);
  const viewport=useRef<HTMLDivElement>(null);
@@ -67,22 +72,43 @@ function App(){
    setHeatOpen(false);
  };
  const pos=(id:string)=>{const n=nodeById.get(id);return positions[id]||{x:n?.x||0,y:n?.y||0};};
- const panStart=(e:React.PointerEvent<HTMLDivElement>)=>{if(e.button!==0)return;setCameraActive(false);drag.current={kind:'pan',px:e.clientX,py:e.clientY,ox:view.x,oy:view.y};e.currentTarget.setPointerCapture(e.pointerId);};
+ const panStart=(e:React.PointerEvent<HTMLDivElement>)=>{if(e.button!==0)return;cancelFlight();drag.current={kind:'pan',px:e.clientX,py:e.clientY,ox:view.x,oy:view.y};e.currentTarget.setPointerCapture(e.pointerId);};
  const panMove=(e:React.PointerEvent<HTMLDivElement>)=>{if(drag.current?.kind!=='pan')return;setView(v=>({...v,x:drag.current!.ox+e.clientX-drag.current!.px,y:drag.current!.oy+e.clientY-drag.current!.py}));};
  const endDrag=()=>{drag.current=null;};
- const startCard=(e:React.PointerEvent<HTMLButtonElement>,n:BoardNode)=>{if(e.button!==0)return;e.stopPropagation();setCameraActive(false);const p=pos(n.id);drag.current={kind:'card',id:n.id,px:e.clientX,py:e.clientY,ox:p.x,oy:p.y};e.currentTarget.setPointerCapture(e.pointerId);setSelected(n.id);setDetailsOpen(true);};
+ const startCard=(e:React.PointerEvent<HTMLButtonElement>,n:BoardNode)=>{if(e.button!==0)return;e.stopPropagation();cancelFlight();const p=pos(n.id);drag.current={kind:'card',id:n.id,px:e.clientX,py:e.clientY,ox:p.x,oy:p.y};e.currentTarget.setPointerCapture(e.pointerId);setSelected(n.id);setDetailsOpen(true);};
  const moveCard=(e:React.PointerEvent<HTMLButtonElement>)=>{if(drag.current?.kind!=='card')return;const d=drag.current;setPositions(p=>({...p,[d.id!]:{x:d.ox+(e.clientX-d.px)/view.s,y:d.oy+(e.clientY-d.py)/view.s}}));};
- const zoom=(next:number)=>{setCameraActive(false);setView(v=>{const s=Math.min(1.48,Math.max(.35,next));const el=viewport.current;const w=el?.clientWidth||1050,h=el?.clientHeight||720;return {x:w/2-(w/2-v.x)*s/v.s,y:h/2-(h/2-v.y)*s/v.s,s};});};
- const reset=()=>{setCameraActive(false);setView({x:-120,y:-180,s:.74});setPositions({});};
- const onWheel=(e:React.WheelEvent<HTMLDivElement>)=>{setCameraActive(false);if(e.ctrlKey||e.metaKey){zoom(view.s*(e.deltaY>0?.9:1.1));}else{setView(v=>({...v,x:v.x-e.deltaX,y:v.y-e.deltaY}));}};
+ const zoom=(next:number)=>{cancelFlight();setView(v=>{const s=Math.min(1.48,Math.max(.35,next));const el=viewport.current;const w=el?.clientWidth||1050,h=el?.clientHeight||720;return {x:w/2-(w/2-v.x)*s/v.s,y:h/2-(h/2-v.y)*s/v.s,s};});};
+ const reset=()=>{cancelFlight();setView({x:-120,y:-180,s:.74});setPositions({});};
+ const onWheel=(e:React.WheelEvent<HTMLDivElement>)=>{cancelFlight();if(e.ctrlKey||e.metaKey){zoom(view.s*(e.deltaY>0?.9:1.1));}else{setView(v=>({...v,x:v.x-e.deltaX,y:v.y-e.deltaY}));}};
  const focusNode=(id:string)=>{
    const p=pos(id),w=viewport.current?.clientWidth||900,h=viewport.current?.clientHeight||650;
+   const target={x:p.x+116,y:p.y+60};
    const reduceMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false;
-   if(cameraTimeout.current)clearTimeout(cameraTimeout.current);
-   setCameraActive(cinematic&&!reduceMotion);
-   if(cinematic&&!reduceMotion)cameraTimeout.current=setTimeout(()=>setCameraActive(false),860);
-   setView(v=>({...v,x:w/2-(p.x+116)*v.s,y:h/2-(p.y+60)*v.s}));
+   cancelFlight();
    setSelected(id);setDetailsOpen(true);
+   if(!cinematic||reduceMotion){
+     setView(v=>({...v,x:w/2-target.x*v.s,y:h/2-target.y*v.s}));
+     return;
+   }
+   // A 1.35s camera crane: zoom out, travel above the evidence, gently settle.
+   // Center follows world-space coordinates so the movement is stable at all zoom levels.
+   const from={...view},destScale=from.s;
+   const beginCenter={x:(w/2-from.x)/from.s,y:(h/2-from.y)/from.s};
+   const elapsedAt=performance.now();
+   const duration=1350;
+   setCameraActive(true);
+   const tick=(now:number)=>{
+     const t=Math.min(1,(now-elapsedAt)/duration);
+     const ease=t*t*(3-2*t);
+     const lift=Math.sin(Math.PI*ease)*0.19;
+     const s=destScale*(1-lift);
+     const cx=beginCenter.x+(target.x-beginCenter.x)*ease;
+     const cy=beginCenter.y+(target.y-beginCenter.y)*ease;
+     setView({x:w/2-cx*s,y:h/2-cy*s,s});
+     if(t<1) cameraFrame.current=requestAnimationFrame(tick);
+     else {cameraFrame.current=null;setCameraActive(false);}
+   };
+   cameraFrame.current=requestAnimationFrame(tick);
  };
  const evidenceFor=(c:CaseClaim)=>c.evidence.map(e=>casebook.sources.find(s=>s.id===e.source_id)).filter(x=>x!==undefined);
  return <div className={`app theme-${theme} ${light?'lamp-on':''} ${safeRender?'render-safe':''}`}>
@@ -90,7 +116,7 @@ function App(){
    <div className="brand-mark"><Fingerprint size={22} strokeWidth={1.3}/></div>
    <div className="brand-copy"><div className="brand-title">DEDUCTION <span>WIZARD</span></div><div className="brand-kicker">ИСТОРИЯ НЕ ТЕРПИТ ДОГАДОК БЕЗ УЛИК</div></div>
    <div className="header-divider"/>
-   <button className="case-picker" onClick={()=>setAsideOpen(!asideOpen)} aria-label="Показать дела"><span className="case-number">ДЕЛО № 001</span><span className="case-name">Последняя дуэль Пушкина</span><ChevronDown size={15}/></button>
+   <button className={"case-picker "+(guideStep===0?"guide-spotlight":"")} onClick={()=>setAsideOpen(!asideOpen)} aria-label="Показать дела"><span className="case-number">ДЕЛО № 001</span><span className="case-name">Последняя дуэль Пушкина</span><ChevronDown size={15}/></button>
    <div className="header-spacer"/>
    <div className="header-status"><span className="status-dot"/> ИССЛЕДОВАНИЕ ОТКРЫТО</div>
    <button className="icon-btn header-action" title="Переключить свет" onClick={()=>setLight(!light)}><LampDesk size={19}/></button>
@@ -106,12 +132,24 @@ function App(){
     <div className="filter-list">{(['all','person','event','source','hypothesis'] as FilterName[]).map(type=><button key={type} className={`filter-item ${filter===type?'active':''}`} onClick={()=>{setFilter(type);setAsideOpen(false);}}><span className={`filter-symbol type-${type}`}>{type==='person'?<Eye size={15}/>:type==='event'?<CalendarDays size={15}/>:type==='source'?<FileText size={15}/>:type==='hypothesis'?<GitBranch size={15}/>:<Layers3 size={15}/>}</span><span>{labels[type]}</span><span className="count">{type==='all'?boardNodes.length:boardNodes.filter(n=>n.type===type).length}</span></button>)}</div>
     <div className="pane-rule"/>
     <div className="list-title"><span>ВЕРСИИ СОБЫТИЙ</span><span className="list-count">{casebook.hypotheses.length.toString().padStart(2,'0')}</span></div>
-    <div className="hyp-list">{casebook.hypotheses.map((h,i)=><button key={h.id} className={`hyp-item ${activeHyp===h.id?'current':''}`} onClick={()=>{setActiveHyp(h.id);focusNode(h.id);setAsideOpen(false);}}><span className="hyp-index">0{i+1}</span><span>{h.statement}</span></button>)}</div>
+    <div className={"hyp-list "+(guideStep===1?"guide-spotlight":"")}>{casebook.hypotheses.map((h,i)=><button key={h.id} className={`hyp-item ${activeHyp===h.id?'current':''}`} onClick={()=>{setActiveHyp(h.id);focusNode(h.id);setAsideOpen(false);}}><span className="hyp-index">0{i+1}</span><span>{h.statement}</span></button>)}</div>
     <div className="sidebar-bottom"><div className="protocol-note"><ShieldCheck size={16}/><div><b>Протокол источников активен</b><p>Гипотеза не равна факту. Каждое утверждение должно иметь след.</p></div></div><a href="https://github.com/conradipui-glitch/deductionwizzard" rel="noreferrer" target="_blank" className="repository-link">ИССЛЕДОВАТЕЛЬСКИЙ РЕПОЗИТОРИЙ <ArrowUpRight size={14}/></a></div>
    </aside>
    <main className="stage">
+    {guideStep>=0&&<><div className="guide-scrim"/><div className="guide-panel" role="dialog" aria-label="Обучение по работе с доской">
+      <small>ИНТЕРАКТИВНОЕ ОБУЧЕНИЕ · {guideStep+1} / 5</small>
+      <h3>{['Дело — отдельное расследование','Версии — объяснения, а не факты','Матрица — проверка доказательств','История — сценарии из выбранных событий','Камера — кинематографический перелёт'][guideStep]}</h3>
+      <p>{[
+      'Здесь выбирается исследование. Сейчас открыто дело Пушкина. Позже здесь появятся другие исторические расследования — со своей хронологией и источниками.',
+      'Эти три версии описывают разные возможные причины событий. Нажатие открывает гипотезу на доске, но не делает её доказанной. Новые версии можно записать в конструкторе историй.',
+      'Здесь видно, какие документы поддерживают версии, какие с ними лишь совместимы и где остаются пробелы. Скрытые или неоценённые свидетельства не равны опровержениям.',
+      'Нажми эту кнопку, затем выбери факты и версии. Следующий экран покажет нестыковки, а последний позволит читать подготовленную историю или запросить новую у DeepSeek.',
+      'Кинокамера плавно поднимается, перемещается и мягко приземляется около выбранной карточки. Можно выключить анимацию. Кнопка Safe рядом снижает нагрузку графики.'
+      ][guideStep]}</p>
+      <div className="guide-controls"><button onClick={()=>setGuideStep(-1)}>Закрыть</button><button disabled={guideStep===0} onClick={()=>setGuideStep(i=>Math.max(0,i-1))}>Назад</button><button onClick={()=>setGuideStep(i=>i>=4?-1:i+1)}>{guideStep===4?'Завершить':'Далее'} <ChevronRight size={15}/></button></div>
+     </div></>}
     {storyOpen&&<StoryReader onClose={()=>setStoryOpen(false)} onFocus={focusNode} initialHyp={activeHyp}/>}
-    <div className="stage-heading"><div><div className="eyebrow"><span className="small-line"/> КАРТА РАССЛЕДОВАНИЯ / ЧАСТЬ I</div><h1>Тени на Чёрной речке</h1><p>Петербург, 1833–1837. Документы, люди, события и конкурирующие объяснения.</p></div><div className="stage-actions"><button className="utility story-open-button" onClick={()=>{setStoryOpen(true);setHeatOpen(false)}}><BookOpen size={15}/> Читать историю</button><button className="utility" onClick={()=>setTheme(theme==='cork'?'chalk':'cork')}><span className="small-circle"/>{theme==='cork'?'Меловая доска':'Пробковая доска'}</button><button className={`utility ${heatOpen?'toggled':''}`} onClick={()=>setHeatOpen(!heatOpen)} aria-pressed={heatOpen}><ListFilter size={15}/> Матрица гипотез</button><button className={`utility ${cinematic?'toggled':''}`} onClick={()=>{setCinematic(!cinematic);setCameraActive(false)}} aria-pressed={cinematic} title="Плавный перелёт к карточкам и колыхание бумаги"><Focus size={15}/> Кинокамера {cinematic?'ON':'OFF'}</button><button className={`utility ${safeRender?'toggled':''}`} onClick={()=>setSafeRender(!safeRender)} aria-pressed={safeRender} title="Уменьшить GPU-эффекты, предотвращая чёрный экран"><ShieldCheck size={15}/> Safe</button><button className={`utility ${showLinks?'toggled':''}`} onClick={()=>setShowLinks(!showLinks)}><Network size={15}/> Связи</button></div></div>
+    <div className="stage-heading"><div><div className="eyebrow"><span className="small-line"/> КАРТА РАССЛЕДОВАНИЯ / ЧАСТЬ I</div><h1>Тени на Чёрной речке</h1><p>Петербург, 1833–1837. Документы, люди, события и конкурирующие объяснения.</p></div><div className="stage-actions"><button className="utility tutorial-trigger" onClick={()=>{setGuideStep(0);setStoryOpen(false)}}><HelpCircle size={15}/> Обучение</button><button className={"utility story-open-button "+(guideStep===3?"guide-spotlight":"")} onClick={()=>{setStoryOpen(true);setHeatOpen(false)}}><BookOpen size={15}/> Читать историю</button><button className="utility" onClick={()=>setTheme(theme==='cork'?'chalk':'cork')}><span className="small-circle"/>{theme==='cork'?'Меловая доска':'Пробковая доска'}</button><button className={`utility ${guideStep===2?"guide-spotlight":""} ${heatOpen?'toggled':''}`} onClick={()=>setHeatOpen(!heatOpen)} aria-pressed={heatOpen}><ListFilter size={15}/> Матрица гипотез</button><button className={`utility ${guideStep===4?"guide-spotlight":""} ${cinematic?'toggled':''}`} onClick={()=>{setCinematic(!cinematic);cancelFlight()}} aria-pressed={cinematic} title="Плавный подъём камеры, пролёт и мягкое приземление (можно выключить)"><Focus size={15}/> Кинокамера {cinematic?'ON':'OFF'}</button><button className={`utility ${safeRender?'toggled':''}`} onClick={()=>setSafeRender(!safeRender)} aria-pressed={safeRender} title="Уменьшить GPU-эффекты, предотвращая чёрный экран"><ShieldCheck size={15}/> Safe</button><button className={`utility ${showLinks?'toggled':''}`} onClick={()=>setShowLinks(!showLinks)}><Network size={15}/> Связи</button></div></div>
     <div className="board-window" ref={viewport} onWheel={onWheel} onPointerDown={panStart} onPointerMove={panMove} onPointerUp={endDrag} onPointerCancel={endDrag}>
      <div className="lamp-pool"/>
      <div className={`board-world ${cameraActive?'camera-flight':''}`} style={{transform:`translate(${view.x}px, ${view.y}px) scale(${view.s})`}}>

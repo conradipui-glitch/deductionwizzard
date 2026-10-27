@@ -1,0 +1,45 @@
+name: Generate owner-requested Story Mode draft
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: read
+
+concurrency:
+  group: story-gen
+  cancel-in-progress: false
+
+jobs:
+  story:
+    if: github.event.issue.user.login == 'conradipui-glitch' && startsWith(github.event.issue.title, '[DW STORY]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    env:
+      STORY_REQUEST_BODY: ${{ github.event.issue.body }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate request without using any secrets
+        run: python tools/generate_narrative.py --dry-run
+      - name: Generate novel narrative via DeepSeek Flash
+        env:
+          DECIS_API: ${{ secrets.DECIS_API }}
+        run: python tools/generate_narrative.py
+      - name: Commit the new unreviewed story into Pages data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps/board-ui/public/generated/
+          if git diff --cached --quiet; then
+            echo "Story unchanged"
+          else
+            git commit -m "story: generate unreviewed historical interpretation"
+            git push origin HEAD:main
+          fi

@@ -1,4 +1,4 @@
-import React,{useMemo,useState} from 'react';
+import React,{useEffect,useMemo,useState} from 'react';
 import {BookOpen,ChevronLeft,ChevronRight,FileText,GitBranch,Layers3,X,CheckCircle2,Info,ExternalLink,Eye} from 'lucide-react';
 import storiesJson from '../../../cases/pushkin/stories.json';
 import {casebook} from './data';

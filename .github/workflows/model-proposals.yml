@@ -29,7 +29,7 @@ jobs:
           python tools/propose_hypotheses.py
       - name: Query three Decisions models on six claim–hypothesis pairs
         env:
-          DECIS_API: \${{ secrets.DECIS_API }}
+          DECIS_API: ${{ secrets.DECIS_API }}
         run: python tools/propose_hypotheses.py --run --max-calls 18
       - name: Store suggestions for human review
         if: always()

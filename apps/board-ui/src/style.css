@@ -114,3 +114,103 @@
 .guide-controls button:last-child{background:#715033;color:#f5e2c3}
 .guide-controls button:disabled{opacity:.35}
 @media(max-width:720px){.guide-panel{bottom:9px;right:9px;padding:14px}.guide-panel h3{font-size:20px}}
+
+/* v0.4.2 · UX stage A: usable laptop workspace, collapsible panels and consistent scroll. */
+.app{height:100dvh;min-height:0;max-height:100dvh;overflow:hidden}
+.app-header{flex-shrink:0}
+.app-shell{min-height:0;overflow:hidden}
+.left-pane{min-height:0;transition:width .22s ease,opacity .15s ease}
+.left-pane:not(.is-open){width:0;flex-basis:0;border:0;opacity:0;pointer-events:none;visibility:hidden;overflow:hidden}
+.inspector{min-height:0}
+.inspector-scroll{min-height:0}
+.stage{min-height:0;isolation:isolate}
+.stage-heading{display:grid;grid-template-columns:minmax(220px,1fr) auto;align-items:center;min-height:0;gap:16px;position:relative;z-index:10}
+.stage-title{min-width:0}
+.stage-title h1{margin:6px 0}
+.stage-title p{line-height:1.45;max-width:57ch}
+.stage-actions{justify-content:flex-end;min-width:0}
+.stage-actions .utility{flex:none}
+.panel-toggle{flex:none}
+.board-settings{position:relative;display:flex;align-items:center}
+.board-settings-menu{position:absolute;z-index:65;right:0;top:calc(100% + 9px);width:222px;padding:8px;display:grid;gap:5px;border:1px solid #776144;border-radius:7px;box-shadow:0 15px 45px #000b;background:linear-gradient(145deg,#302b23,#1e201c)}
+.board-settings-menu .utility{width:100%;justify-content:flex-start;text-align:left;padding:11px 12px;font-size:11px}
+.board-settings-menu .utility[aria-pressed=true]{border-color:#a48657;background:#42392c}
+.settings-button[aria-expanded=true]{color:#eed3a4;border-color:#b99463}
+.drawer-backdrop{display:none}
+.app :is(.left-pane,.inspector-scroll,.heat-scroll,.heat-summary,.model-votes,.wizard-scroll,.wizard-event-options,.story-content,.story-copy,.story-event-picks,.story-composer,.story-full,.story-illustration){
+ scrollbar-width:thin;
+ scrollbar-color:var(--scroll-thumb,#806a4a) transparent;
+ overscroll-behavior:contain;
+}
+.inspector-scroll,.wizard-scroll,.story-composer{--scroll-thumb:#9b815c}
+.app *::-webkit-scrollbar{width:7px;height:7px}
+.app *::-webkit-scrollbar-track{background:transparent}
+.app *::-webkit-scrollbar-thumb{background:var(--scroll-thumb,#806a4a);border-radius:12px;border:1px solid transparent;background-clip:padding-box}
+.app *::-webkit-scrollbar-thumb:hover{background:#c7a16f}
+.app *::-webkit-scrollbar-corner{background:transparent}
+@media (max-width:1480px){
+ .app-header{height:64px;min-height:64px;gap:12px;padding:0 16px}
+ .brand-kicker{display:none}
+ .brand-title{font-size:12px;letter-spacing:2px}
+ .header-divider{margin-left:0}
+ .stage-heading{padding:16px 20px;gap:12px}
+ .stage-title h1{font-size:clamp(23px,2.25vw,30px)}
+ .stage-title p{font-size:10px}
+ .stage-heading .stage-actions{gap:6px;flex-wrap:nowrap;max-width:none;flex-direction:row}
+ .stage-heading .stage-actions .utility{font-size:10px;padding:9px 10px;white-space:nowrap;max-width:none}
+ .inspector{width:286px}
+ .inspect-head{padding:18px 16px 15px}
+ .inspect-head h2{font-size:19px;margin-top:5px}
+ .inspector-scroll{padding:15px 14px}
+ .inspect-bottom{padding:11px 14px}
+}
+@media (min-width:1081px) and (max-height:850px){
+ .app-header{height:60px;min-height:60px}
+ .stage-heading{padding:12px 19px}
+ .stage-title .eyebrow{font-size:8px}
+ .stage-title h1{margin:3px 0;font-size:25px}
+ .stage-footer{height:22px;padding:5px 14px}
+ .timeline-strip{height:52px;padding:0 16px}
+ .pane-top{padding:16px 18px 10px}
+ .left-pane .sidebar-bottom{padding:14px}
+}
+@media (max-width:1080px){
+ .app-shell{overflow:hidden}
+ .left-pane{top:64px;bottom:52px;width:260px}
+ .left-pane:not(.is-open){width:260px;opacity:1;visibility:visible;pointer-events:auto}
+ .inspector{top:64px;bottom:52px;width:min(310px,90vw)}
+ .drawer-backdrop{display:block;position:fixed;z-index:6;inset:64px 0 52px;border:0;background:#08090899;cursor:default}
+ .desktop-sidebar-toggle{display:none}
+ .stage-heading{padding:12px 16px;grid-template-columns:minmax(180px,1fr) auto}
+ .stage-title h1{font-size:26px}
+ .stage-heading .stage-actions{max-width:none;flex-direction:row;gap:5px}
+ .stage-heading .stage-actions .utility{padding:8px;font-size:9px;white-space:nowrap;max-width:none}
+}
+@media (max-width:760px){
+ .stage-heading{display:flex;flex-direction:column;align-items:stretch;gap:10px;padding:12px}
+ .stage-title p{display:none}
+ .stage-title h1{font-size:23px}
+ .stage-heading .stage-actions{justify-content:flex-start;flex-wrap:wrap;width:100%;max-width:none;flex-direction:row}
+ .stage-heading .stage-actions .utility{font-size:10px;white-space:nowrap;max-width:none}
+ .stage-heading .board-settings{margin-left:auto}
+ .board-settings-menu{right:0}
+ .timeline-strip{height:56px;gap:7px}
+ .stage-footer{display:none}
+}
+@media (max-width:660px){
+ .app-header{height:58px;min-height:58px;padding:0 11px}
+ .left-pane,.inspector{top:58px;bottom:52px}
+ .drawer-backdrop{inset:58px 0 52px}
+ .stage-heading{min-height:0;padding:10px 12px}
+ .stage-heading .stage-actions{display:flex;flex-direction:row;flex-wrap:wrap;max-width:none;width:100%;gap:6px}
+ .stage-heading .stage-actions .utility{width:auto;max-width:none;padding:9px;white-space:nowrap;font-size:10px}
+ .stage-heading .board-settings{margin-left:0}
+ .stage-heading .stage-title h1{font-size:22px}
+ .board-settings-menu{width:205px;right:0}
+ .timeline-strip{height:55px}
+ .board-help{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+ .left-pane{transition:none}
+ .board-settings-menu{animation:none}
+}

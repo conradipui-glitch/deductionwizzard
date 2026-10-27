@@ -136,3 +136,16 @@
 .wizard-conclusion p{line-height:1.8}
 @media(max-width:1000px){.wizard-columns{grid-template-columns:1fr}.wizard-scroll{padding:18px}.wizard-event-options{max-height:260px}.wizard-bottom{align-items:stretch;flex-direction:column}.wizard-actions{justify-content:flex-start}.wizard-readerbar{flex-wrap:wrap}}
 @media(max-width:650px){.wizard-progress{padding:7px;gap:2px}.wizard-progress button{font-size:9px;gap:4px;padding:6px}.wizard-progress button span{width:21px;height:21px}.wizard-section{padding:14px}.wizard-section-head h3{font-size:19px}.wizard-stats{grid-template-columns:repeat(3,1fr)}.wizard-stats div{padding:9px}.wizard-stats b{font-size:22px}.wizard-review-grid{grid-template-columns:1fr}.wizard-guide{display:block}.wizard-guide button{display:block;margin-top:8px}.wizard-actions{flex-direction:column}}
+
+
+/* Prepared editorial narrative catalog, replacing per-request AI generation */
+.wizard-curated-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin:20px 0 25px}
+.wizard-curated-card{background:linear-gradient(145deg,#eee1c8,#cdb38d);color:#3b2a1c;min-width:0;min-height:185px;display:flex;flex-direction:column;text-align:left;padding:15px;border:2px solid #9f825e;border-radius:8px;cursor:pointer;box-shadow:0 4px 20px #0004;transition:border-color .2s,transform .2s,box-shadow .2s}
+.wizard-curated-card:hover{transform:translateY(-3px);box-shadow:0 8px 25px #0005}
+.wizard-curated-card.active{border-color:#f6d498;outline:2px solid #efba69;background:linear-gradient(145deg,#f4e6cb,#e3c49a)}
+.wizard-curated-card small{font-size:9px;letter-spacing:1.1px;color:#916b40}
+.wizard-curated-card strong{font:normal 21px Georgia,serif;margin:12px 0 4px}
+.wizard-curated-card span{font-size:11px;color:#68492d;margin-bottom:8px}
+.wizard-curated-card p{font-size:11px;line-height:1.55;color:#624d38;margin:6px 0 0}
+@media(max-width:1200px){.wizard-curated-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.wizard-curated-cards{grid-template-columns:1fr}.wizard-curated-card{min-height:0}.wizard-curated-card strong{font-size:19px}}

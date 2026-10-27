@@ -1,6 +1,6 @@
 import React, {useEffect,useMemo,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
-import {BookOpen, GitBranch, LampDesk, ChevronDown, ArrowUpRight, Search, Filter, CalendarDays, Focus, Plus, Minus, RotateCcw, X, Layers3, Eye, Pin, FileText, ShieldCheck, HelpCircle, ZoomIn, Network, ScrollText, Clock, Fingerprint, ChevronRight, Sparkles, Archive, ExternalLink, Menu, Map as MapIcon, Grip, ListFilter} from 'lucide-react';
+import {BookOpen, GitBranch, LampDesk, ChevronDown, ArrowUpRight, Search, Filter, CalendarDays, Focus, Plus, Minus, RotateCcw, X, Layers3, Eye, Pin, FileText, ShieldCheck, HelpCircle, ZoomIn, Network, ScrollText, Clock, Fingerprint, ChevronRight, Sparkles, Archive, ExternalLink, Menu, Map as MapIcon, Grip, ListFilter, PanelLeftOpen, PanelLeftClose, Settings2} from 'lucide-react';
 import {casebook,boardNodes,boardEdges,chronological} from './data';
 import type {BoardNode,CaseClaim} from './types';
 import StoryReader,{DossierPortrait} from './StoryReader';
@@ -24,11 +24,13 @@ function App(){
  const [view,setView]=useState({x:-120,y:-180,s:.74});
  const [positions,setPositions]=useState<Record<string,{x:number;y:number}>>({});
  const [light,setLight]=useState(true);
- const [asideOpen,setAsideOpen]=useState(true);
- const [detailsOpen,setDetailsOpen]=useState(true);
+ const [asideOpen,setAsideOpen]=useState(()=>window.innerWidth>=1480);
+ const [detailsOpen,setDetailsOpen]=useState(()=>window.innerWidth>=1160);
  const [showLinks,setShowLinks]=useState(true);
  const [heatOpen,setHeatOpen]=useState(false);
  const [storyOpen,setStoryOpen]=useState(false);
+ const [toolsOpen,setToolsOpen]=useState(false);
+ const settingsRef=useRef<HTMLDivElement>(null);
  const [guideStep,setGuideStep]=useState(-1);
  const [showAllClaims,setShowAllClaims]=useState(false);
  const [showModelVotes,setShowModelVotes]=useState(false);
@@ -42,6 +44,25 @@ function App(){
  };
  useEffect(()=>()=>{if(cameraFrame.current!==null)cancelAnimationFrame(cameraFrame.current)},[]);
 
+ const tier=useRef(window.innerWidth>=1480?'wide':window.innerWidth>1080?'laptop':'compact');
+ useEffect(()=>{
+  const resize=()=>{
+   const w=window.innerWidth, next=w>=1480?'wide':w>1080?'laptop':'compact';
+   if(tier.current===next)return;
+   tier.current=next;
+   if(next==='compact'){setAsideOpen(false);setDetailsOpen(false);}
+   else if(next==='laptop'){setAsideOpen(false);setDetailsOpen(w>=1160);}
+   else {setAsideOpen(true);setDetailsOpen(true);}
+  };
+  window.addEventListener('resize',resize);return ()=>window.removeEventListener('resize',resize);
+ },[]);
+ useEffect(()=>{
+  const dismiss=(e:PointerEvent)=>{if(settingsRef.current&&!settingsRef.current.contains(e.target as Node))setToolsOpen(false);};
+  const escape=(e:KeyboardEvent)=>{if(e.key==='Escape'){setToolsOpen(false);if(window.innerWidth<=1080){setAsideOpen(false);setDetailsOpen(false);}}};
+  document.addEventListener('pointerdown',dismiss);document.addEventListener('keydown',escape);
+  return ()=>{document.removeEventListener('pointerdown',dismiss);document.removeEventListener('keydown',escape);};
+ },[]);
+ useEffect(()=>{if(guideStep===4)setToolsOpen(true);},[guideStep]);
  const drag=useRef<{kind:'pan'|'card';id?:string;px:number;py:number;ox:number;oy:number}|null>(null);
  const viewport=useRef<HTMLDivElement>(null);
  const nodeById=useMemo(()=>new Map(boardNodes.map(n=>[n.id,n])),[]);
@@ -111,20 +132,24 @@ function App(){
    cameraFrame.current=requestAnimationFrame(tick);
  };
  const evidenceFor=(c:CaseClaim)=>c.evidence.map(e=>casebook.sources.find(s=>s.id===e.source_id)).filter(x=>x!==undefined);
- return <div className={`app theme-${theme} ${light?'lamp-on':''} ${safeRender?'render-safe':''}`}>
+ return <div className={`app theme-${theme} ${light?'lamp-on':''} ${safeRender?'render-safe':''} ${asideOpen?'sidebar-visible':'sidebar-collapsed'} ${detailsOpen?'inspector-visible':'inspector-collapsed'}`}>
   <header className="app-header">
    <div className="brand-mark"><Fingerprint size={22} strokeWidth={1.3}/></div>
    <div className="brand-copy"><div className="brand-title">DEDUCTION <span>WIZARD</span></div><div className="brand-kicker">ИСТОРИЯ НЕ ТЕРПИТ ДОГАДОК БЕЗ УЛИК</div></div>
    <div className="header-divider"/>
-   <button className={"case-picker "+(guideStep===0?"guide-spotlight":"")} onClick={()=>setAsideOpen(!asideOpen)} aria-label="Показать дела"><span className="case-number">ДЕЛО № 001</span><span className="case-name">Последняя дуэль Пушкина</span><ChevronDown size={15}/></button>
+   <button className="icon-btn panel-toggle desktop-sidebar-toggle" type="button" onClick={()=>setAsideOpen(v=>!v)}
+     aria-label={asideOpen?'Свернуть архив':'Развернуть архив'} aria-expanded={asideOpen} aria-controls="investigation-nav"
+     title={asideOpen?'Свернуть архив':'Развернуть архив'}>{asideOpen?<PanelLeftClose size={18}/>:<PanelLeftOpen size={18}/>}</button>
+   <button className={"case-picker "+(guideStep===0?"guide-spotlight":"")} onClick={()=>setAsideOpen(!asideOpen)} aria-label={asideOpen?"Скрыть архив дел":"Показать архив дел"} aria-expanded={asideOpen} aria-controls="investigation-nav"><span className="case-number">ДЕЛО № 001</span><span className="case-name">Последняя дуэль Пушкина</span><ChevronDown size={15}/></button>
    <div className="header-spacer"/>
    <div className="header-status"><span className="status-dot"/> ИССЛЕДОВАНИЕ ОТКРЫТО</div>
    <button className="icon-btn header-action" title="Переключить свет" onClick={()=>setLight(!light)}><LampDesk size={19}/></button>
-   <button className="icon-btn header-action" title="Показать карточку дела" onClick={()=>setDetailsOpen(!detailsOpen)}><Layers3 size={19}/></button>
+   <button className="icon-btn header-action" title={detailsOpen?"Свернуть досье":"Развернуть досье"} aria-label={detailsOpen?"Свернуть досье":"Развернуть досье"} aria-expanded={detailsOpen} aria-controls="investigation-inspector" onClick={()=>setDetailsOpen(v=>!v)}><Layers3 size={19}/></button>
   </header>
   <div className="app-shell">
-   <aside className={`left-pane ${asideOpen?'is-open':''}`}>
-    <div className="pane-top"><div className="micro">АРХИВ ИССЛЕДОВАНИЙ</div><button className="icon-btn compact only-mobile" onClick={()=>setAsideOpen(false)}><X size={16}/></button></div>
+   {(asideOpen||detailsOpen)&&<button className="drawer-backdrop" type="button" aria-label="Закрыть открытые панели" onClick={()=>{setAsideOpen(false);setDetailsOpen(false);}}/>}
+   <aside id="investigation-nav" aria-label="Архив и версии" className={`left-pane ${asideOpen?'is-open':''}`} inert={!asideOpen}>
+    <div className="pane-top"><div className="micro">АРХИВ ИССЛЕДОВАНИЙ</div><button className="icon-btn compact only-mobile" aria-label="Закрыть архив" onClick={()=>setAsideOpen(false)}><X size={16}/></button></div>
     <div className="case-list-item active"><div className="case-number-badge">01</div><div><b>Последняя дуэль</b><small>Пушкин · 1833–1837</small></div><ChevronRight size={16}/></div>
     <div className="other-case"><Archive size={16}/><span>Другие дела появятся здесь</span></div>
     <div className="pane-rule"/>
@@ -143,13 +168,31 @@ function App(){
       'Здесь выбирается исследование. Сейчас открыто дело Пушкина. Позже здесь появятся другие исторические расследования — со своей хронологией и источниками.',
       'Эти три версии описывают разные возможные причины событий. Нажатие открывает гипотезу на доске, но не делает её доказанной. Новые версии можно записать в конструкторе историй.',
       'Здесь видно, какие документы поддерживают версии, какие с ними лишь совместимы и где остаются пробелы. Скрытые или неоценённые свидетельства не равны опровержениям.',
-      'Нажми эту кнопку, затем выбери факты и версии. Следующий экран покажет нестыковки, а последний позволит читать подготовленную историю или запросить новую у DeepSeek.',
+      'Нажми эту кнопку, затем выбери факты и версии. Следующий экран покажет нестыковки, а последний позволит читать подготовленную историю без дополнительной генерации.',
       'Кинокамера плавно поднимается, перемещается и мягко приземляется около выбранной карточки. Можно выключить анимацию. Кнопка Safe рядом снижает нагрузку графики.'
       ][guideStep]}</p>
       <div className="guide-controls"><button onClick={()=>setGuideStep(-1)}>Закрыть</button><button disabled={guideStep===0} onClick={()=>setGuideStep(i=>Math.max(0,i-1))}>Назад</button><button onClick={()=>setGuideStep(i=>i>=4?-1:i+1)}>{guideStep===4?'Завершить':'Далее'} <ChevronRight size={15}/></button></div>
      </div></>}
     {storyOpen&&<StoryReader onClose={()=>setStoryOpen(false)} onFocus={focusNode} initialHyp={activeHyp}/>}
-    <div className="stage-heading"><div><div className="eyebrow"><span className="small-line"/> КАРТА РАССЛЕДОВАНИЯ / ЧАСТЬ I</div><h1>Тени на Чёрной речке</h1><p>Петербург, 1833–1837. Документы, люди, события и конкурирующие объяснения.</p></div><div className="stage-actions"><button className="utility tutorial-trigger" onClick={()=>{setGuideStep(0);setStoryOpen(false)}}><HelpCircle size={15}/> Обучение</button><button className={"utility story-open-button "+(guideStep===3?"guide-spotlight":"")} onClick={()=>{setStoryOpen(true);setHeatOpen(false)}}><BookOpen size={15}/> Читать историю</button><button className="utility" onClick={()=>setTheme(theme==='cork'?'chalk':'cork')}><span className="small-circle"/>{theme==='cork'?'Меловая доска':'Пробковая доска'}</button><button className={`utility ${guideStep===2?"guide-spotlight":""} ${heatOpen?'toggled':''}`} onClick={()=>setHeatOpen(!heatOpen)} aria-pressed={heatOpen}><ListFilter size={15}/> Матрица гипотез</button><button className={`utility ${guideStep===4?"guide-spotlight":""} ${cinematic?'toggled':''}`} onClick={()=>{setCinematic(!cinematic);cancelFlight()}} aria-pressed={cinematic} title="Плавный подъём камеры, пролёт и мягкое приземление (можно выключить)"><Focus size={15}/> Кинокамера {cinematic?'ON':'OFF'}</button><button className={`utility ${safeRender?'toggled':''}`} onClick={()=>setSafeRender(!safeRender)} aria-pressed={safeRender} title="Уменьшить GPU-эффекты, предотвращая чёрный экран"><ShieldCheck size={15}/> Safe</button><button className={`utility ${showLinks?'toggled':''}`} onClick={()=>setShowLinks(!showLinks)}><Network size={15}/> Связи</button></div></div>
+    <div className="stage-heading">
+      <div className="stage-title"><div className="eyebrow"><span className="small-line"/> КАРТА РАССЛЕДОВАНИЯ / ЧАСТЬ I</div><h1>Тени на Чёрной речке</h1><p>Петербург, 1833–1837. Документы, люди, события и конкурирующие объяснения.</p></div>
+      <div className="stage-actions">
+       <button className="utility tutorial-trigger" onClick={()=>{setGuideStep(0);setStoryOpen(false)}}><HelpCircle size={15}/> Обучение</button>
+       <button className={"utility story-open-button "+(guideStep===3?"guide-spotlight":"")} onClick={()=>{setStoryOpen(true);setHeatOpen(false);setToolsOpen(false)}}><BookOpen size={15}/> Читать историю</button>
+       <button className={`utility ${guideStep===2?'guide-spotlight':''} ${heatOpen?'toggled':''}`} onClick={()=>setHeatOpen(v=>!v)} aria-pressed={heatOpen}><ListFilter size={15}/> Матрица гипотез</button>
+       <div className="board-settings" ref={settingsRef}>
+        <button type="button" className={`utility settings-button ${toolsOpen?'toggled':''} ${guideStep===4?'guide-spotlight':''}`} onClick={()=>setToolsOpen(v=>!v)} aria-expanded={toolsOpen} aria-controls="board-settings-menu">
+          <Settings2 size={15}/> Настройки <ChevronDown size={13}/>
+        </button>
+        {toolsOpen&&<div className="board-settings-menu" id="board-settings-menu" role="group" aria-label="Параметры доски">
+         <button type="button" className="utility" onClick={()=>setTheme(theme==='cork'?'chalk':'cork')}><span className="small-circle"/>{theme==='cork'?'Меловая доска':'Пробковая доска'}</button>
+         <button type="button" className="utility" onClick={()=>{setCinematic(v=>!v);cancelFlight()}} aria-pressed={cinematic}><Focus size={15}/> Кинокамера {cinematic?'ON':'OFF'}</button>
+         <button type="button" className="utility" onClick={()=>setSafeRender(v=>!v)} aria-pressed={safeRender}><ShieldCheck size={15}/> Safe {safeRender?'ON':'OFF'}</button>
+         <button type="button" className="utility" onClick={()=>setShowLinks(v=>!v)} aria-pressed={showLinks}><Network size={15}/> Связи {showLinks?'ON':'OFF'}</button>
+        </div>}
+       </div>
+      </div>
+    </div>
     <div className="board-window" ref={viewport} onWheel={onWheel} onPointerDown={panStart} onPointerMove={panMove} onPointerUp={endDrag} onPointerCancel={endDrag}>
      <div className="lamp-pool"/>
      <div className={`board-world ${cameraActive?'camera-flight':''}`} style={{transform:`translate(${view.x}px, ${view.y}px) scale(${view.s})`}}>
@@ -177,7 +220,7 @@ function App(){
     <div className="timeline-strip"><div className="timeline-label"><Clock size={15}/><span>ЛЕНТА ВРЕМЕНИ</span></div><input aria-label="Показать события до выбранного момента" type="range" min="0" max={chronological.length} value={timeLimit} onChange={e=>setTimeLimit(Number(e.target.value))}/><div className="timeline-date">{timeLimit===chronological.length?'ВСЕ СОБЫТИЯ':timeLimit===0?'ДО НАЧАЛА ДЕЛА':chronological[timeLimit-1]?.time?.original||'БЕЗ ДАТЫ'}</div><button className="timeline-all" onClick={()=>setTimeLimit(chronological.length)}>Все</button></div>
     <div className="stage-footer"><span>{casebook.entities.length} ЛИЦ · {casebook.events.length} СОБЫТИЙ · {casebook.sources.length} ИСТОЧНИКА · {casebook.hypotheses.length} ГИПОТЕЗЫ</span><span>ОЦЕНКИ ПОКАЗЫВАЮТ КАЧЕСТВО СВИДЕТЕЛЬСТВ, НЕ ВЕРОЯТНОСТЬ ВИНЫ</span></div>
    </main>
-   <aside className={`inspector ${detailsOpen?'is-open':''}`}><div className="inspect-head"><div><span className="micro">КАРТОЧКА ДОСЬЕ</span><h2>{selectedNode?'Детали материала':'Выберите материал'}</h2></div><button className="icon-btn compact" onClick={()=>setDetailsOpen(false)}><X size={18}/></button></div>
+   <aside id="investigation-inspector" aria-label="Досье выбранного материала" className={`inspector ${detailsOpen?'is-open':''}`} inert={!detailsOpen}><div className="inspect-head"><div><span className="micro">КАРТОЧКА ДОСЬЕ</span><h2>{selectedNode?'Детали материала':'Выберите материал'}</h2></div><button className="icon-btn compact" aria-label="Закрыть досье" onClick={()=>setDetailsOpen(false)}><X size={18}/></button></div>
     {selectedNode?<div className="inspector-scroll"><div className="file-stamp"><span>DW / {selectedNode.id.toUpperCase()}</span><span className="file-type">{labels[selectedNode.type]}</span></div><h3>{selectedNode.title}</h3><div className="inspector-legend"><span className="status-ring"/> {selectedNode.type==='hypothesis'?'Не подтверждено':selectedNode.type==='person'?'Профиль участника':'Проверяется по источникам'}</div>
        {selectedEvent&&<div className="date-panel"><CalendarDays size={18}/><div><span>ДАТА СОБЫТИЯ</span><b>{selectedEvent.time?.original||'Не установлена'}</b><small>{selectedEvent.time?.earliest?`Нормализовано: ${prettyDate(selectedEvent.time.earliest)} по григорианскому календарю`:''}</small></div></div>}
        {selectedPerson&&<div className="side-profile"><span className="big-profile"><DossierPortrait name={selectedPerson.name}/></span><p>В материалах дела упоминается в {selectedClaims.length} утверждениях. Силуэт — условная иллюстрация, не архивное изображение. Связи не означают участия в преступлении.</p></div>}

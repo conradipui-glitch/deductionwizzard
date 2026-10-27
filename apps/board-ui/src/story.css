@@ -149,3 +149,28 @@
 .wizard-curated-card p{font-size:11px;line-height:1.55;color:#624d38;margin:6px 0 0}
 @media(max-width:1200px){.wizard-curated-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.wizard-curated-cards{grid-template-columns:1fr}.wizard-curated-card{min-height:0}.wizard-curated-card strong{font-size:19px}}
+
+
+/* v0.4.2: one scroll surface at a time in the reader.
+   Slides: only text scrolls. Full text: only the complete story scrolls. */
+.story-slides{overflow:hidden;min-height:0}
+.story-slides .story-one{height:100%;min-height:0;overflow:hidden}
+.story-slides .story-chapter{height:100%;min-height:0;grid-template-rows:minmax(0,1fr);overflow:hidden}
+.story-slides .story-illustration{min-height:0;overflow:hidden}
+.story-slides .story-copy{min-height:0;max-height:none;overflow-y:auto;overscroll-behavior:contain}
+.story-book{overflow-y:auto;min-height:0}
+.story-book .story-chapter{height:auto;min-height:430px}
+.story-book .story-copy{max-height:none;overflow:visible}
+@media(max-width:1100px){
+ .story-slides .story-chapter{grid-template-rows:minmax(138px,34%) minmax(0,1fr)}
+ .story-slides .story-illustration{min-height:0;height:auto}
+ .story-slides .story-art-svg{height:100%;max-height:none}
+ .story-slides .story-copy{min-height:0;max-height:none;overflow-y:auto}
+ .story-book .story-copy{overflow:visible}
+}
+@media(max-width:650px){
+ .story-bar{padding:8px 11px}
+ .story-brand{flex-basis:auto}
+ .story-readerbar{padding:9px}
+ .story-bottom{min-height:52px}
+}

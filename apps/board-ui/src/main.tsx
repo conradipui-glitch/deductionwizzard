@@ -4,6 +4,7 @@ import {BookOpen, GitBranch, LampDesk, ChevronDown, ArrowUpRight, Search, Filter
 import {casebook,boardNodes,boardEdges,chronological} from './data';
 import type {BoardNode,CaseClaim} from './types';
 import StoryReader,{DossierPortrait} from './StoryReader';
+import modelPreview from '../../../cases/pushkin/model_proposals.preview.json';
 import './style.css';
 
 type FilterName='all'|'person'|'event'|'source'|'hypothesis';
@@ -29,6 +30,7 @@ function App(){
  const [heatOpen,setHeatOpen]=useState(false);
  const [storyOpen,setStoryOpen]=useState(false);
  const [showAllClaims,setShowAllClaims]=useState(false);
+ const [showModelVotes,setShowModelVotes]=useState(false);
  const [safeRender,setSafeRender]=useState(true);
  const [cinematic,setCinematic]=useState(true);
  const [cameraActive,setCameraActive]=useState(false);
@@ -56,6 +58,7 @@ function App(){
  const matrixClaims=casebook.claims.filter(c=>showAllClaims||assessedIds.has(c.id));
  const heatAssessment=(hid:string,cid:string)=>casebook.assessments.find(a=>a.hypothesis_id===hid&&a.claim_id===cid);
  const heatLabels:Record<string,string>={supports:'Поддерживает',contradicts:'Противоречит',compatible:'Совместимо',unknown:'Не определяет'};
+ const proposedPairs=[...new Set(modelPreview.evaluations.map(a=>a.hypothesis_id+'|'+a.claim_id))];
  const heatCounts=(hid:string)=>casebook.assessments.filter(a=>a.hypothesis_id===hid).reduce((acc,a)=>({...acc,[a.stance]:(acc[a.stance]||0)+1}),{} as Record<string,number>);
  const inspectClaim=(claim:CaseClaim)=>{
    const event=casebook.events.find(e=>e.claim_ids.includes(claim.id));
@@ -125,7 +128,10 @@ function App(){
   <div className="heat-legend"><span><i className="heat-box supports"/>Поддерживает</span><span><i className="heat-box contradicts"/>Противоречит</span><span><i className="heat-box compatible"/>Совместимо</span><span><i className="heat-box unknown"/>Не определяет</span><span><i className="heat-box not-assessed"/>Не проверено</span></div>
   <div className="heat-scroll"><table className="heat-table"><thead><tr><th>Утверждение / источник</th>{casebook.hypotheses.map((h,i)=><th key={h.id}><button className={activeHyp===h.id?'heat-active':''} onClick={()=>setActiveHyp(h.id)}>ВЕРСИЯ {i+1}<small>{h.statement}</small></button></th>)}</tr></thead><tbody>{matrixClaims.map(c=><tr key={c.id}><td><button className="heat-claim" onClick={()=>inspectClaim(c)}>{c.text}<small>{c.evidence.map(e=>casebook.sources.find(s=>s.id===e.source_id)?.title).filter(Boolean).join(' · ')||'Источник не указан'}</small></button></td>{casebook.hypotheses.map(h=>{const a=heatAssessment(h.id,c.id);return <td key={h.id}><button title={a?.rationale||'Оценка ещё не проведена'} aria-label={`${h.statement}: ${a?heatLabels[a.stance]:'не проверено'}`} className={`heat-cell ${a?.stance||'not-assessed'}`} onClick={()=>{setActiveHyp(h.id);setSelected(h.id);setDetailsOpen(true);}}>{a?heatLabels[a.stance]:'—'}</button></td>})}</tr>)}</tbody></table></div>
   <div className="heat-bottom"><label><input type="checkbox" checked={showAllClaims} onChange={e=>setShowAllClaims(e.target.checked)}/> Показать также неоценённые утверждения ({casebook.claims.length})</label><div>Оценено: {casebook.assessments.length} связей · пустая ячейка означает отсутствие оценки · <b>нет автоматического победителя</b></div></div>
-  <div className="heat-summary">{casebook.hypotheses.map(h=>{const n=heatCounts(h.id);return <button key={h.id} className={activeHyp===h.id?'heat-summary-active':''} onClick={()=>setActiveHyp(h.id)}><b>{h.statement}</b><small>Поддержка: {n.supports||0} · Против: {n.contradicts||0} · Совместимо: {n.compatible||0} · Неясно: {n.unknown||0}</small></button>})}</div>
+  <div className="model-suggestion-row"><button onClick={()=>setShowModelVotes(!showModelVotes)} aria-expanded={showModelVotes}><Sparkles size={15}/> {showModelVotes?'Скрыть':'Показать'} 18 предложений Decisions-моделей (не проверены человеком)</button><a href={modelPreview.run_url} rel="noreferrer" target="_blank">Источник прогона <ExternalLink size={12}/></a></div>
+ {showModelVotes&&<div className="model-votes"><p><b>Экспериментальный слой.</b> Эти ответы получены по коротким описаниям документов и не изменяют доказательную матрицу или основной рассказ. Совпадение голосов моделей не равно независимым историческим свидетельствам.</p>
+ {proposedPairs.map(pair=>{const [hid,cid]=pair.split('|');const h=casebook.hypotheses.find(x=>x.id===hid),claim=casebook.claims.find(x=>x.id===cid);return <div key={pair} className="model-vote-item"><b>{h?.statement}</b><span>{claim?.text}</span><div>{modelPreview.evaluations.filter(a=>a.hypothesis_id===hid&&a.claim_id===cid).map(a=><span key={a.model} className={'model-vote '+a.suggested_label} title={a.model}>{a.model.split('/')[1].replace(':free','')}: {a.suggested_label==='compatible'?'Совместимо':'Недостаточно данных'}</span>)}</div></div>})}</div>}
+ <div className="heat-summary">{casebook.hypotheses.map(h=>{const n=heatCounts(h.id);return <button key={h.id} className={activeHyp===h.id?'heat-summary-active':''} onClick={()=>setActiveHyp(h.id)}><b>{h.statement}</b><small>Поддержка: {n.supports||0} · Против: {n.contradicts||0} · Совместимо: {n.compatible||0} · Неясно: {n.unknown||0}</small></button>})}</div>
  </section>}
  <div className="board-help"><Grip size={15}/> Тяните доску для перемещения · колесо — панорама · Ctrl+колесо — масштаб</div>
      <div className="zoom-controls"><button onClick={()=>zoom(view.s*1.14)} title="Приблизить"><Plus size={17}/></button><span>{Math.round(view.s*100)}%</span><button onClick={()=>zoom(view.s/1.14)} title="Отдалить"><Minus size={17}/></button><button onClick={reset} title="Сбросить расположение"><RotateCcw size={17}/></button></div>

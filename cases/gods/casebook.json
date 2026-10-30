@@ -1,0 +1,728 @@
+{
+  "schema_version": "1.0",
+  "case_id": "gods-002",
+  "title": "Дело № 2 — происхождение образов богов",
+  "scope": "Предварительный сравнительный корпус: ранний Яхве/Ашера, сакрализация царей и небесные мотивы. Наблюдение текста не равно истинности описанного события; древние посещения не подтверждены.",
+  "entities": [
+    {
+      "id": "yahweh",
+      "name": "Яхве",
+      "kind": "deity"
+    },
+    {
+      "id": "asherah",
+      "name": "Ашера",
+      "kind": "deity"
+    },
+    {
+      "id": "el",
+      "name": "Эл",
+      "kind": "deity"
+    },
+    {
+      "id": "baal",
+      "name": "Баал",
+      "kind": "deity"
+    },
+    {
+      "id": "shasu",
+      "name": "Шасу",
+      "kind": "group"
+    },
+    {
+      "id": "mesha",
+      "name": "Меша",
+      "kind": "person"
+    },
+    {
+      "id": "israel",
+      "name": "Израиль",
+      "kind": "culture"
+    },
+    {
+      "id": "naram-sin",
+      "name": "Нарам-Син",
+      "kind": "person"
+    },
+    {
+      "id": "akkad",
+      "name": "Аккад",
+      "kind": "culture"
+    },
+    {
+      "id": "ramayana",
+      "name": "Рамаяна",
+      "kind": "text"
+    },
+    {
+      "id": "pushpaka",
+      "name": "Пушпака",
+      "kind": "other"
+    },
+    {
+      "id": "etana",
+      "name": "Этана",
+      "kind": "other"
+    },
+    {
+      "id": "zhou",
+      "name": "Чжоу",
+      "kind": "group"
+    },
+    {
+      "id": "tian",
+      "name": "Небо (Тянь)",
+      "kind": "concept"
+    },
+    {
+      "id": "deuteronomy",
+      "name": "Второзаконие 32:8",
+      "kind": "text"
+    },
+    {
+      "id": "divine-council",
+      "name": "Небесное собрание",
+      "kind": "concept"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-shasu",
+      "title": "Yhwꜣ of Shasu-Land (Daniel Fleming, Yahweh before Israel)",
+      "type": "secondary",
+      "locator": "https://www.cambridge.org/core/books/abs/yahweh-before-israel/yhw-of-shasuland/119116DC7806AE299828B5D58EA06539",
+      "created": {
+        "year": 2020
+      },
+      "derived_from": [],
+      "note": "Yhw in Egyptian Shasu lists; identity with later Yahweh disputed"
+    },
+    {
+      "id": "src-mesha",
+      "title": "Stèle de Mesha, Louvre AO 5066",
+      "type": "primary",
+      "locator": "https://collections.louvre.fr/en/ark:/53355/cl010120339",
+      "created": null,
+      "derived_from": [],
+      "note": "Original 9th-century BCE stele, catalogued by the Louvre; consult scholarly transliteration for YHWH"
+    },
+    {
+      "id": "src-mesha-interpret",
+      "title": "Mesha Stele, University of Michigan academic image database",
+      "type": "secondary",
+      "locator": "https://image-database.nes.lsa.umich.edu/items/show/88",
+      "created": null,
+      "derived_from": [],
+      "note": "Secondary identification of divine name on Mesha stele; not another original witness"
+    },
+    {
+      "id": "src-ajrud",
+      "title": "Religion at Kuntillet ʿAjrud (Religions 10(3), 211)",
+      "type": "secondary",
+      "locator": "https://www.mdpi.com/2077-1444/10/3/211",
+      "created": {
+        "year": 2019
+      },
+      "derived_from": [],
+      "note": "Discussion of Yahweh/Asherah inscriptions, including Khirbet el-Qom; interpretations disputed"
+    },
+    {
+      "id": "src-deut",
+      "title": "Deuteronomy 32:8, Biblical Archaeology Society",
+      "type": "secondary",
+      "locator": "https://library.biblicalarchaeology.org/sidebar/deuteronomy-328/",
+      "created": null,
+      "derived_from": [],
+      "note": "4QDeutj sons of God vs Masoretic sons of Israel; theological motives are interpretations"
+    },
+    {
+      "id": "src-naram",
+      "title": "Stèle de Naram-Sin, Louvre SB 4",
+      "type": "primary",
+      "locator": "https://collections.louvre.fr/en/ark:/53355/cl010123450",
+      "created": null,
+      "derived_from": [],
+      "note": "Original royal monument with horned headdress, catalogued by Louvre"
+    },
+    {
+      "id": "src-ramayana",
+      "title": "Valmiki Ramayanam, Sundara Kanda 5.8 (IIT Kanpur)",
+      "type": "primary",
+      "locator": "https://www.valmiki.iitk.ac.in/sloka?field_kanda_tid=5&field_sarga_value=8&language=ro",
+      "created": null,
+      "derived_from": [],
+      "note": "Digital edition of epic, not surviving physical aircraft; manuscript/redaction date not established here"
+    },
+    {
+      "id": "src-etana",
+      "title": "Cuneiform tablet telling the legend of Etana, British Museum",
+      "type": "primary",
+      "locator": "https://artsandculture.google.com/asset/cuneiform-tablet-telling-the-legend-of-etana/_AHNiDPw27GsVw?hl=en",
+      "created": null,
+      "derived_from": [],
+      "note": "Ancient tablet represented via modern digital catalogue; tablet date needs further audit"
+    },
+    {
+      "id": "src-zhou",
+      "title": "Mandate of Heaven, Berkeley ORIAS",
+      "type": "secondary",
+      "locator": "https://orias.berkeley.edu/mandate-heaven",
+      "created": null,
+      "derived_from": [],
+      "note": "Educational account of Zhou kingship ideology; not literal deification of every ruler"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c-shasu",
+      "text": "Египетские перечни групп шасу содержат обозначение Yhw, но тождество с позднейшим Яхве не установлено.",
+      "kind": "attribution",
+      "status": "attested",
+      "about": [
+        "shasu",
+        "yahweh"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-shasu",
+          "stance": "supports",
+          "locator": "Исходный памятник/пассаж согласно библиографической записи; точный номер строки требует сверки",
+          "note": "Подтверждает факт текста, записи или изображения, но не буквальную истинность всех интерпретаций"
+        }
+      ]
+    },
+    {
+      "id": "c-mesha",
+      "text": "Моавитская стела Меши упоминает имя YHWH в связи с Израилем; происхождение культа из этого не следует.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "mesha",
+        "yahweh",
+        "israel"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-mesha",
+          "stance": "supports",
+          "locator": "Исходный памятник/пассаж согласно библиографической записи; точный номер строки требует сверки",
+          "note": "Подтверждает факт текста, записи или изображения, но не буквальную истинность всех интерпретаций"
+        },
+        {
+          "source_id": "src-mesha-interpret",
+          "stance": "supports",
+          "locator": "Исходный памятник/пассаж согласно библиографической записи; точный номер строки требует сверки",
+          "note": "Подтверждает факт текста, записи или изображения, но не буквальную истинность всех интерпретаций"
+        }
+      ]
+    },
+    {
+      "id": "c-ajrud",
+      "text": "Надписи Кунтиллет-Аджруда упоминают Яхве Самарии/Фемана и «его ашеру»; значение «ашеры» спорно.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "yahweh",
+        "asherah"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-ajrud",
+          "stance": "supports",
+          "locator": "Исходный памятник/пассаж согласно библиографической записи; точный номер строки требует сверки",
+          "note": "Подтверждает факт текста, записи или изображения, но не буквальную истинность всех интерпретаций"
+        }
+      ]
+    },
+    {
+      "id": "c-qom",
+      "text": "В Хирбет-эль-Коме зафиксировано похожее сочетание Яхве и ашеры; его толкование неоднозначно.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "yahweh",
+        "asherah"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-ajrud",
+          "stance": "supports",
+          "locator": "Исходный памятник/пассаж согласно библиографической записи; точный номер строки требует сверки",
+          "note": "Подтверждает факт текста, записи или изображения, но не буквальную истинность всех интерпретаций"
+        }
+      ]
+    },
+    {
+      "id": "c-deut",
+      "text": "В текстовой традиции Второзакония 32:8 есть вариант «сыны Божьи», а в масоретской — «сыны Израиля».",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "deuteronomy",
+        "divine-council"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-deut",
+          "stance": "supports",
+          "locator": "Исходный памятник/пассаж согласно библиографической записи; точный номер строки требует сверки",
+          "note": "Подтверждает факт текста, записи или изображения, но не буквальную истинность всех интерпретаций"
+        }
+      ]
+    },
+    {
+      "id": "c-naram",
+      "text": "На стеле Нарам-Сина царь изображён с рогатой тиарой, связанной с божественной иконографией.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "naram-sin",
+        "akkad"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-naram",
+          "stance": "supports",
+          "locator": "Исходный памятник/пассаж согласно библиографической записи; точный номер строки требует сверки",
+          "note": "Подтверждает факт текста, записи или изображения, но не буквальную истинность всех интерпретаций"
+        }
+      ]
+    },
+    {
+      "id": "c-pushpaka",
+      "text": "В «Рамаяне» присутствует литературное описание летающего дворца/колесницы Пушпака.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "ramayana",
+        "pushpaka"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-ramayana",
+          "stance": "supports",
+          "locator": "Исходный памятник/пассаж согласно библиографической записи; точный номер строки требует сверки",
+          "note": "Подтверждает факт текста, записи или изображения, но не буквальную истинность всех интерпретаций"
+        }
+      ]
+    },
+    {
+      "id": "c-etana",
+      "text": "В легенде об Этане герой поднимается к небу на орле; это литературный сюжет, не технический чертёж.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "etana"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-etana",
+          "stance": "supports",
+          "locator": "Исходный памятник/пассаж согласно библиографической записи; точный номер строки требует сверки",
+          "note": "Подтверждает факт текста, записи или изображения, но не буквальную истинность всех интерпретаций"
+        }
+      ]
+    },
+    {
+      "id": "c-mandate",
+      "text": "Мандат Неба в традиции Чжоу связывает законность власти с Небом, не объявляя всякого правителя богом.",
+      "kind": "event_report",
+      "status": "attested",
+      "about": [
+        "zhou",
+        "tian"
+      ],
+      "evidence": [
+        {
+          "source_id": "src-zhou",
+          "stance": "supports",
+          "locator": "Исходный памятник/пассаж согласно библиографической записи; точный номер строки требует сверки",
+          "note": "Подтверждает факт текста, записи или изображения, но не буквальную истинность всех интерпретаций"
+        }
+      ]
+    },
+    {
+      "id": "c-yahweh-ruler",
+      "text": "Предположение: Яхве когда-то был конкретным человеком-правителем, которого обожествили.",
+      "kind": "identity_proposal",
+      "status": "unverified",
+      "about": [
+        "yahweh"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "c-ancient-tech",
+      "text": "Предположение: некоторые мифы о небесных путешествиях отражают реальные технологические визиты.",
+      "kind": "interpretation",
+      "status": "unverified",
+      "about": [
+        "ramayana",
+        "etana"
+      ],
+      "evidence": []
+    }
+  ],
+  "events": [
+    {
+      "id": "ev-shasu",
+      "title": "Египетские перечни шасу",
+      "time": {
+        "earliest": {
+          "year": -1390
+        },
+        "latest": {
+          "year": -1213
+        },
+        "precision": "range",
+        "original": "Два контекста древнеегипетских списков (не одно событие)",
+        "normalization": "Approximate BCE estimate; object's date/period only, not implied event date. Negative years = BCE, no year zero."
+      },
+      "actors": [
+        "shasu"
+      ],
+      "claim_ids": [
+        "c-shasu"
+      ]
+    },
+    {
+      "id": "ev-mesha",
+      "title": "Стела Меши",
+      "time": {
+        "earliest": {
+          "year": -830
+        },
+        "latest": {
+          "year": -805
+        },
+        "precision": "range",
+        "original": "Датировка стелы Меши по каталогу Лувра",
+        "normalization": "Approximate BCE estimate; object's date/period only, not implied event date. Negative years = BCE, no year zero."
+      },
+      "actors": [
+        "mesha",
+        "israel"
+      ],
+      "claim_ids": [
+        "c-mesha"
+      ]
+    },
+    {
+      "id": "ev-ajrud",
+      "title": "Надписи Кунтиллет-Аджруда",
+      "time": {
+        "earliest": {
+          "year": -900
+        },
+        "latest": {
+          "year": -750
+        },
+        "precision": "range",
+        "original": "Поздний IX — VIII века до н. э., предварительный диапазон",
+        "normalization": "Approximate BCE estimate; object's date/period only, not implied event date. Negative years = BCE, no year zero."
+      },
+      "actors": [
+        "yahweh",
+        "asherah"
+      ],
+      "claim_ids": [
+        "c-ajrud"
+      ]
+    },
+    {
+      "id": "ev-qom",
+      "title": "Надпись Хирбет-эль-Кома",
+      "time": {
+        "earliest": {
+          "year": -800
+        },
+        "latest": {
+          "year": -700
+        },
+        "precision": "range",
+        "original": "Примерно VIII век до н. э.",
+        "normalization": "Approximate BCE estimate; object's date/period only, not implied event date. Negative years = BCE, no year zero."
+      },
+      "actors": [
+        "yahweh",
+        "asherah"
+      ],
+      "claim_ids": [
+        "c-qom"
+      ]
+    },
+    {
+      "id": "ev-deut",
+      "title": "Свидетельства разночтений Второзакония",
+      "time": null,
+      "actors": [
+        "deuteronomy"
+      ],
+      "claim_ids": [
+        "c-deut"
+      ]
+    },
+    {
+      "id": "ev-naram",
+      "title": "Стела Нарам-Сина",
+      "time": {
+        "earliest": {
+          "year": -2254
+        },
+        "latest": {
+          "year": -2218
+        },
+        "precision": "range",
+        "original": "Правление Нарам-Сина согласно каталогу Лувра",
+        "normalization": "Approximate BCE estimate; object's date/period only, not implied event date. Negative years = BCE, no year zero."
+      },
+      "actors": [
+        "naram-sin"
+      ],
+      "claim_ids": [
+        "c-naram"
+      ]
+    },
+    {
+      "id": "ev-pushpaka",
+      "title": "Описание Пушпаки в эпосе",
+      "time": null,
+      "actors": [
+        "ramayana",
+        "pushpaka"
+      ],
+      "claim_ids": [
+        "c-pushpaka"
+      ]
+    },
+    {
+      "id": "ev-etana",
+      "title": "Описание подъёма Этаны в эпосе",
+      "time": null,
+      "actors": [
+        "etana"
+      ],
+      "claim_ids": [
+        "c-etana"
+      ]
+    },
+    {
+      "id": "ev-mandate",
+      "title": "Идеология Мандата Неба",
+      "time": {
+        "earliest": {
+          "year": -1100
+        },
+        "latest": {
+          "year": -700
+        },
+        "precision": "range",
+        "original": "Общий ориентир ранней традиции Чжоу, не отдельное событие",
+        "normalization": "Approximate BCE estimate; object's date/period only, not implied event date. Negative years = BCE, no year zero."
+      },
+      "actors": [
+        "zhou",
+        "tian"
+      ],
+      "claim_ids": [
+        "c-mandate"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-yahweh-asherah",
+      "from_id": "yahweh",
+      "to_id": "asherah",
+      "type": "co_mentioned_in_inscription_not_proven_spouses",
+      "claim_ids": [
+        "c-ajrud",
+        "c-qom"
+      ]
+    },
+    {
+      "id": "rel-yahweh-israel",
+      "from_id": "yahweh",
+      "to_id": "israel",
+      "type": "associated_by_mesha_stele",
+      "claim_ids": [
+        "c-mesha"
+      ]
+    },
+    {
+      "id": "rel-naram-akkad",
+      "from_id": "naram-sin",
+      "to_id": "akkad",
+      "type": "royal_sacral_iconography",
+      "claim_ids": [
+        "c-naram"
+      ]
+    },
+    {
+      "id": "rel-pushpaka-ramayana",
+      "from_id": "pushpaka",
+      "to_id": "ramayana",
+      "type": "described_in_epic",
+      "claim_ids": [
+        "c-pushpaka"
+      ]
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "h-syncretism",
+      "statement": "Религиозный образ Яхве формировался посредством культурных контактов, интеграции титулов и изменений текстов.",
+      "assumptions": [
+        "Нужно установить ранние формы культа, литературные стадии и независимые источники."
+      ],
+      "discriminating_test": "Сопоставить исходные надписи и рукописные варианты, не подменяя перевод оригиналом."
+    },
+    {
+      "id": "h-euhemerism",
+      "statement": "Часть образов богов могла происходить от исторически обожествлённых людей или правителей.",
+      "assumptions": [
+        "Нужен документированный прототип с последующим культом."
+      ],
+      "discriminating_test": "Найти независимую биографию человека до культовых надписей и датировать переход."
+    },
+    {
+      "id": "h-diffusion",
+      "statement": "Похожие мифологические мотивы передавались через контакты культур.",
+      "assumptions": [
+        "Нужны датируемый контакт и специфические совпадения."
+      ],
+      "discriminating_test": "Проверить торговые и языковые связи, последовательность версий и редкие общие детали."
+    },
+    {
+      "id": "h-convergence",
+      "statement": "Похожие мотивы возникали независимо в разных культурах.",
+      "assumptions": [
+        "Общие условия могли вести к похожей символике."
+      ],
+      "discriminating_test": "Сравнить контрольные мотивы в культурах без предполагаемых контактов."
+    },
+    {
+      "id": "h-ancient-tech",
+      "statement": "Некоторые древние сюжеты могли отражать посещение Земли развитой технологической цивилизацией.",
+      "assumptions": [
+        "Должны существовать особые физические следы или специфические проверяемые технические сведения."
+      ],
+      "discriminating_test": "Искать датируемые искусственные материалы/устройства с исключением известных древних технологий."
+    },
+    {
+      "id": "h-yahweh-human-ruler",
+      "statement": "Яхве мог первоначально быть конкретным историческим правителем, впоследствии обожествлённым.",
+      "assumptions": [
+        "Нужна индивидуальная биография и установленная цепь передачи имени."
+      ],
+      "discriminating_test": "Искать независимые исторические тексты о человеке с этой идентичностью, не смешивая имя, топоним и божественный титул."
+    }
+  ],
+  "assessments": [
+    {
+      "id": "a-01",
+      "hypothesis_id": "h-syncretism",
+      "claim_id": "c-ajrud",
+      "stance": "compatible",
+      "rationale": "Формула соответствует разнообразию почитания, но не подтверждает причину его возникновения."
+    },
+    {
+      "id": "a-02",
+      "hypothesis_id": "h-syncretism",
+      "claim_id": "c-qom",
+      "stance": "compatible",
+      "rationale": "Второй памятник показывает распространение формулы, не происхождение всего культа."
+    },
+    {
+      "id": "a-03",
+      "hypothesis_id": "h-syncretism",
+      "claim_id": "c-deut",
+      "stance": "supports",
+      "rationale": "Подтверждает различие текстовых традиций, не доказывая мотив редактора."
+    },
+    {
+      "id": "a-04",
+      "hypothesis_id": "h-syncretism",
+      "claim_id": "c-shasu",
+      "stance": "unknown",
+      "rationale": "Сходство имени не устанавливает преемственность."
+    },
+    {
+      "id": "a-05",
+      "hypothesis_id": "h-euhemerism",
+      "claim_id": "c-naram",
+      "stance": "supports",
+      "rationale": "Показывает сакральную царскую иконографию в одном случае, но не объясняет Яхве."
+    },
+    {
+      "id": "a-06",
+      "hypothesis_id": "h-euhemerism",
+      "claim_id": "c-mesha",
+      "stance": "unknown",
+      "rationale": "Имя божества без биографии человеческого прототипа."
+    },
+    {
+      "id": "a-07",
+      "hypothesis_id": "h-diffusion",
+      "claim_id": "c-pushpaka",
+      "stance": "compatible",
+      "rationale": "Мотив путешествия по небу совместим с диффузией, но нет доказанного пути передачи."
+    },
+    {
+      "id": "a-08",
+      "hypothesis_id": "h-diffusion",
+      "claim_id": "c-etana",
+      "stance": "compatible",
+      "rationale": "Разный механизм путешествия и пока нет установленного заимствования."
+    },
+    {
+      "id": "a-09",
+      "hypothesis_id": "h-convergence",
+      "claim_id": "c-pushpaka",
+      "stance": "compatible",
+      "rationale": "Универсальная небесная символика допускает независимое возникновение."
+    },
+    {
+      "id": "a-10",
+      "hypothesis_id": "h-convergence",
+      "claim_id": "c-etana",
+      "stance": "compatible",
+      "rationale": "Возможна независимая разработка мотива подъёма."
+    },
+    {
+      "id": "a-11",
+      "hypothesis_id": "h-ancient-tech",
+      "claim_id": "c-pushpaka",
+      "stance": "compatible",
+      "rationale": "Древний текст о полёте не является физическим свидетельством аппарата."
+    },
+    {
+      "id": "a-12",
+      "hypothesis_id": "h-ancient-tech",
+      "claim_id": "c-etana",
+      "stance": "compatible",
+      "rationale": "Литературный орёл не подтверждает технологический визит."
+    },
+    {
+      "id": "a-13",
+      "hypothesis_id": "h-yahweh-human-ruler",
+      "claim_id": "c-shasu",
+      "stance": "unknown",
+      "rationale": "Запись Yhw может быть местом или этнонимом; человеческий прототип неизвестен."
+    },
+    {
+      "id": "a-14",
+      "hypothesis_id": "h-yahweh-human-ruler",
+      "claim_id": "c-mesha",
+      "stance": "unknown",
+      "rationale": "Стела фиксирует божественное имя, не биографию человека."
+    },
+    {
+      "id": "a-15",
+      "hypothesis_id": "h-yahweh-human-ruler",
+      "claim_id": "c-naram",
+      "stance": "compatible",
+      "rationale": "Иной обожествлённый правитель показывает возможность механизма, не его применение к Яхве."
+    }
+  ]
+}

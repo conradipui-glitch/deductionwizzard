@@ -1,0 +1,47 @@
+{
+  "schema_version": "pilot-0.1",
+  "case_id": "gods-002",
+  "comparisons": [
+    {
+      "id": "cmp-asherah",
+      "claim_ids": [
+        "c-ajrud",
+        "c-qom"
+      ],
+      "question": "Совпадает ли формула Яхве—ашера в двух независимых местах?",
+      "independence_and_limitations": "Разные археологические памятники, но одна вторичная публикация; проверить транскрипции отдельно.",
+      "status": "candidate_not_proven"
+    },
+    {
+      "id": "cmp-flight",
+      "claim_ids": [
+        "c-pushpaka",
+        "c-etana"
+      ],
+      "question": "Сходство небесного путешествия — заимствование, конвергенция или наблюдение?",
+      "independence_and_limitations": "Различия в деталях и неустановленная хронология не допускают вывода о технологии.",
+      "status": "candidate_not_proven"
+    },
+    {
+      "id": "cmp-kingdom",
+      "claim_ids": [
+        "c-naram",
+        "c-mandate"
+      ],
+      "question": "Совпадают ли политические функции сакрализации царя и Мандата Неба?",
+      "independence_and_limitations": "Непохожая онтология власти; сходная функция не равна одному событию.",
+      "status": "candidate_not_proven"
+    },
+    {
+      "id": "cmp-yhw",
+      "claim_ids": [
+        "c-shasu",
+        "c-mesha",
+        "c-ajrud"
+      ],
+      "question": "Есть ли доказанная историческая преемственность имени Yhw и YHWH?",
+      "independence_and_limitations": "Ранний Yhw не доказан как божество; нужны топонимика, фонетика, датировки.",
+      "status": "candidate_not_proven"
+    }
+  ]
+}
